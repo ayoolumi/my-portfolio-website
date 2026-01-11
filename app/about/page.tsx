@@ -45,10 +45,10 @@ export default function About() {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              {['About', 'Portfolio', 'Ventures', 'Services', 'Experience'].map((item) => (
+              {['About', 'Portfolio', 'Experience & Skills'].map((item) => (
                 <Link 
                   key={item}
-                  href={`/${item.toLowerCase()}`} 
+                  href={item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
                   className={`relative ${item === 'About' ? 'text-teal-600 font-semibold' : 'text-gray-600 hover:text-teal-600'} transition-colors font-medium text-sm group py-2`}
                 >
                   {item}
@@ -87,10 +87,10 @@ export default function About() {
               className="md:hidden pb-4 border-t border-gray-200 bg-white"
             >
               <div className="flex flex-col space-y-3 pt-4">
-                {['Home', 'About', 'Portfolio', 'Ventures', 'Services', 'Experience'].map((item) => (
+                {['Home', 'About', 'Portfolio', 'Experience & Skills'].map((item) => (
                   <Link 
                     key={item}
-                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
+                    href={item === 'Home' ? '/' : item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
                     className={`${item === 'About' ? 'text-teal-600 bg-teal-50 font-semibold' : 'text-gray-600 hover:text-teal-600 hover:bg-teal-50'} py-3 px-4 rounded-lg font-medium transition-all`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -117,7 +117,7 @@ export default function About() {
                 Care Tech Advocate • Data Analyst & AI Developer • Tech Entrepreneur
               </p>
               <p className="text-lg text-gray-600 mb-4">
-                Founder of <span className="font-semibold text-teal-600">The AANDA Group</span>
+                Founder of <span className="font-semibold text-teal-600">The AandA Group</span>
               </p>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 Building intelligent solutions for healthcare, social care, and business—combining frontline care experience with technical expertise and entrepreneurial vision to transform how technology serves people.
@@ -144,10 +144,10 @@ export default function About() {
                   View Projects
                 </Link>
                 <Link 
-                  href="/ventures"
+                  href="/experience"
                   className="px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-lg font-semibold hover:bg-teal-50 transition"
                 >
-                  Explore Ventures
+                  My Experience & Skills
                 </Link>
               </div>
             </motion.div>
@@ -198,10 +198,10 @@ export default function About() {
                 My story doesn&apos;t begin with code or care—it begins with learning how to show up professionally, ethically, and with integrity. At <span className="font-semibold text-teal-600">FCMB Bank in Nigeria</span>, I learned the foundations that would shape everything I&apos;ve built since. Working in one of Nigeria&apos;s leading financial institutions taught me corporate discipline, regulatory compliance, and the weight of handling sensitive information with absolute confidentiality. I learned to communicate with precision—whether explaining complex financial products to customers or coordinating with colleagues under pressure. I discovered the importance of process improvement, attention to detail, and the quiet professionalism that builds trust. Those early mornings, the pressure of targets, the satisfaction of serving customers well—banking taught me that excellence is a habit, not an event.
               </p>
               <p>
-                But I always knew I wanted to build, not just serve. So in 2017, I took everything I&apos;d learned about business operations, customer service, and professional conduct and founded <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">A AND A COMPUTERS AND TECHNOLOGIES</a> in Bauchi, Nigeria. What started as a vision became a thriving technology services business with 20+ employees, and a custom-built business management platform that I developed myself—complete with real-time dashboards, staff performance tracking, store management, inventory usage monitoring, sales analytics, and payment integration. I wasn&apos;t just the owner; I was the architect of every system, the problem-solver for every challenge, and the leader who had to make payroll every month.
+                But I always knew I wanted to build, not just serve. So in 2017, I took everything I&apos;d learned about business operations, customer service, and professional conduct and founded <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Computers and Technologies</a> in Bauchi, Nigeria. What started as a vision became a thriving technology services business with 20+ employees, and a custom-built business management platform that I developed myself—complete with real-time dashboards, staff performance tracking, store management, inventory usage monitoring, sales analytics, and payment integration. I wasn&apos;t just the owner; I was the architect of every system, the problem-solver for every challenge, and the leader who had to make payroll every month.
               </p>
               <p>
-                Building on this success, I expanded into import/export with <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AANDA SUPPLIES AND IMPORTS LTD</a> in 2019, learning the complexities of supply chain management, vendor negotiations, and cross-border logistics. More recently, I ventured into agriculture with <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">A AND A FARMS AND FOODS LIMITED</a>. In December 2025, I brought my entrepreneurial vision to the UK, establishing <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AANDA LABS LIMITED</a> for software development and IT consultancy, and <span className="font-semibold text-teal-600">AANDA SUPPLIES AND IMPORTS LIMITED</span> for food imports—now registered with Falkirk Council as a food business. Together, these five companies form <span className="font-semibold text-teal-600">The AANDA Group</span>.
+                Building on this success, I expanded into import/export with <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Supplies and Imports Limited</a> in 2019, learning the complexities of supply chain management, vendor negotiations, and cross-border logistics. More recently, I ventured into agriculture with <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Farms and Foods Limited</a>. In December 2025, I brought my entrepreneurial vision to the UK, establishing <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Labs Limited</a> for software development and IT consultancy, and <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Supplies and Imports Limited</a> for food imports—now registered with Falkirk Council as a food business. Together, these five companies form <span className="font-semibold text-teal-600">The AandA Group</span>.
               </p>
               <p>
                 But here&apos;s where my journey took a turn that surprised even me. In <span className="font-semibold">February 2023</span>, I made a deliberate decision to enter Scotland&apos;s health and social care sector. This wasn&apos;t a step backward or a career change—it was a strategic move. I knew that to truly build technology that transforms care, I couldn&apos;t just study it from textbooks or analyze datasets from a distance. I needed to <em>feel</em> it. I needed to understand the frustrations of care workers, the fears of families, the dignity of those receiving care, and the systemic failures that no amount of clever coding could fix without deep human understanding.
@@ -245,10 +245,7 @@ export default function About() {
             <p className="text-xl text-gray-600 mb-10 text-center">Four perspectives that set my work apart</p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <motion.div 
-                whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200"
-              >
+              <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200">
                 <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
                   <span className="text-3xl">🏦</span>
                 </div>
@@ -262,10 +259,7 @@ export default function About() {
                 </ul>
               </motion.div>
 
-              <motion.div 
-                whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-6 border-2 border-teal-200"
-              >
+              <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-6 border-2 border-teal-200">
                 <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
                   <span className="text-3xl">💙</span>
                 </div>
@@ -279,10 +273,7 @@ export default function About() {
                 </ul>
               </motion.div>
 
-              <motion.div 
-                whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border-2 border-blue-200"
-              >
+              <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border-2 border-blue-200">
                 <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
                   <span className="text-3xl">📊</span>
                 </div>
@@ -296,10 +287,7 @@ export default function About() {
                 </ul>
               </motion.div>
 
-              <motion.div 
-                whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200"
-              >
+              <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200">
                 <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
                   <span className="text-3xl">🚀</span>
                 </div>
@@ -307,7 +295,7 @@ export default function About() {
                 <p className="text-gray-600 text-sm mb-3">I don&apos;t just build prototypes—I build production systems for real businesses with real stakes.</p>
                 <ul className="space-y-1 text-gray-700 text-xs">
                   <li>✓ 5 companies founded</li>
-                  <li>✓ 8+ staff managed remotely</li>
+                  <li>✓ 20+ staff managed remotely</li>
                   <li>✓ Production systems in daily use</li>
                   <li>✓ Cross-border operations</li>
                 </ul>
@@ -320,86 +308,31 @@ export default function About() {
       {/* Healthcare Experience & Impact */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Healthcare Experience & Impact</h2>
-            
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl p-8 border-2 border-teal-200 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="text-3xl mr-3">🏥</span>
-                  Frontline Care Experience
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-3xl mr-3">🏥</span>Frontline Care Experience</h3>
                 <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2 font-bold">✓</span>
-                    <span>2+ years in Scottish health and social care (since Feb 2023)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2 font-bold">✓</span>
-                    <span>Camphill Blair Drummond (March 2025 - Present)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2 font-bold">✓</span>
-                    <span>First Class Care Services (previous role)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2 font-bold">✓</span>
-                    <span>Avenue Care Services (previous role)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2 font-bold">✓</span>
-                    <span>Supporting people with learning disabilities</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2 font-bold">✓</span>
-                    <span>Adult social care, community & domiciliary care</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2 font-bold">✓</span>
-                    <span>Care coordination, documentation, compliance</span>
-                  </li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>2+ years in Scottish health and social care (since Feb 2023)</span></li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Camphill Blair Drummond (March 2025 - Present)</span></li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>First Class Care Services (previous role)</span></li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Avenue Care Services (previous role)</span></li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Supporting people with learning disabilities</span></li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Adult social care, community & domiciliary care</span></li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Care coordination, documentation, compliance</span></li>
                 </ul>
               </div>
-
               <div className="bg-white rounded-2xl p-8 border-2 border-purple-200 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="text-3xl mr-3">📊</span>
-                  Data Science Projects
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-3xl mr-3">📊</span>Data Science Projects</h3>
                 <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 font-bold">✓</span>
-                    <span>9 healthcare analytics and AI projects completed</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 font-bold">✓</span>
-                    <span>NHS A&E wait time prediction (85.67% accuracy)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 font-bold">✓</span>
-                    <span>COVID-19 impact analysis across 14 Scottish health boards</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 font-bold">✓</span>
-                    <span>Mental health demand forecasting</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 font-bold">✓</span>
-                    <span>Medical AI (pneumonia detection, fall risk assessment)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 font-bold">✓</span>
-                    <span>Social isolation detection for elderly care</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2 font-bold">✓</span>
-                    <span>620K+ healthcare records processed with GDPR compliance</span>
-                  </li>
+                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>9+ healthcare analytics and AI projects completed</span></li>
+                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>NHS A&E wait time prediction (85.67% accuracy)</span></li>
+                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>COVID-19 impact analysis across 14 Scottish health boards</span></li>
+                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>Mental health demand forecasting</span></li>
+                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>Medical AI (pneumonia detection, fall risk assessment)</span></li>
+                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>Social isolation detection for elderly care</span></li>
+                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>620K+ healthcare records processed with GDPR compliance</span></li>
                 </ul>
               </div>
             </div>
@@ -407,123 +340,73 @@ export default function About() {
         </div>
       </section>
 
-      {/* The AANDA Group */}
+      {/* The AandA Group */}
       <section className="py-12 px-4 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold mb-4 text-center">The AANDA Group</h2>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+            <h2 className="text-4xl font-bold mb-4 text-center">The AandA Group</h2>
             <p className="text-xl text-gray-300 mb-10 text-center">A diversified business conglomerate I founded and lead across Nigeria and the UK</p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <motion.a
-                href="https://aandacomputers.theaandagroup.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer"
-              >
+              <motion.a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
                 <div className="flex justify-between items-start mb-3">
                   <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
                   <span className="text-xs text-gray-400">Est. 2017</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">A AND A COMPUTERS</h3>
+                <h3 className="text-lg font-bold text-white mb-1">AandA Computers and Technologies</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Technology Services</p>
-                <p className="text-gray-400 text-sm">Flagship business with 8+ staff, custom-built management platform, ₦2.2M monthly targets</p>
+                <p className="text-gray-400 text-sm">Flagship business with 20+ staff, custom-built management platform</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all"
-              >
+              <motion.a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
                 <div className="flex justify-between items-start mb-3">
                   <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
                   <span className="text-xs text-gray-400">Est. 2019</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">AANDA SUPPLIES & IMPORTS</h3>
+                <h3 className="text-lg font-bold text-white mb-1">AandA Supplies and Imports Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Import/Export</p>
                 <p className="text-gray-400 text-sm">Procurement, supply chain operations, supplier management</p>
-              </motion.div>
+                <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
+              </motion.a>
 
-              <motion.a
-                href="https://farmsfood.theaandagroup.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer"
-              >
+              <motion.a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
                 <div className="flex justify-between items-start mb-3">
                   <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
                   <span className="text-xs text-gray-400">Est. 2025</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">A AND A FARMS & FOODS</h3>
+                <h3 className="text-lg font-bold text-white mb-1">AandA Farms and Foods Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Agriculture</p>
                 <p className="text-gray-400 text-sm">Agricultural production and food processing</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
 
-              <motion.a
-                href="https://labs.theaandagroup.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer"
-              >
+              <motion.a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
                 <div className="flex justify-between items-start mb-3">
                   <span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872002)</span>
                   <span className="text-xs text-gray-400">Est. Dec 2025</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">AANDA LABS LIMITED</h3>
+                <h3 className="text-lg font-bold text-white mb-1">AandA Labs Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Software Development</p>
                 <p className="text-gray-400 text-sm">IT consultancy, data processing, software solutions</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all"
-              >
+              <motion.a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
                 <div className="flex justify-between items-start mb-3">
                   <span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872626)</span>
                   <span className="text-xs text-gray-400">Est. Dec 2025</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">AANDA SUPPLIES & IMPORTS</h3>
+                <h3 className="text-lg font-bold text-white mb-1">AandA Supplies and Imports Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Food Imports</p>
                 <p className="text-gray-400 text-sm">Falkirk Council registered food business (FC773379797)</p>
-              </motion.div>
+                <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
+              </motion.a>
             </div>
 
             <div className="text-center mt-8">
-              <Link 
-                href="/ventures"
-                className="inline-block px-8 py-4 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition shadow-lg"
-              >
-                Learn More About My Ventures →
+              <Link href="/about" className="inline-block px-8 py-4 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition shadow-lg">
+                Learn More About Me →
               </Link>
             </div>
           </motion.div>
@@ -533,20 +416,11 @@ export default function About() {
       {/* Technical Skills */}
       <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Technical Skills</h2>
-            
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="text-2xl mr-2">💻</span>
-                  Programming & Development
-                </h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">💻</span>Programming & Development</h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Languages:</strong> Python, JavaScript, SQL</p>
                   <p><strong>Frameworks:</strong> Flask, Next.js, React</p>
@@ -555,12 +429,8 @@ export default function About() {
                   <p><strong>Visualization:</strong> Plotly, Altair, Matplotlib, Seaborn</p>
                 </div>
               </div>
-
               <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="text-2xl mr-2">📊</span>
-                  Analytics & BI
-                </h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">📊</span>Analytics & BI</h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Dashboards:</strong> Streamlit, Power BI, Tableau</p>
                   <p><strong>Databases:</strong> PostgreSQL, SQLite</p>
@@ -569,12 +439,8 @@ export default function About() {
                   <p><strong>DevOps:</strong> Git/GitHub, Docker, DNS, Email Auth</p>
                 </div>
               </div>
-
               <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <span className="text-2xl mr-2">🏥</span>
-                  Healthcare & Corporate
-                </h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">🏥</span>Healthcare & Corporate</h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Data Sources:</strong> Public Health Scotland, NHS datasets</p>
                   <p><strong>Compliance:</strong> GDPR, healthcare data governance</p>
@@ -591,66 +457,37 @@ export default function About() {
       {/* Education */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Education & Experience</h2>
-            
             <div className="space-y-6">
-              <motion.div 
-                whileHover={{ x: 8 }}
-                className="border-l-4 border-teal-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
-              >
+              <motion.div whileHover={{ x: 8 }} className="border-l-4 border-teal-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
                 <div className="text-teal-600 font-semibold mb-2">2023-2025</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">MSc Artificial Intelligence</h3>
                 <p className="text-gray-700 mb-2 font-medium">University of Stirling, Scotland</p>
                 <p className="text-gray-600">Focus: Machine Learning, Deep Learning, Healthcare AI, Data Science Applications</p>
               </motion.div>
-
-              <motion.div 
-                whileHover={{ x: 8 }}
-                className="border-l-4 border-amber-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
-              >
+              <motion.div whileHover={{ x: 8 }} className="border-l-4 border-amber-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
                 <div className="text-amber-600 font-semibold mb-2">Banking Experience</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">FCMB Bank Nigeria</h3>
                 <p className="text-gray-700 mb-2 font-medium">Corporate Banking & Customer Service</p>
                 <p className="text-gray-600">Professional conduct, regulatory compliance, confidentiality, customer service excellence, process improvement, team collaboration</p>
               </motion.div>
-
-              <motion.div 
-                whileHover={{ x: 8 }}
-                className="border-l-4 border-blue-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
-              >
+              <motion.div whileHover={{ x: 8 }} className="border-l-4 border-blue-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
                 <div className="text-blue-600 font-semibold mb-2">2018</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">CompTIA Data+ Certification</h3>
                 <p className="text-gray-700">Data Analytics • Business Intelligence • Statistical Analysis • Data Governance</p>
               </motion.div>
-
-              <motion.div 
-                whileHover={{ x: 8 }}
-                className="border-l-4 border-purple-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
-              >
+              <motion.div whileHover={{ x: 8 }} className="border-l-4 border-purple-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
                 <div className="text-purple-600 font-semibold mb-2">2023-Present</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Scottish Social Care Professional</h3>
                 <p className="text-gray-700">Active care worker • Avenue Care → First Class Care → Camphill Blair Drummond</p>
               </motion.div>
-
-              <motion.div 
-                whileHover={{ x: 8 }}
-                className="border-l-4 border-green-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
-              >
+              <motion.div whileHover={{ x: 8 }} className="border-l-4 border-green-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
                 <div className="text-green-600 font-semibold mb-2">2015-2018</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">PGD Computer Science</h3>
                 <p className="text-gray-700">Abubakar Tafawa Balewa University, Nigeria</p>
               </motion.div>
-
-              <motion.div 
-                whileHover={{ x: 8 }}
-                className="border-l-4 border-orange-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
-              >
+              <motion.div whileHover={{ x: 8 }} className="border-l-4 border-orange-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
                 <div className="text-orange-600 font-semibold mb-2">2009-2014</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">ND & HND Computer Engineering</h3>
                 <p className="text-gray-700">Nigeria • Foundation in Systems, Networks, and Technical Computing</p>
@@ -663,20 +500,12 @@ export default function About() {
       {/* What I'm Looking For */}
       <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl border-2 border-teal-200 p-8"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl border-2 border-teal-200 p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">What I&apos;m Looking For</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">💼 Employment Opportunities</h3>
-                <p className="text-gray-700 mb-3">
-                  Open to roles that combine my technical skills with my passion for care:
-                </p>
+                <p className="text-gray-700 mb-3">Open to roles that combine my technical skills with my passion for care:</p>
                 <ul className="space-y-1 text-gray-600">
                   <li>• Healthcare Data Analyst / Data Scientist</li>
                   <li>• Care Technology Developer</li>
@@ -685,12 +514,9 @@ export default function About() {
                   <li>• Operations/Administration with tech focus</li>
                 </ul>
               </div>
-
               <div className="bg-white rounded-xl p-6 border-2 border-gray-200 shadow-sm">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">🤝 Freelance & Consulting</h3>
-                <p className="text-gray-700 mb-3">
-                  Also available for project-based work through AANDA Labs:
-                </p>
+                <p className="text-gray-700 mb-3">Also available for project-based work through AandA Labs:</p>
                 <ul className="space-y-1 text-gray-600">
                   <li>• Dashboard and analytics development</li>
                   <li>• Business automation systems</li>
@@ -707,28 +533,12 @@ export default function About() {
       {/* CTA */}
       <section className="py-16 px-4 bg-gradient-to-br from-teal-600 to-blue-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Build Something Meaningful Together</h2>
-            <p className="text-xl mb-8 text-teal-100">
-              Whether you need care technology solutions, data analytics, or business automation—I bring technical expertise, business acumen, corporate discipline, and real-world care experience to every project.
-            </p>
+            <p className="text-xl mb-8 text-teal-100">Whether you need care technology solutions, data analytics, or business automation—I bring technical expertise, business acumen, corporate discipline, and real-world care experience to every project.</p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link 
-                href="/contact"
-                className="px-8 py-4 bg-white text-teal-600 rounded-lg font-semibold hover:bg-gray-100 transition shadow-xl"
-              >
-                Get in Touch
-              </Link>
-              <Link 
-                href="/portfolio"
-                className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-semibold hover:bg-white/10 transition"
-              >
-                View My Projects
-              </Link>
+              <Link href="/contact" className="px-8 py-4 bg-white text-teal-600 rounded-lg font-semibold hover:bg-gray-100 transition shadow-xl">Get in Touch</Link>
+              <Link href="/portfolio" className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-semibold hover:bg-white/10 transition">View My Projects</Link>
             </div>
           </motion.div>
         </div>
@@ -745,46 +555,39 @@ export default function About() {
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <div className="space-y-2">
-                {['About', 'Portfolio', 'Ventures', 'Services', 'Contact'].map(item => (
-                  <Link key={item} href={`/${item.toLowerCase()}`} className="block text-gray-400 hover:text-white transition text-sm">
-                    {item}
-                  </Link>
-                ))}
+                <Link href="/about" className="block text-gray-400 hover:text-white transition text-sm">About</Link>
+                <Link href="/portfolio" className="block text-gray-400 hover:text-white transition text-sm">Portfolio</Link>
+                <Link href="/experience" className="block text-gray-400 hover:text-white transition text-sm">Experience & Skills</Link>
+                <Link href="/contact" className="block text-gray-400 hover:text-white transition text-sm">Contact</Link>
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Ventures</h4>
+              <h4 className="font-semibold mb-4">Business</h4>
               <div className="space-y-2 text-sm">
-                <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Computers 🇳🇬</a>
-                <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AANDA Labs Ltd 🇬🇧</a>
-                <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Farms & Foods 🇳🇬</a>
-                <p className="text-gray-400">AANDA Supplies 🇬🇧</p>
+                <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Computers 🇳🇬</a>
+                <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Labs Limited 🇬🇧</a>
+                <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Supplies and Imports 🇳🇬</a>
+                <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Farms and Foods 🇳🇬</a>
               </div>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
               <div className="flex gap-3 mb-4">
                 <a href="mailto:ayoolumimelehon@gmail.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </a>
                 <a href="https://www.linkedin.com/in/ayoolumi-melehon-b63237179/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
                 <a href="https://github.com/ayoolumi" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
               </div>
               <p className="text-gray-400 text-sm">Grangemouth, Falkirk, Scotland</p>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
-            <p>© 2026 Ayoolumi Melehon | Founder, The AANDA Group</p>
+            <p>© 2026 Ayoolumi Melehon | Founder, The AandA Group</p>
           </div>
         </div>
       </footer>
