@@ -273,7 +273,7 @@ export default function Home() {
             {[
               {
                 icon: '💙',
-                title: 'Care Technology',
+                title: 'Care & Health Technology',
                 description: 'Building solutions that improve outcomes in health and social care—from patient monitoring systems to care management platforms.',
                 stats: 'Care Sector Focus',
               },
