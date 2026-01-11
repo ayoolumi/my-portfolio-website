@@ -107,63 +107,25 @@ export default function About() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">About Me</h1>
-              <p className="text-xl md:text-2xl text-teal-600 font-semibold mb-2">
-                Care Tech Advocate • Data Analyst & AI Developer • Tech Entrepreneur
-              </p>
-              <p className="text-lg text-gray-600 mb-4">
-                Founder of <span className="font-semibold text-teal-600">The AandA Group</span>
-              </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Building intelligent solutions for healthcare, social care, and business—combining frontline care experience with technical expertise and entrepreneurial vision to transform how technology serves people.
-              </p>
+              <p className="text-xl md:text-2xl text-teal-600 font-semibold mb-2">Care Tech Advocate • Data Analyst & AI Developer • Tech Entrepreneur</p>
+              <p className="text-lg text-gray-600 mb-4">Founder of <span className="font-semibold text-teal-600">The AandA Group</span></p>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">Building intelligent solutions for healthcare, social care, and business—combining frontline care experience with technical expertise and entrepreneurial vision to transform how technology serves people.</p>
               <div className="flex flex-wrap gap-3 mb-6 text-sm">
-                <span className="px-3 py-1 bg-teal-50 border border-teal-200 rounded-full text-gray-700">
-                  MSc Artificial Intelligence
-                </span>
-                <span className="px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-gray-700">
-                  CompTIA Data+ Certified
-                </span>
-                <span className="px-3 py-1 bg-purple-50 border border-purple-200 rounded-full text-gray-700">
-                  Scottish Social Care Professional
-                </span>
-                <span className="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">
-                  Grangemouth, Falkirk, Scotland
-                </span>
+                <span className="px-3 py-1 bg-teal-50 border border-teal-200 rounded-full text-gray-700">MSc Artificial Intelligence</span>
+                <span className="px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-gray-700">CompTIA Data+ Certified</span>
+                <span className="px-3 py-1 bg-purple-50 border border-purple-200 rounded-full text-gray-700">Scottish Social Care Professional</span>
+                <span className="px-3 py-1 bg-gray-50 border border-gray-200 rounded-full text-gray-700">Grangemouth, Falkirk, Scotland</span>
               </div>
               <div className="flex gap-4">
-                <Link 
-                  href="/portfolio"
-                  className="px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition shadow-lg"
-                >
-                  View Projects
-                </Link>
-                <Link 
-                  href="/experience"
-                  className="px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-lg font-semibold hover:bg-teal-50 transition"
-                >
-                  My Experience & Skills
-                </Link>
+                <Link href="/portfolio" className="px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition shadow-lg">View Projects</Link>
+                <Link href="/experience" className="px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-lg font-semibold hover:bg-teal-50 transition">My Experience & Skills</Link>
               </div>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
+            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
               <div className="relative bg-gradient-to-br from-teal-100 to-blue-100 rounded-3xl p-8 shadow-2xl">
-                <img
-                  src="/Head.jpg"
-                  alt="Ayoolumi Melehon"
-                  className="w-full rounded-2xl shadow-xl"
-                />
+                <img src="/Head.jpg" alt="Ayoolumi Melehon" className="w-full rounded-2xl shadow-xl" />
                 <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 border-2 border-teal-200">
                   <div className="text-center">
                     <p className="text-3xl font-bold text-gray-900">5</p>
@@ -185,48 +147,18 @@ export default function About() {
       {/* My Story - The Full Journey */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl border-2 border-gray-200 shadow-lg p-8"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="bg-white rounded-2xl border-2 border-gray-200 shadow-lg p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">My Journey: From Corporate Banking to Care to Building What Matters</h2>
             <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
-              <p>
-                My story doesn&apos;t begin with code or care—it begins with learning how to show up professionally, ethically, and with integrity. At <span className="font-semibold text-teal-600">FCMB Bank in Nigeria</span>, I learned the foundations that would shape everything I&apos;ve built since. Working in one of Nigeria&apos;s leading financial institutions taught me corporate discipline, regulatory compliance, and the weight of handling sensitive information with absolute confidentiality. I learned to communicate with precision—whether explaining complex financial products to customers or coordinating with colleagues under pressure. I discovered the importance of process improvement, attention to detail, and the quiet professionalism that builds trust. Those early mornings, the pressure of targets, the satisfaction of serving customers well—banking taught me that excellence is a habit, not an event.
-              </p>
-              <p>
-                But I always knew I wanted to build, not just serve. So in 2017, I took everything I&apos;d learned about business operations, customer service, and professional conduct and founded <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Computers and Technologies</a> in Bauchi, Nigeria. What started as a vision became a thriving technology services business with 20+ employees, and a custom-built business management platform that I developed myself—complete with real-time dashboards, staff performance tracking, store management, inventory usage monitoring, sales analytics, and payment integration. I wasn&apos;t just the owner; I was the architect of every system, the problem-solver for every challenge, and the leader who had to make payroll every month.
-              </p>
-              <p>
-                Building on this success, I expanded into import/export with <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Supplies and Imports Limited</a> in 2019, learning the complexities of supply chain management, vendor negotiations, and cross-border logistics. More recently, I ventured into agriculture with <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Farms and Foods Limited</a>. In December 2025, I brought my entrepreneurial vision to the UK, establishing <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Labs Limited</a> for software development and IT consultancy, and <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Supplies and Imports Limited</a> for food imports—now registered with Falkirk Council as a food business. Together, these five companies form <span className="font-semibold text-teal-600">The AandA Group</span>.
-              </p>
-              <p>
-                But here&apos;s where my journey took a turn that surprised even me. In <span className="font-semibold">February 2023</span>, I made a deliberate decision to enter Scotland&apos;s health and social care sector. This wasn&apos;t a step backward or a career change—it was a strategic move. I knew that to truly build technology that transforms care, I couldn&apos;t just study it from textbooks or analyze datasets from a distance. I needed to <em>feel</em> it. I needed to understand the frustrations of care workers, the fears of families, the dignity of those receiving care, and the systemic failures that no amount of clever coding could fix without deep human understanding.
-              </p>
-              <p>
-                I started with <span className="font-semibold text-teal-600">Avenue Care Services</span>, then moved to <span className="font-semibold text-teal-600">First Class Care Services</span>, gaining experience in adult social care, community and domiciliary care, and support for vulnerable populations. Since <span className="font-semibold">March 2025</span>, I&apos;ve been at <span className="font-semibold text-teal-600">Camphill Blair Drummond</span>, a therapeutic community supporting people with learning disabilities. This isn&apos;t administrative work—I&apos;m on the frontlines every day, providing hands-on care, sharing meals with residents, celebrating their small victories, and holding space for their struggles.
-              </p>
-              <p className="text-gray-800 italic border-l-4 border-teal-500 pl-4 bg-teal-50 py-3 rounded-r-lg">
-                And in that work, I&apos;ve seen things that changed me forever.
-              </p>
-              <p>
-                I&apos;ve witnessed the quiet heartbreak of families who can&apos;t get clear answers about their loved one&apos;s care because information is scattered across disconnected systems. I&apos;ve seen the exhaustion in colleagues&apos; eyes when they spend more time on paperwork than with the people they&apos;re meant to support. I&apos;ve watched elderly residents return from A&E confused and frightened—not because the hospital failed, but because the community care system couldn&apos;t share critical information fast enough. I&apos;ve documented care needs at 2 AM that I knew would sit in a folder, never becoming the actionable intelligence that could prevent the next crisis.
-              </p>
-              <p>
-                I&apos;ve held the hand of someone having a difficult day, knowing that somewhere in a database there might be a pattern—a trigger we could have anticipated, an intervention we could have made earlier—if only the systems talked to each other. I&apos;ve felt the frustration of wanting to do more, to be proactive instead of reactive, but being limited by tools built for compliance rather than care.
-              </p>
-              <p>
-                But I&apos;ve also seen the other side—the possibility. I&apos;ve seen moments when the right information at the right time prevented a crisis. I&apos;ve imagined what predictive analytics could do: flagging a resident whose subtle behavioral changes suggest they&apos;re heading toward a difficult period, alerting staff before the meltdown rather than after. I&apos;ve envisioned integrated care records that travel with the person, not the paperwork—so that when someone arrives at hospital, their story arrives with them. I&apos;ve dreamed of AI-powered tools that help care workers like me provide more personalized, proactive support—especially in complex cases involving learning disabilities, dementia, and challenging behaviors.
-              </p>
-              <p>
-                This is why I pursued an <span className="font-semibold text-teal-600">MSc in Artificial Intelligence at the University of Stirling</span> while working in care, and why I earned my <span className="font-semibold text-teal-600">CompTIA Data+</span> certification. I wasn&apos;t just learning technology—I was building the skills to solve the problems I witnessed every shift. I&apos;ve now built over nine healthcare analytics projects and numerous optimised social care and administrative systems. From NHS A&E demand forecasting and COVID-19 impact analysis across Scotland&apos;s 14 health boards, to mental health service planning, fall risk assessment systems, pneumonia detection using medical imaging AI, and elderly social isolation detection—each project is designed to yield actionable insights that support frontline workers like me. I build tools that don&apos;t just analyse data, but empower the people delivering care every day.
-              </p>
-              <p className="text-teal-600 font-semibold text-xl">
-                My mission is deeply personal: to use AI, data analytics, and technology to improve patient outcomes, support frontline care workers, and build more resilient, integrated health and social care systems across Scotland and beyond. I&apos;m not a technologist observing from outside—I&apos;m a care professional building from within, with the corporate discipline of banking, the resilience of entrepreneurship, and the compassion that only comes from being there, on the floor, in the moment, with the people who matter most.
-              </p>
+              <p>My story doesn&apos;t begin with code or care—it begins with learning how to show up professionally, ethically, and with integrity. At <span className="font-semibold text-teal-600">FCMB Bank in Nigeria</span>, I learned the foundations that would shape everything I&apos;ve built since. Working in one of Nigeria&apos;s leading financial institutions taught me corporate discipline, regulatory compliance, and the weight of handling sensitive information with absolute confidentiality.</p>
+              <p>But I always knew I wanted to build, not just serve. So in 2017, I took everything I&apos;d learned about business operations, customer service, and professional conduct and founded <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Computers and Technologies</a> in Bauchi, Nigeria. What started as a vision became a thriving technology services business with 20+ employees, and a custom-built business management platform that I developed myself.</p>
+              <p>Building on this success, I expanded into import/export with <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Supplies and Imports Limited</a> in 2019. More recently, I ventured into agriculture with <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Farms and Foods Limited</a>. In December 2025, I brought my entrepreneurial vision to the UK, establishing <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Labs Limited</a> for software development and IT consultancy, and <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AandA Supplies and Imports Limited</a> for food imports. Together, these five companies form <span className="font-semibold text-teal-600">The AandA Group</span>.</p>
+              <p>In <span className="font-semibold">February 2023</span>, I made a deliberate decision to enter Scotland&apos;s health and social care sector. This wasn&apos;t a step backward or a career change—it was a strategic move. I knew that to truly build technology that transforms care, I couldn&apos;t just study it from textbooks or analyze datasets from a distance. I needed to <em>feel</em> it.</p>
+              <p>I started with <span className="font-semibold text-teal-600">Avenue Care Services</span>, then moved to <span className="font-semibold text-teal-600">First Class Care Services</span>, gaining experience in adult social care. Since <span className="font-semibold">March 2025</span>, I&apos;ve been at <span className="font-semibold text-teal-600">Camphill Blair Drummond</span>, a therapeutic community supporting people with learning disabilities.</p>
+              <p className="text-gray-800 italic border-l-4 border-teal-500 pl-4 bg-teal-50 py-3 rounded-r-lg">And in that work, I&apos;ve seen things that changed me forever.</p>
+              <p>I&apos;ve witnessed the quiet heartbreak of families who can&apos;t get clear answers about their loved one&apos;s care. I&apos;ve seen the exhaustion in colleagues&apos; eyes when they spend more time on paperwork than with the people they&apos;re meant to support. I&apos;ve held the hand of someone having a difficult day, knowing that somewhere in a database there might be a pattern—a trigger we could have anticipated.</p>
+              <p>This is why I pursued an <span className="font-semibold text-teal-600">MSc in Artificial Intelligence at the University of Stirling</span> while working in care, and why I earned my <span className="font-semibold text-teal-600">CompTIA Data+</span> certification. I&apos;ve now built over nine healthcare analytics projects and numerous optimised social care and administrative systems.</p>
+              <p className="text-teal-600 font-semibold text-xl">My mission is deeply personal: to use AI, data analytics, and technology to improve patient outcomes, support frontline care workers, and build more resilient, integrated health and social care systems across Scotland and beyond.</p>
             </div>
           </motion.div>
         </div>
@@ -235,70 +167,33 @@ export default function About() {
       {/* What Makes Me Different */}
       <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">What Makes Me Different</h2>
             <p className="text-xl text-gray-600 mb-10 text-center">Four perspectives that set my work apart</p>
-            
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200">
-                <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-3xl">🏦</span>
-                </div>
+                <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4"><span className="text-3xl">🏦</span></div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Corporate Foundation</h3>
                 <p className="text-gray-600 text-sm mb-3">FCMB Bank taught me professional excellence, regulatory compliance, and ethical conduct.</p>
-                <ul className="space-y-1 text-gray-700 text-xs">
-                  <li>✓ Professional discipline</li>
-                  <li>✓ Confidentiality & data handling</li>
-                  <li>✓ Customer service excellence</li>
-                  <li>✓ Process improvement</li>
-                </ul>
+                <ul className="space-y-1 text-gray-700 text-xs"><li>✓ Professional discipline</li><li>✓ Confidentiality & data handling</li><li>✓ Customer service excellence</li><li>✓ Process improvement</li></ul>
               </motion.div>
-
               <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-6 border-2 border-teal-200">
-                <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-3xl">💙</span>
-                </div>
+                <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-4"><span className="text-3xl">💙</span></div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Care Sector Insider</h3>
                 <p className="text-gray-600 text-sm mb-3">I don&apos;t study healthcare data—I live it. Every day at Camphill, I experience what my technology aims to fix.</p>
-                <ul className="space-y-1 text-gray-700 text-xs">
-                  <li>✓ 2+ years frontline care</li>
-                  <li>✓ Avenue → First Class → Camphill</li>
-                  <li>✓ Real understanding of challenges</li>
-                  <li>✓ Emotional connection to mission</li>
-                </ul>
+                <ul className="space-y-1 text-gray-700 text-xs"><li>✓ 2+ years frontline care</li><li>✓ Avenue → First Class → Camphill</li><li>✓ Real understanding of challenges</li><li>✓ Emotional connection to mission</li></ul>
               </motion.div>
-
               <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border-2 border-blue-200">
-                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-3xl">📊</span>
-                </div>
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4"><span className="text-3xl">📊</span></div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Technical Excellence</h3>
                 <p className="text-gray-600 text-sm mb-3">Advanced AI and data science skills, proven through academic achievement and real-world delivery.</p>
-                <ul className="space-y-1 text-gray-700 text-xs">
-                  <li>✓ MSc Artificial Intelligence</li>
-                  <li>✓ 9+ deployed projects</li>
-                  <li>✓ Python, SQL, ML/AI, Power BI</li>
-                  <li>✓ Full-stack development</li>
-                </ul>
+                <ul className="space-y-1 text-gray-700 text-xs"><li>✓ MSc Artificial Intelligence</li><li>✓ 9+ deployed projects</li><li>✓ Python, SQL, ML/AI, Power BI</li><li>✓ Full-stack development</li></ul>
               </motion.div>
-
               <motion.div whileHover={{ y: -8 }} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200">
-                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-3xl">🚀</span>
-                </div>
+                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4"><span className="text-3xl">🚀</span></div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Business Builder</h3>
                 <p className="text-gray-600 text-sm mb-3">I don&apos;t just build prototypes—I build production systems for real businesses with real stakes.</p>
-                <ul className="space-y-1 text-gray-700 text-xs">
-                  <li>✓ 5 companies founded</li>
-                  <li>✓ 20+ staff managed remotely</li>
-                  <li>✓ Production systems in daily use</li>
-                  <li>✓ Cross-border operations</li>
-                </ul>
+                <ul className="space-y-1 text-gray-700 text-xs"><li>✓ 5 companies founded</li><li>✓ 20+ staff managed remotely</li><li>✓ Production systems in daily use</li><li>✓ Cross-border operations</li></ul>
               </motion.div>
             </div>
           </motion.div>
@@ -320,7 +215,6 @@ export default function About() {
                   <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Avenue Care Services (previous role)</span></li>
                   <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Supporting people with learning disabilities</span></li>
                   <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Adult social care, community & domiciliary care</span></li>
-                  <li className="flex items-start"><span className="text-teal-600 mr-2 font-bold">✓</span><span>Care coordination, documentation, compliance</span></li>
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-8 border-2 border-purple-200 shadow-lg">
@@ -331,7 +225,6 @@ export default function About() {
                   <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>COVID-19 impact analysis across 14 Scottish health boards</span></li>
                   <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>Mental health demand forecasting</span></li>
                   <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>Medical AI (pneumonia detection, fall risk assessment)</span></li>
-                  <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>Social isolation detection for elderly care</span></li>
                   <li className="flex items-start"><span className="text-purple-600 mr-2 font-bold">✓</span><span>620K+ healthcare records processed with GDPR compliance</span></li>
                 </ul>
               </div>
@@ -346,68 +239,42 @@ export default function About() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold mb-4 text-center">The AandA Group</h2>
             <p className="text-xl text-gray-300 mb-10 text-center">A diversified business conglomerate I founded and lead across Nigeria and the UK</p>
-            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <motion.a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
-                <div className="flex justify-between items-start mb-3">
-                  <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
-                  <span className="text-xs text-gray-400">Est. 2017</span>
-                </div>
+              <motion.a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
+                <div className="flex justify-between items-start mb-3"><span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span><span className="text-xs text-gray-400">Est. 2017</span></div>
                 <h3 className="text-lg font-bold text-white mb-1">AandA Computers and Technologies</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Technology Services</p>
                 <p className="text-gray-400 text-sm">Flagship business with 20+ staff, custom-built management platform</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
-
-              <motion.a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
-                <div className="flex justify-between items-start mb-3">
-                  <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
-                  <span className="text-xs text-gray-400">Est. 2019</span>
-                </div>
+              <motion.a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
+                <div className="flex justify-between items-start mb-3"><span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span><span className="text-xs text-gray-400">Est. 2019</span></div>
                 <h3 className="text-lg font-bold text-white mb-1">AandA Supplies and Imports Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Import/Export</p>
                 <p className="text-gray-400 text-sm">Procurement, supply chain operations, supplier management</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
-
-              <motion.a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
-                <div className="flex justify-between items-start mb-3">
-                  <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
-                  <span className="text-xs text-gray-400">Est. 2025</span>
-                </div>
+              <motion.a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
+                <div className="flex justify-between items-start mb-3"><span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span><span className="text-xs text-gray-400">Est. 2025</span></div>
                 <h3 className="text-lg font-bold text-white mb-1">AandA Farms and Foods Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Agriculture</p>
                 <p className="text-gray-400 text-sm">Agricultural production and food processing</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
-
-              <motion.a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
-                <div className="flex justify-between items-start mb-3">
-                  <span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872002)</span>
-                  <span className="text-xs text-gray-400">Est. Dec 2025</span>
-                </div>
+              <motion.a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
+                <div className="flex justify-between items-start mb-3"><span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872002)</span><span className="text-xs text-gray-400">Est. Dec 2025</span></div>
                 <h3 className="text-lg font-bold text-white mb-1">AandA Labs Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Software Development</p>
                 <p className="text-gray-400 text-sm">IT consultancy, data processing, software solutions</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
-
-              <motion.a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }} whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
-                <div className="flex justify-between items-start mb-3">
-                  <span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872626)</span>
-                  <span className="text-xs text-gray-400">Est. Dec 2025</span>
-                </div>
+              <motion.a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" whileHover={{ y: -5 }} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer block">
+                <div className="flex justify-between items-start mb-3"><span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872626)</span><span className="text-xs text-gray-400">Est. Dec 2025</span></div>
                 <h3 className="text-lg font-bold text-white mb-1">AandA Supplies and Imports Limited</h3>
                 <p className="text-teal-400 text-sm font-medium mb-2">Food Imports</p>
                 <p className="text-gray-400 text-sm">Falkirk Council registered food business (FC773379797)</p>
                 <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
               </motion.a>
-            </div>
-
-            <div className="text-center mt-8">
-              <Link href="/about" className="inline-block px-8 py-4 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-700 transition shadow-lg">
-                Learn More About Me →
-              </Link>
             </div>
           </motion.div>
         </div>
@@ -435,7 +302,7 @@ export default function About() {
                   <p><strong>Dashboards:</strong> Streamlit, Power BI, Tableau</p>
                   <p><strong>Databases:</strong> PostgreSQL, SQLite</p>
                   <p><strong>APIs:</strong> Flutterwave, VTpass, RESTful</p>
-                  <p><strong>Cloud:</strong> Render, Vercel, Streamlit Cloud</p>
+                  <p><strong>Cloud:</strong> AWS, Render, Vercel, Streamlit Cloud</p>
                   <p><strong>DevOps:</strong> Git/GitHub, Docker, DNS, Email Auth</p>
                 </div>
               </div>
@@ -454,12 +321,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* Education */}
+      {/* Education & Certifications */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Education & Experience</h2>
-            <div className="space-y-6">
+            <div className="space-y-6 mb-12">
               <motion.div whileHover={{ x: 8 }} className="border-l-4 border-teal-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
                 <div className="text-teal-600 font-semibold mb-2">2023-2025</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">MSc Artificial Intelligence</h3>
@@ -470,10 +337,10 @@ export default function About() {
                 <div className="text-amber-600 font-semibold mb-2">Banking Experience</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">FCMB Bank Nigeria</h3>
                 <p className="text-gray-700 mb-2 font-medium">Corporate Banking & Customer Service</p>
-                <p className="text-gray-600">Professional conduct, regulatory compliance, confidentiality, customer service excellence, process improvement, team collaboration</p>
+                <p className="text-gray-600">Professional conduct, regulatory compliance, confidentiality, customer service excellence</p>
               </motion.div>
               <motion.div whileHover={{ x: 8 }} className="border-l-4 border-blue-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg">
-                <div className="text-blue-600 font-semibold mb-2">2018</div>
+                <div className="text-blue-600 font-semibold mb-2">2024</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">CompTIA Data+ Certification</h3>
                 <p className="text-gray-700">Data Analytics • Business Intelligence • Statistical Analysis • Data Governance</p>
               </motion.div>
@@ -492,6 +359,71 @@ export default function About() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">ND & HND Computer Engineering</h3>
                 <p className="text-gray-700">Nigeria • Foundation in Systems, Networks, and Technical Computing</p>
               </motion.div>
+            </div>
+
+            {/* Professional Certifications Subsection */}
+            <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">Professional Certifications</h3>
+            <p className="text-lg text-gray-600 mb-8 text-center">Continuous learning through industry-recognized platforms</p>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Codecademy */}
+              <div className="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-lg">{'</>'}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Codecademy</h4>
+                    <p className="text-sm text-gray-500">2024</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li className="flex items-start"><span className="text-teal-600 mr-2">✓</span>Learn Tableau for Data Visualization</li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2">✓</span>Learn SQL</li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2">✓</span>Learn Python 3</li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2">✓</span>Principles of Data Literacy</li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2">✓</span>Microsoft Excel for Data Analysis</li>
+                  <li className="flex items-start"><span className="text-teal-600 mr-2">✓</span>Handling Missing Data</li>
+                </ul>
+              </div>
+
+              {/* LinkedIn Learning */}
+              <div className="bg-white rounded-2xl p-6 border-2 border-blue-200 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-lg">in</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">LinkedIn Learning</h4>
+                    <p className="text-sm text-gray-500">2025</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>Statistics Foundations 1: The Basics</li>
+                  <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>Preparing to Get a Job in Data Analytics</li>
+                  <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>Introduction to Data Science</li>
+                  <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>Connecting Your Work to Your Purpose</li>
+                  <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>CompTIA Data+ Cert Prep: Data Concepts</li>
+                  <li className="flex items-start"><span className="text-blue-600 mr-2">✓</span>Basics of Data Visualization Analysis</li>
+                </ul>
+              </div>
+
+              {/* AWS */}
+              <div className="bg-white rounded-2xl p-6 border-2 border-orange-200 shadow-lg">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">AWS</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">AWS Training</h4>
+                    <p className="text-sm text-gray-500">2025</p>
+                  </div>
+                </div>
+                <ul className="space-y-2 text-gray-700 text-sm">
+                  <li className="flex items-start"><span className="text-orange-600 mr-2">✓</span>Fundamentals of Analytics on AWS - Part 1</li>
+                </ul>
+                <p className="text-gray-500 text-xs mt-4 italic">Cloud analytics and data processing fundamentals</p>
+              </div>
             </div>
           </motion.div>
         </div>
