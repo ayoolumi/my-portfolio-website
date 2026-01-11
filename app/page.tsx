@@ -77,7 +77,7 @@ export default function Home() {
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              {['About', 'Portfolio', 'Experience'].map((item) => (
+              {['About', 'Portfolio', 'Experience & Skills'].map((item) => (
                 <Link 
                   key={item}
                   href={`/${item.toLowerCase()}`} 
@@ -122,7 +122,7 @@ export default function Home() {
               className="md:hidden pb-4 border-t border-gray-200 bg-white"
             >
               <div className="flex flex-col space-y-3 pt-4">
-                {['Home', 'About', 'Portfolio', 'Experience'].map((item) => (
+                {['Home', 'About', 'Portfolio', 'Experience & Skills'].map((item) => (
                   <Link 
                     key={item}
                     href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
@@ -676,7 +676,7 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <div className="space-y-2">
-                {['About', 'Portfolio', 'Experience', 'Contact'].map(item => (
+                {['About', 'Portfolio', 'Experience & Skills', 'Contact'].map(item => (
                   <Link key={item} href={`/${item.toLowerCase()}`} className="block text-gray-400 hover:text-white transition text-sm">
                     {item}
                   </Link>
