@@ -371,7 +371,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
                 <span className="text-xs text-gray-400">Est. 2017</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">A AND A COMPUTERS</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA Computers and Technologies</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Technology Services</p>
               <p className="text-gray-400 text-sm">Flagship business with 20+ staff, custom-built management platform</p>
               <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
@@ -413,7 +413,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
                 <span className="text-xs text-gray-400">Est. 2025</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">A AND A FARMS & FOODS</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA Farms and Foods Limited</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Agriculture</p>
               <p className="text-gray-400 text-sm">Agricultural production and food processing</p>
               <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
@@ -484,7 +484,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {[
-              { title: 'A&A Business Management Platform', category: 'Business Tech', impact: 'Production system managing 20+ staff', id: 'aanda-business-platform', isNew: true },
+              { title: 'AandA Business Management Platform', category: 'Business Tech', impact: 'Production system managing 20+ staff', id: 'aanda-business-platform', isNew: true },
               { title: 'NHS A&E Wait Time Prediction', category: 'Healthcare AI', impact: '85.67% accuracy prediction model', id: 'nhs-ae-wait-time-prediction' },
               { title: 'Pneumonia Detection System', category: 'Medical AI', impact: '85.58% diagnostic accuracy', id: 'pneumonia-detection-system' },
               { title: 'COVID-19 Healthcare Impact Analysis', category: 'Public Health', impact: 'Scotland 14 health boards analysis', id: 'covid-19-healthcare-impact' },
@@ -626,10 +626,10 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Business</h4>
               <div className="space-y-2 text-sm">
-                <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Computers 🇳🇬</a>
+                <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Computers 🇳🇬</a>
                 <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Labs Ltd 🇬🇧</a>
                 <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Supplies 🇳🇬</a>
-                <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Farms & Foods 🇳🇬</a>
+                <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Farms and Foods 🇳🇬</a>
               </div>
             </div>
             <div>
