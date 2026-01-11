@@ -166,7 +166,7 @@ export default function Home() {
               </p>
               
               <p className="text-lg text-gray-600 mb-4">
-                Founder of <span className="font-semibold text-teal-600">The AANDA Group</span>
+                Founder of <span className="font-semibold text-teal-600">The AandA Group</span>
               </p>
 
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -342,7 +342,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The AANDA Group Section */}
+      {/* The AandA Group Section */}
       <section className="py-12 px-4 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -351,7 +351,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-4xl font-bold mb-3">The AANDA Group</h2>
+            <h2 className="text-4xl font-bold mb-3">The AandA Group</h2>
             <p className="text-xl text-gray-300">A diversified business conglomerate across Nigeria and the United Kingdom</p>
           </motion.div>
 
@@ -392,7 +392,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
                 <span className="text-xs text-gray-400">Est. 2019</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">AANDA SUPPLIES & IMPORTS</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA SUPPLIES & IMPORTS</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Import/Export</p>
               <p className="text-gray-400 text-sm">Procurement and supply chain operations</p>
               <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
@@ -434,7 +434,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇬🇧 UK</span>
                 <span className="text-xs text-gray-400">Est. Dec 2025</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">AANDA LABS LIMITED</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA LABS LIMITED</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Software Development</p>
               <p className="text-gray-400 text-sm">IT consultancy, data processing, educational support</p>
               <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
@@ -452,7 +452,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇬🇧 UK</span>
                 <span className="text-xs text-gray-400">Est. Dec 2025</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">AANDA SUPPLIES & IMPORTS</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA SUPPLIES & IMPORTS</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Food Imports</p>
               <p className="text-gray-400 text-sm">Falkirk Council registered food business</p>
             </motion.div>
@@ -627,8 +627,8 @@ export default function Home() {
               <h4 className="font-semibold mb-4">Business</h4>
               <div className="space-y-2 text-sm">
                 <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Computers 🇳🇬</a>
-                <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AANDA Labs Ltd 🇬🇧</a>
-                <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AANDA Supplies 🇳🇬</a>
+                <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Labs Ltd 🇬🇧</a>
+                <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Supplies 🇳🇬</a>
                 <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Farms & Foods 🇳🇬</a>
               </div>
             </div>
@@ -649,7 +649,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
-            <p>© 2026 Ayoolumi Melehon | Founder, The AANDA Group</p>
+            <p>© 2026 Ayoolumi Melehon | Founder, The AandA Group</p>
           </div>
         </div>
       </footer>
