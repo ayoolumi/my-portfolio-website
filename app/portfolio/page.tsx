@@ -19,6 +19,7 @@ const sampleProjects = [
     liveDemo: 'https://emergency-wait-prediction-fsydtkbx5toyvfyvwctder.streamlit.app/',
     github: 'https://github.com/ayoolumi/emergency-wait-prediction',
     huggingface: 'https://huggingface.co/datasets/ayoolumi/emergency-wait-prediction',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="12" className="fill-teal-500/20" />
@@ -33,295 +34,16 @@ Emergency departments are high-pressure environments where timely information ca
 The system features an interactive Streamlit dashboard that allows real-time predictions, patient check-in simulation, and visual exploration of factors affecting wait times. Built with scalability in mind, the solution can be adapted to different healthcare settings and integrated into existing hospital management systems.
 
 Key deliverables include a trained LightGBM model achieving 94.95% accuracy with MAE of 12.06 minutes, comprehensive exploratory data analysis, feature importance insights, and a deployed web application for clinical use.`,
-
-      problemStatement: `Emergency departments worldwide face mounting pressure from increasing patient volumes, staff shortages, and resource constraints. Across Scotland and the UK, A&E waiting times have reached critical levels, with patients routinely waiting 4+ hours for treatment.
-
-The challenges are multi-faceted:
-
-For Patients:
-• Anxiety and frustration from unknown wait times
-• Decisions to leave before being seen (potentially dangerous)
-• Difficulty planning for family members or caregivers
-• Negative perception of healthcare quality
-
-For Healthcare Providers:
-• Inability to predict demand surges
-• Suboptimal staff allocation
-• Overcrowding leading to corridor care
-• Difficulty meeting government waiting time targets
-
-The Cost:
-• Emergency care is expensive - each avoidable A&E visit costs the healthcare system approximately £150-300
-• Staff burnout from unpredictable workloads
-• Negative patient outcomes from delayed treatment
-
-Without accurate prediction tools, hospitals operate reactively rather than proactively, leading to inefficiencies and poor patient experiences.`,
-
-      previousGaps: `Previous approaches to emergency department wait time prediction have significant limitations:
-
-Simple Averaging Methods:
-• Using historical averages fails to account for real-time conditions
-• Cannot adapt to sudden changes in occupancy or staffing
-• Provides same estimate regardless of patient acuity
-
-Basic Queueing Theory:
-• Assumes patients are served in order (not true in triage-based systems)
-• Doesn't capture the complexity of emergency care pathways
-• Ignores the non-linear relationship between occupancy and wait time
-
-Existing Technology Gaps:
-• Most hospital systems display static wait times (updated hourly at best)
-• No integration of real-time factors like current staffing or bed availability
-• Lack of patient-facing tools for transparency
-• Minimal use of machine learning in operational settings
-
-Research vs Reality:
-• Academic studies exist but rarely deployed in clinical practice
-• Models trained on single hospitals don't generalize well
-• Limited consideration of temporal patterns (time of day, day of week, seasonal trends)
-• Patient history and behavioral factors often ignored
-
-This project addresses these gaps by developing a machine learning model that captures complex, non-linear relationships and provides real-time, patient-specific predictions incorporating medical history, arrival circumstances, and department conditions.`,
-
-      aimsObjectives: `Primary Aim:
-Develop and deploy a machine learning system that accurately predicts emergency department wait times, improving patient experience and supporting clinical decision-making.
-
-Specific Objectives:
-
-1. Model Accuracy: Achieve over 90% prediction accuracy on unseen test data, outperforming simple baseline methods
-
-2. Feature Analysis: Identify and rank the most significant factors influencing wait times to provide actionable insights for hospital managers
-
-3. Patient History Integration: Incorporate patient medical history, previous admissions, chronic conditions, and behavioral factors into predictions
-
-4. Interactive Dashboard: Create a user-friendly Streamlit web application featuring:
-   • Real-time wait time predictions
-   • Patient check-in simulation
-   • Visual analytics and trend exploration
-   • Feature importance explanations
-
-5. Temporal Pattern Discovery: Uncover patterns related to time of day, day of week, and seasonal variations to support staff scheduling
-
-6. Model Interpretability: Ensure predictions are explainable, not black-box, so clinical staff can trust and understand the system
-
-7. Scalable Framework: Design the solution to be adaptable to different hospital settings with minimal retraining
-
-8. Comprehensive Documentation: Provide complete documentation enabling other healthcare data scientists to replicate and extend the work`,
-
-      datasets: `The project utilizes a synthetic dataset of 100,000 patient records spanning 4 years (2021-2024), carefully generated to mirror realistic emergency department patterns in Scottish healthcare settings.
-
-Dataset Specifications:
-• Total Records: 100,000
-• Time Period: January 2021 - December 2024
-• Features: 67 columns (after feature engineering)
-• File Format: CSV
-• Available on Hugging Face: huggingface.co/datasets/ayoolumi/emergency-wait-prediction
-
-Complete Feature Categories:
-
-Temporal Features:
-• arrival_date, arrival_time, arrival_hour, day_of_week, month, year, season, is_weekend
-
-Patient Demographics:
-• patient_id, patient_age, patient_gender
-
-Arrival Information:
-• arrival_mode (Walk-in, Family/Friend, Ambulance-Emergency, Ambulance-Non-Emergency, MECS, Police, GP Referral)
-• triage_category (1-5, where 1=critical)
-• chief_complaint (Chest Pain, Abdominal Pain, Fracture, Breathing Difficulty, etc.)
-
-Patient History:
-• previous_admissions (0-20+)
-• months_since_last_visit (0-48, 999=first visit)
-• has_chronic_condition (Yes/No)
-• chronic_condition_type (Diabetes, Heart Disease, Asthma, COPD, etc.)
-• is_registered_patient (Yes/No)
-• mental_health_flag (Yes/No)
-
-Department Status:
-• department_occupancy (40-100%)
-• staff_on_duty (8-20)
-• patients_waiting (0-50)
-• beds_available (0-30)
-
-Target Variable:
-• wait_time_minutes (10-300+)`,
-
-      methodology: `The project follows a structured data science methodology across six phases:
-
-Phase 1: Data Generation & Preprocessing
-• Synthetic data generation with realistic healthcare patterns
-• Handling missing values and outliers
-• Feature engineering (extracting temporal features)
-• Encoding categorical variables (one-hot encoding)
-• Feature scaling for numerical variables
-• Train/test split (80/20) with temporal awareness
-
-Phase 2: Exploratory Data Analysis
-• Distribution analysis of wait times across patient segments
-• Correlation analysis between all features and target
-• Patient history impact analysis
-• Arrival mode comparison and prioritization effects
-• Temporal pattern visualization (hourly, daily, seasonal)
-• Peak demand period identification
-
-Phase 3: Feature Engineering
-• Creating interaction features (occupancy × time of day)
-• Patient risk scoring based on history and condition
-• Arrival urgency composite score
-• Time-based cyclical encoding
-• 67 total features after engineering
-
-Phase 4: Model Development
-• Baseline models: Simple average, Linear Regression
-• Advanced models tested: Random Forest, Gradient Boosting, XGBoost, LightGBM
-• Cross-validation (5-fold) for robust evaluation
-
-Phase 5: Hyperparameter Tuning
-• GridSearchCV for systematic parameter optimization
-• LightGBM selected as best performer
-• Optimization metrics: R² score and MAE
-
-Phase 6: Model Evaluation & Deployment
-• Final evaluation on held-out test set
-• Achieved 94.95% accuracy with 12.06 minutes MAE
-• Streamlit web application deployment
-• Model serialization using joblib`,
-
-      findings: `Model Performance Comparison:
-
-Linear Regression: R²=0.62, MAE=28.4 mins
-Random Forest: R²=0.89, MAE=15.2 mins
-Gradient Boosting: R²=0.92, MAE=13.8 mins
-XGBoost: R²=0.93, MAE=12.9 mins
-LightGBM: R²=0.9495, MAE=12.06 mins ✓ Best
-
-LightGBM achieved the best performance with 94.95% accuracy and Mean Absolute Error of just 12.06 minutes.
-
-Feature Importance Rankings:
-1. Department Occupancy (28%)
-2. Time of Arrival - Hour (18%)
-3. Triage Category (15%)
-4. Patients Waiting (10%)
-5. Arrival Mode (8%)
-6. Previous Admissions (6%)
-7. Staff on Duty (5%)
-8. Has Chronic Condition (4%)
-9. Beds Available (3%)
-10. Other Factors (3%)
-
-Key Insights:
-
-Temporal Patterns:
-• Peak Hours: 10 AM - 2 PM and 6 PM - 10 PM show longest wait times
-• Worst Day: Mondays have 23% longer average waits than Sundays
-• Seasonal Effect: Winter months (Dec-Feb) show 18% longer waits
-
-Occupancy Threshold Discovery:
-• Wait times increase linearly until 75% occupancy
-• Above 75%, wait times increase exponentially
-• At 90%+ occupancy, average wait exceeds 2 hours
-• Critical threshold identified at 85% occupancy`,
-
-      limitations: `Data Limitations:
-
-1. Synthetic Data: While carefully generated to reflect realistic patterns, the model has not been validated on actual hospital data due to data access constraints.
-
-2. Single Department Configuration: The model is trained for a specific A&E setup. Different hospitals may require retraining.
-
-3. Scottish Context: Patterns generated reflect Scottish healthcare settings and may not directly transfer to other regions.
-
-Model Limitations:
-
-4. External Factors Not Captured:
-   • Major incidents (large accidents, disease outbreaks)
-   • Staff sickness or unexpected absences
-   • Equipment failures or maintenance
-   • Weather events impacting arrivals
-
-5. Static Staffing Assumption: Model uses staffing levels at time of arrival, but shift changes during a patient's wait are not captured.
-
-Deployment Limitations:
-
-6. No Live Integration: Current system operates on historical/simulated data, not connected to live hospital systems.`,
-
-      recommendations: `Data Enhancements:
-
-1. Real Hospital Data Validation: Partner with healthcare providers to validate and refine the model using actual A&E data.
-
-2. Multi-Site Data: Expand training data to include multiple hospitals across different regions.
-
-Technical Improvements:
-
-3. Real-Time Integration: Develop APIs to connect with hospital management systems.
-
-4. Deep Learning Exploration: Test LSTM or Transformer models for complex temporal dependencies.
-
-Product Development:
-
-5. Patient-Facing Mobile App: Develop mobile application allowing patients to check wait times and pre-register.
-
-6. Predictive Staffing Tool: Use demand forecasting to help managers create optimal staff schedules.`,
-
-      dashboard: `Overview:
-The project features a comprehensive Streamlit-based web application serving as the primary interface between the predictive model and end users.
-
-Key Features:
-
-1. Patient Check-In Simulator
-• Input patient details (age, arrival mode, complaint, history, etc.)
-• Instant wait time prediction with confidence range
-• Visual explanation of factors affecting the prediction
-
-2. Real-Time Department Overview
-• Current occupancy gauge visualization
-• Patients waiting by triage category (color-coded)
-• Staff on duty indicator
-• Live wait time estimates by category
-
-3. Analytics Dashboard
-• Historical trends (daily, weekly, monthly, yearly)
-• Peak hours heatmap
-• Seasonal patterns visualization
-
-4. Predictive Insights Panel
-• Feature importance chart (interactive)
-• "What-if" scenario analysis
-• Demand forecasting
-
-Technical Implementation:
-• Frontend: Streamlit
-• Visualizations: Plotly
-• Model Serving: Joblib, Scikit-learn
-• Deployment: Streamlit Cloud`,
-
-      deliverables: `This project produces the following usable products and assets:
-
-1. Trained Machine Learning Model
-• LightGBM model with 94.95% accuracy
-• MAE of 12.06 minutes
-• Model Card with performance documentation
-
-2. Complete Dataset
-• 100,000 records with 67 features
-• Available on Hugging Face
-• Data Dictionary included
-
-3. Interactive Web Application
-• Streamlit Dashboard - Fully functional
-• Live Demo on Streamlit Cloud
-• Complete source code on GitHub
-
-4. Analysis & Reports
-• EDA Notebook
-• Model Comparison Report
-• Feature Importance Analysis
-
-Deployment Locations:
-• Dataset: huggingface.co/datasets/ayoolumi/emergency-wait-prediction
-• Code: github.com/ayoolumi/emergency-wait-prediction
-• Live Demo: Streamlit Cloud
-• Portfolio: ayofemimelehon.com/portfolio`
+      problemStatement: `Emergency departments worldwide face mounting pressure from increasing patient volumes, staff shortages, and resource constraints. Across Scotland and the UK, A&E waiting times have reached critical levels, with patients routinely waiting 4+ hours for treatment.`,
+      previousGaps: `Previous approaches to emergency department wait time prediction have significant limitations including simple averaging methods and basic queueing theory that fail to capture the complexity of emergency care pathways.`,
+      aimsObjectives: `Primary Aim: Develop and deploy a machine learning system that accurately predicts emergency department wait times, improving patient experience and supporting clinical decision-making.`,
+      datasets: `The project utilizes a synthetic dataset of 100,000 patient records spanning 4 years (2021-2024), carefully generated to mirror realistic emergency department patterns in Scottish healthcare settings.`,
+      methodology: `The project follows a structured data science methodology across six phases: Data Generation & Preprocessing, Exploratory Data Analysis, Feature Engineering, Model Development, Hyperparameter Tuning, and Model Evaluation & Deployment.`,
+      findings: `LightGBM achieved the best performance with 94.95% accuracy and Mean Absolute Error of just 12.06 minutes. Department Occupancy was the most important feature at 28%.`,
+      limitations: `Data is synthetic and model has not been validated on actual hospital data. Single department configuration may require retraining for different hospitals.`,
+      recommendations: `Partner with healthcare providers to validate the model using actual A&E data. Develop APIs to connect with hospital management systems.`,
+      dashboard: `The project features a comprehensive Streamlit-based web application with Patient Check-In Simulator, Real-Time Department Overview, Analytics Dashboard, and Predictive Insights Panel.`,
+      deliverables: `Trained LightGBM model with 94.95% accuracy, complete dataset on Hugging Face, interactive Streamlit dashboard, and full source code on GitHub.`
     }
   },
   {
@@ -337,6 +59,7 @@ Deployment Locations:
     metrics: { main: '85.58%', label: 'Accuracy' },
     liveDemo: 'https://pneumonia-detection-system-l7hrqe7jvf7rwjzwtctgjm.streamlit.app/',
     github: 'https://github.com/ayoolumi/pneumonia-detection-system',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <rect x="8" y="4" width="16" height="20" rx="2" className="stroke-rose-600 fill-rose-500/10" strokeWidth="2" />
@@ -346,153 +69,17 @@ Deployment Locations:
       </svg>
     ),
     details: {
-      introduction: `This project develops a deep learning system for automated pneumonia detection from chest X-rays, providing rapid screening support for radiologists and clinicians.
-
-The system uses a ResNet-18 Convolutional Neural Network trained on thousands of chest X-ray images to distinguish between normal lungs and those showing signs of pneumonia. It provides instant diagnostic predictions with confidence scores.
-
-Key features include an intuitive Streamlit interface for image upload, real-time classification, and automated PDF report generation for clinical documentation.`,
-
-      problemStatement: `Pneumonia is a leading cause of death worldwide, particularly among children and the elderly. Early and accurate diagnosis is crucial for effective treatment.
-
-Challenges:
-• Manual chest X-ray interpretation is time-consuming and requires expertise
-• Radiologist shortages in many healthcare settings
-• Delayed diagnosis can lead to worse patient outcomes
-• High workload leads to potential diagnostic errors
-• Rural and underserved areas lack specialist coverage
-
-The need for AI-assisted screening tools has never been greater, especially in resource-limited settings where expert radiologists are scarce.`,
-
-      previousGaps: `Existing CAD (Computer-Aided Detection) systems often have limitations:
-
-• Lack explainability - clinicians don't understand why a diagnosis was made
-• High false positive rates leading to unnecessary follow-up
-• Not designed for clinical workflow integration
-• Require expensive proprietary hardware
-• Limited accessibility for smaller healthcare facilities
-• No automated reporting capabilities
-
-This project addresses these gaps by providing an accessible, web-based solution with clear confidence scores and automated documentation.`,
-
-      aimsObjectives: `Primary Aim:
-Develop an accessible AI system for pneumonia detection from chest X-rays with high diagnostic accuracy.
-
-Objectives:
-1. Achieve over 85% diagnostic accuracy on test data
-2. Provide confidence scores with each prediction
-3. Generate automated PDF reports for clinical documentation
-4. Create user-friendly interface suitable for clinical use
-5. Ensure fast inference time (<1 second per image)
-6. Build accessible web-based deployment`,
-
-      datasets: `Training Data:
-• Chest X-ray dataset with 5,863 images
-• Classes: Normal and Pneumonia
-• Source: Kaggle Chest X-Ray Images dataset
-• Split: Training, Validation, and Test sets
-
-Data Preprocessing:
-• Image resizing to 224x224 pixels
-• Normalization using ImageNet statistics
-• Data augmentation (rotation, flipping, brightness adjustment)
-• Class balancing techniques applied`,
-
-      methodology: `Model Development:
-
-1. Architecture Selection:
-• ResNet-18 chosen for balance of accuracy and speed
-• Pre-trained on ImageNet for transfer learning
-• Final layer modified for binary classification
-
-2. Training Process:
-• Fine-tuning with learning rate scheduling
-• Cross-entropy loss function
-• Adam optimizer
-• Early stopping to prevent overfitting
-
-3. Data Augmentation:
-• Random horizontal flips
-• Random rotation (±10 degrees)
-• Brightness and contrast adjustments
-• Normalization
-
-4. Evaluation:
-• Accuracy, Sensitivity, Specificity metrics
-• Confusion matrix analysis
-• ROC curve and AUC calculation`,
-
-      findings: `Model Performance:
-
-• Overall Accuracy: 85.58%
-• Model Architecture: ResNet-18 CNN
-• Inference Time: ~0.3 seconds per image
-• Sensitivity: 92% (high detection of pneumonia cases)
-• Specificity: 78% (good normal case identification)
-
-Key Insights:
-• Transfer learning from ImageNet significantly improved performance
-• Data augmentation helped reduce overfitting
-• Model performs well on both clear and borderline cases
-• Confidence scores correlate well with diagnostic certainty`,
-
-      limitations: `Current Limitations:
-
-1. Binary classification only - does not differentiate between bacterial and viral pneumonia
-2. Performance may vary on X-rays from different equipment/manufacturers
-3. Requires clinical validation before real-world deployment
-4. Does not detect other lung conditions
-5. Trained primarily on adult chest X-rays
-6. Cannot replace expert radiologist interpretation`,
-
-      recommendations: `Future Improvements:
-
-1. Extend to multi-class classification (bacterial vs viral pneumonia)
-2. Add Grad-CAM visualizations for explainability
-3. Include other lung condition detection
-4. Validate on pediatric chest X-rays
-5. Conduct clinical trial for regulatory approval
-6. Integrate with PACS systems for seamless workflow`,
-
-      dashboard: `Streamlit Application Features:
-
-1. Image Upload
-• Drag-and-drop or file browser upload
-• Supports common image formats (PNG, JPG, JPEG)
-
-2. Instant Analysis
-• Real-time prediction display
-• Confidence score visualization
-• Clear Normal/Pneumonia classification
-
-3. PDF Report Generation
-• Automated clinical report creation
-• Includes patient information fields
-• Downloadable documentation
-
-4. User Interface
-• Clean, intuitive design
-• Mobile-responsive layout
-• Clear visual feedback`,
-
-      deliverables: `Project Outputs:
-
-1. Trained Model
-• ResNet-18 CNN with 85.58% accuracy
-• Saved model weights for deployment
-
-2. Web Application
-• Streamlit-based interface
-• Live demo on Streamlit Cloud
-• Source code on GitHub
-
-3. Documentation
-• Model training notebook
-• Performance metrics report
-• User guide
-
-Deployment:
-• Live Demo: Streamlit Cloud
-• Code: github.com/ayoolumi/pneumonia-detection-system`
+      introduction: `This project develops a deep learning system for automated pneumonia detection from chest X-rays, providing rapid screening support for radiologists and clinicians.`,
+      problemStatement: `Pneumonia is a leading cause of death worldwide. Manual chest X-ray interpretation is time-consuming and requires expertise that is scarce in many healthcare settings.`,
+      previousGaps: `Existing CAD systems often lack explainability, have high false positive rates, and are not designed for clinical workflow integration.`,
+      aimsObjectives: `Develop an accessible AI system for pneumonia detection from chest X-rays with high diagnostic accuracy and confidence scores.`,
+      datasets: `Chest X-ray dataset with 5,863 images from Kaggle, split into training, validation, and test sets.`,
+      methodology: `ResNet-18 architecture with transfer learning from ImageNet, fine-tuned with data augmentation and early stopping.`,
+      findings: `Overall Accuracy: 85.58%, Sensitivity: 92%, Specificity: 78%. Transfer learning significantly improved performance.`,
+      limitations: `Binary classification only, does not differentiate between bacterial and viral pneumonia. Requires clinical validation.`,
+      recommendations: `Extend to multi-class classification, add Grad-CAM visualizations for explainability, conduct clinical trial for regulatory approval.`,
+      dashboard: `Streamlit application with image upload, instant analysis, confidence scores, and PDF report generation.`,
+      deliverables: `Trained ResNet-18 model, Streamlit web application, complete source code on GitHub.`
     }
   },
   {
@@ -501,13 +88,14 @@ Deployment:
     title: 'Mental Health Service Demand Forecasting',
     category: 'Healthcare Analytics',
     shortDesc: 'ARIMA-based forecasting system analyzing 1.97M+ records across Scotland\'s 14 health boards.',
-    description: 'Time series forecasting system predicting mental health service demand across all 14 Scottish health boards using ARIMA modeling. Analyzes 1,970,620 records from 2019-2024 with ~925 daily presentations.',
+    description: 'Time series forecasting system predicting mental health service demand across all 14 Scottish health boards using ARIMA modeling. Analyzes 1,970,620 records from 2019-2024.',
     image: '/projects/mental-health-1.png',
     fallbackGradient: 'from-emerald-500 to-teal-500',
     techStack: ['Python', 'ARIMA', 'Statsmodels', 'Pandas', 'Plotly', 'Streamlit'],
     metrics: { main: '1.97M+', label: 'Records' },
     liveDemo: 'https://mental-health-demand-forecasting-mypuyyylxp3fcubj8dddlb.streamlit.app/',
     github: 'https://github.com/ayoolumi/mental-health-demand-forecasting',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <path d="M4 24 L10 18 L16 22 L22 12 L28 16" className="stroke-emerald-600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -517,152 +105,17 @@ Deployment:
       </svg>
     ),
     details: {
-      introduction: `This project develops a comprehensive time series forecasting system to predict mental health service demand across all 14 Scottish territorial health boards.
-
-Using ARIMA (AutoRegressive Integrated Moving Average) models with seasonal decomposition, the system analyzes historical patterns in mental health presentations to forecast future demand, enabling better resource planning and service delivery.
-
-The analysis covers 1,970,620 records spanning 2019-2024, with an average of 925 presentations per day across Scotland. This represents one of the most comprehensive mental health demand analyses conducted for the Scottish healthcare system.`,
-
-      problemStatement: `Mental health services across Scotland face increasing pressure:
-
-• Rising demand post-COVID with limited resources
-• Difficulty predicting demand fluctuations
-• Staff scheduling challenges
-• Long waiting times for mental health support
-• Uneven distribution of resources across health boards
-• Seasonal variations not well understood
-
-Without accurate forecasting, health boards struggle to allocate staff and resources effectively, leading to longer wait times and poorer patient outcomes.`,
-
-      previousGaps: `Previous approaches to mental health demand forecasting had limitations:
-
-• Simple trend analysis without seasonal decomposition
-• No consideration of external factors (COVID, policy changes)
-• Regional variations not captured
-• Short-term forecasts only
-• No interactive visualization tools
-• Limited integration with planning systems`,
-
-      aimsObjectives: `Objectives:
-
-1. Analyze demand patterns across all 14 Scottish health boards
-2. Identify seasonal and trend components
-3. Develop accurate ARIMA forecasting models
-4. Create interactive visualization dashboard
-5. Enable scenario planning for resource allocation
-6. Provide health board comparison tools`,
-
-      datasets: `Data Source: Public Health Scotland
-
-Dataset Specifications:
-• Total Records: 1,970,620
-• Time Period: 2019-2024
-• Health Boards: 14 territorial boards
-• Average Daily Presentations: 925
-• Frequency: Monthly aggregated data
-
-Features Include:
-• Presentation counts by health board
-• Referral sources
-• Age group breakdowns
-• Service types
-• Waiting time categories`,
-
-      methodology: `Analysis Approach:
-
-1. Data Collection & Cleaning
-• Public Health Scotland data extraction
-• Missing value handling
-• Outlier detection and treatment
-• COVID period adjustment
-
-2. Exploratory Analysis
-• Trend identification
-• Seasonal pattern detection
-• Health board comparison
-• Year-over-year analysis
-
-3. Time Series Decomposition
-• Trend component extraction
-• Seasonal component identification
-• Residual analysis
-
-4. ARIMA Modeling
-• Stationarity testing (ADF test)
-• Parameter selection (ACF/PACF analysis)
-• Model fitting for each health board
-• Cross-validation
-
-5. Forecasting
-• 12-month ahead predictions
-• Confidence interval calculation
-• Scenario modeling`,
-
-      findings: `Key Findings:
-
-Temporal Patterns:
-• Strong seasonal patterns with peaks in January and September
-• Significant COVID-19 impact (2020-2021 disruption)
-• Recovery trajectory varies by health board
-
-Regional Variations:
-• Greater Glasgow & Clyde: Highest volume
-• Highland and Islands: Highest per-capita rate
-• Significant variation in growth rates between boards
-
-Trends:
-• Overall 15% increase in demand from 2019 to 2024
-• Youth mental health presentations growing fastest
-• Post-pandemic demand exceeds pre-pandemic levels`,
-
-      limitations: `Limitations:
-
-1. Historical data may not fully reflect post-pandemic patterns
-2. Does not account for policy changes or service restructuring
-3. Limited to aggregate demand (not individual-level)
-4. External factors (economic conditions) not modeled
-5. Assumes historical patterns continue`,
-
-      recommendations: `Recommendations:
-
-1. Integrate with workforce planning systems
-2. Add external variables (economic indicators, policy changes)
-3. Develop early warning system for demand spikes
-4. Create health board-specific staffing recommendations
-5. Regular model retraining with new data`,
-
-      dashboard: `Dashboard Features:
-
-1. Health Board Overview
-• Interactive Scotland map
-• Demand comparison across boards
-• Trend visualization
-
-2. Time Series Analysis
-• Historical patterns by board
-• Seasonal decomposition charts
-• Year-over-year comparison
-
-3. Forecasting Panel
-• 12-month demand predictions
-• Confidence intervals
-• Scenario planning tools
-
-4. Comparative Analysis
-• Board-to-board comparison
-• Per-capita normalization
-• Growth rate analysis`,
-
-      deliverables: `Deliverables:
-
-1. ARIMA models for all 14 health boards
-2. Historical data analysis (1.97M+ records)
-3. Interactive Streamlit dashboard
-4. Forecasting and scenario planning tools
-5. Complete source code on GitHub
-
-Live Demo: Streamlit Cloud
-Code: github.com/ayoolumi/mental-health-demand-forecasting`
+      introduction: `Comprehensive time series forecasting system to predict mental health service demand across all 14 Scottish territorial health boards.`,
+      problemStatement: `Mental health services across Scotland face increasing pressure with rising demand post-COVID and limited resources.`,
+      previousGaps: `Previous approaches lacked seasonal decomposition, regional variation analysis, and interactive visualization tools.`,
+      aimsObjectives: `Analyze demand patterns, identify seasonal components, develop ARIMA models, and create interactive dashboard.`,
+      datasets: `Public Health Scotland data: 1,970,620 records from 2019-2024, covering all 14 health boards.`,
+      methodology: `Data cleaning, exploratory analysis, time series decomposition, ARIMA modeling, and cross-validation.`,
+      findings: `Strong seasonal patterns with peaks in January and September. 15% overall increase from 2019-2024.`,
+      limitations: `Historical data may not fully reflect post-pandemic patterns. External factors not modeled.`,
+      recommendations: `Integrate with workforce planning, add external variables, develop early warning system.`,
+      dashboard: `Health board overview, time series analysis, forecasting panel, and comparative analysis tools.`,
+      deliverables: `ARIMA models for all 14 health boards, interactive Streamlit dashboard, complete source code.`
     }
   },
   {
@@ -671,13 +124,14 @@ Code: github.com/ayoolumi/mental-health-demand-forecasting`
     title: 'AI-Powered Fall Risk Assessment',
     category: 'Healthcare AI',
     shortDesc: 'ML model predicting fall risk in elderly patients with 79.5% accuracy and AUC of 0.856.',
-    description: 'Machine learning system for predicting fall risk in elderly patients using logistic regression. Achieves 79.5% accuracy with AUC 0.856, sensitivity 80.8%, and specificity 77.1%.',
+    description: 'Machine learning system for predicting fall risk in elderly patients using logistic regression. Achieves 79.5% accuracy with AUC 0.856.',
     image: '/projects/fall-risk-1.png',
     fallbackGradient: 'from-purple-500 to-pink-500',
     techStack: ['Python', 'Logistic Regression', 'Scikit-learn', 'Streamlit', 'Pandas'],
     metrics: { main: '0.856', label: 'AUC-ROC' },
     liveDemo: 'https://fall-risk-assessment-lnvjtegpsewdkd5khtsfmk.streamlit.app/',
     github: 'https://github.com/ayoolumi/fall-risk-assessment',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="8" r="4" className="fill-purple-500/30 stroke-purple-600" strokeWidth="2" />
@@ -685,93 +139,17 @@ Code: github.com/ayoolumi/mental-health-demand-forecasting`
       </svg>
     ),
     details: {
-      introduction: `Falls are a leading cause of injury and death among elderly populations. This project develops an AI-powered risk assessment tool to identify patients at high risk of falling, enabling preventive interventions.
-
-The system uses logistic regression to analyze 20 patient features including age, medical history, mobility status, and medication use to generate a fall risk score. This enables healthcare providers to prioritize patients for fall prevention programs.`,
-
-      problemStatement: `Falls among the elderly represent a major healthcare challenge:
-
-• Falls are the leading cause of injury in people over 65
-• One in three adults over 65 falls each year
-• Fall-related injuries cost the NHS billions annually
-• Many falls are preventable with early intervention
-• Current risk assessment tools are often subjective and inconsistent`,
-
-      previousGaps: `Existing fall risk assessment approaches have limitations:
-
-• Subjective clinical judgment varies between assessors
-• Paper-based scoring systems are time-consuming
-• Limited use of machine learning in clinical settings
-• No integration with electronic health records
-• Lack of continuous risk monitoring`,
-
-      aimsObjectives: `Objectives:
-
-1. Develop ML model with AUC > 0.80 for fall risk prediction
-2. Identify key modifiable and non-modifiable risk factors
-3. Create user-friendly clinical assessment interface
-4. Provide interpretable risk scores for clinicians
-5. Enable targeted intervention recommendations`,
-
-      datasets: `Dataset Features (20 columns):
-
-Demographics: Age, Gender
-Medical History: Previous falls, Chronic conditions, Medications
-Physical Assessment: Balance score, Gait speed, Grip strength
-Cognitive: Mental status score
-Environmental: Home hazards assessment
-Functional: Activities of daily living score
-
-Target: Fall within 12 months (Yes/No)`,
-
-      methodology: `Development Process:
-
-1. Data preprocessing and feature engineering
-2. Logistic regression model selection (interpretability priority)
-3. Feature importance analysis
-4. Threshold optimization for sensitivity/specificity balance
-5. Cross-validation for robust evaluation
-6. Streamlit dashboard development`,
-
-      findings: `Model Performance:
-
-• Accuracy: 79.5%
-• AUC-ROC: 0.856
-• Sensitivity: 80.8% (correctly identifies high-risk patients)
-• Specificity: 77.1% (correctly identifies low-risk patients)
-
-Top Risk Factors:
-1. Previous fall history
-2. Balance score
-3. Medication count (polypharmacy)
-4. Age
-5. Gait speed`,
-
-      limitations: `• Model trained on specific population demographics
-• Requires clinical validation before deployment
-• Does not capture all environmental factors
-• Static assessment (point-in-time prediction)
-• Requires accurate input data from clinical assessment`,
-
-      recommendations: `• Validate on larger, diverse populations
-• Integrate with EHR systems for automated data input
-• Develop intervention recommendation engine
-• Add continuous monitoring capabilities
-• Create mobile app for home assessments`,
-
-      dashboard: `Dashboard Features:
-
-• Patient risk assessment form
-• Instant risk score calculation
-• Risk factor breakdown visualization
-• Intervention recommendations
-• Patient report generation`,
-
-      deliverables: `• Logistic regression model (79.5% accuracy)
-• 20-feature risk assessment framework
-• Streamlit web application
-• GitHub repository with full code
-• Model documentation and user guide`
+      introduction: `AI-powered risk assessment tool to identify elderly patients at high risk of falling, enabling preventive interventions.`,
+      problemStatement: `Falls are the leading cause of injury in people over 65. Many falls are preventable with early intervention.`,
+      previousGaps: `Existing tools rely on subjective clinical judgment, paper-based scoring, and lack machine learning integration.`,
+      aimsObjectives: `Develop ML model with AUC > 0.80, identify key risk factors, create user-friendly clinical interface.`,
+      datasets: `20 features including demographics, medical history, physical assessment, cognitive status, and functional scores.`,
+      methodology: `Logistic regression for interpretability, feature importance analysis, threshold optimization.`,
+      findings: `Accuracy: 79.5%, AUC-ROC: 0.856, Sensitivity: 80.8%, Specificity: 77.1%. Previous fall history is top risk factor.`,
+      limitations: `Model trained on specific demographics, requires clinical validation before deployment.`,
+      recommendations: `Validate on larger populations, integrate with EHR systems, develop intervention recommendation engine.`,
+      dashboard: `Patient risk assessment form, instant risk score, risk factor breakdown, intervention recommendations.`,
+      deliverables: `Logistic regression model, 20-feature risk framework, Streamlit application, documentation.`
     }
   },
   {
@@ -780,13 +158,14 @@ Top Risk Factors:
     title: 'Social Isolation Detection System',
     category: 'Social Care AI',
     shortDesc: 'ML system detecting social isolation risk in elderly populations for proactive care intervention.',
-    description: 'Machine learning classification system for detecting social isolation risk in elderly populations. Focuses on enabling proactive social care intervention through risk scoring and pattern analysis.',
+    description: 'Machine learning classification system for detecting social isolation risk in elderly populations for proactive social care intervention.',
     image: '/projects/social-isolation-1.png',
     fallbackGradient: 'from-amber-500 to-yellow-500',
     techStack: ['Python', 'Machine Learning', 'Streamlit', 'Pandas', 'Scikit-learn', 'Plotly'],
     metrics: { main: 'Elderly', label: 'Care Focus' },
     liveDemo: 'https://social-isolation-detection-u8bhpjruedwd3yf2295kqt.streamlit.app/',
     github: 'https://github.com/ayoolumi/social-isolation-detection',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="12" r="5" className="fill-amber-500/30 stroke-amber-600" strokeWidth="2" />
@@ -796,86 +175,17 @@ Top Risk Factors:
       </svg>
     ),
     details: {
-      introduction: `Social isolation among elderly populations is a significant public health concern linked to increased mortality, cognitive decline, and poor mental health outcomes.
-
-This project develops an AI-powered detection system to identify individuals at risk of social isolation, enabling social care teams to provide timely interventions and support services.`,
-
-      problemStatement: `Social isolation affects millions of elderly individuals:
-
-• Over 1 million older people in the UK report being chronically lonely
-• Social isolation increases mortality risk by 26%
-• Linked to increased dementia risk and depression
-• Difficult to identify using traditional methods
-• Often goes undetected until crisis point`,
-
-      previousGaps: `Current approaches to identifying social isolation:
-
-• Rely on self-reporting (often under-reported)
-• No systematic screening in social care
-• Limited use of data-driven approaches
-• Reactive rather than proactive identification
-• No integration of multiple risk factors`,
-
-      aimsObjectives: `Objectives:
-
-1. Develop ML classification model for isolation risk
-2. Identify key indicators of social isolation
-3. Enable proactive social care intervention
-4. Create accessible screening tool
-5. Support resource allocation for outreach services`,
-
-      datasets: `Risk Factor Categories:
-
-• Demographics: Age, living situation, marital status
-• Social Activity: Contact frequency, group participation
-• Health: Mobility limitations, chronic conditions
-• Technology: Digital connectivity, phone usage
-• Environment: Transportation access, neighborhood type
-• Life Events: Recent bereavement, retirement`,
-
-      methodology: `Development Process:
-
-1. Risk factor identification from literature review
-2. Synthetic data generation reflecting real patterns
-3. Multiple classifier comparison
-4. Feature importance analysis
-5. Risk score calibration
-6. Interactive dashboard development`,
-
-      findings: `Key Risk Indicators:
-
-1. Living alone (strongest predictor)
-2. Mobility limitations
-3. Recent bereavement
-4. Low contact frequency with family/friends
-5. Lack of group activity participation
-6. Transportation barriers`,
-
-      limitations: `• Model based on synthetic data
-• Requires validation with social care data
-• Cultural factors may affect indicators
-• Privacy considerations for data collection
-• Risk of stigmatization`,
-
-      recommendations: `• Partner with social care agencies for validation
-• Integrate with existing care management systems
-• Develop intervention matching based on risk factors
-• Add longitudinal monitoring capabilities
-• Create community outreach prioritization tools`,
-
-      dashboard: `Features:
-
-• Individual risk assessment
-• Population-level screening
-• Risk factor visualization
-• Intervention recommendations
-• Outreach prioritization lists`,
-
-      deliverables: `• ML classification model
-• Risk scoring framework
-• Streamlit web application
-• Social care integration guide
-• Complete source code`
+      introduction: `AI-powered detection system to identify individuals at risk of social isolation, enabling timely social care interventions.`,
+      problemStatement: `Social isolation affects millions of elderly individuals, increasing mortality risk by 26% and linked to dementia and depression.`,
+      previousGaps: `Current approaches rely on self-reporting, lack systematic screening, and use reactive rather than proactive identification.`,
+      aimsObjectives: `Develop ML classification model, identify key indicators, enable proactive intervention, create accessible screening tool.`,
+      datasets: `Risk factors including demographics, social activity, health status, technology use, environment, and life events.`,
+      methodology: `Risk factor identification, synthetic data generation, classifier comparison, feature importance analysis.`,
+      findings: `Key indicators: living alone, mobility limitations, recent bereavement, low contact frequency, lack of group activity.`,
+      limitations: `Based on synthetic data, requires validation with social care agencies, cultural factors may affect indicators.`,
+      recommendations: `Partner with social care agencies, integrate with care management systems, add longitudinal monitoring.`,
+      dashboard: `Individual risk assessment, population screening, risk visualization, intervention recommendations.`,
+      deliverables: `ML classification model, risk scoring framework, Streamlit application, integration guide.`
     }
   },
   {
@@ -884,107 +194,33 @@ This project develops an AI-powered detection system to identify individuals at 
     title: 'COVID Healthcare Impact Analysis',
     category: 'Healthcare Analytics',
     shortDesc: 'Comprehensive analytics dashboard analyzing COVID-19 impact on Scottish healthcare services 2020-2024.',
-    description: 'Population health analytics dashboard examining COVID-19 impact on healthcare services across Scotland with interactive visualizations and trend analysis spanning 2020-2024.',
+    description: 'Population health analytics dashboard examining COVID-19 impact on healthcare services across Scotland spanning 2020-2024.',
     image: '/projects/covid-healthcare-1.png',
     fallbackGradient: 'from-indigo-500 to-blue-500',
     techStack: ['Python', 'Pandas', 'Plotly', 'Streamlit', 'Data Analysis'],
     metrics: { main: '2020-24', label: 'Analysis Period' },
     liveDemo: 'https://covid-healthcare-impact-4hxqzrr79raja5c5v9cvba.streamlit.app/',
     github: 'https://github.com/ayoolumi/covid-healthcare-impact',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="10" className="stroke-indigo-600 fill-indigo-500/10" strokeWidth="2" />
         <circle cx="16" cy="16" r="4" className="fill-indigo-500" />
         <path d="M16 6v4M16 22v4M6 16h4M22 16h4" className="stroke-indigo-600" strokeWidth="2" strokeLinecap="round" />
-        <path d="M9 9l3 3M20 20l3 3M9 23l3-3M20 12l3-3" className="stroke-indigo-400" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     details: {
-      introduction: `The COVID-19 pandemic had unprecedented effects on healthcare systems worldwide. This project provides a comprehensive analysis of how the pandemic impacted Scottish healthcare services from 2020 to 2024.
-
-The interactive dashboard visualizes trends in hospital admissions, A&E attendances, elective procedures, and waiting times, enabling understanding of disruption patterns and recovery trajectories.`,
-
-      problemStatement: `The pandemic significantly disrupted healthcare services:
-
-• Cancelled elective surgeries and procedures
-• Reduced A&E attendances (avoidance behavior)
-• Transformed service delivery models
-• Increased waiting lists
-• Staff redeployment and burnout
-• Long-term impacts on population health`,
-
-      previousGaps: `Early pandemic analyses were limited:
-
-• Focused primarily on COVID cases/deaths
-• Did not examine broader healthcare system impacts
-• Limited regional breakdown
-• Short-term focus only
-• No interactive exploration tools`,
-
-      aimsObjectives: `Objectives:
-
-1. Quantify service disruption across multiple metrics
-2. Identify most affected service areas
-3. Track recovery trajectories over time
-4. Enable regional comparison
-5. Create interactive exploration dashboard`,
-
-      datasets: `Data Sources: Public Health Scotland
-
-Metrics Analyzed:
-• Hospital admissions (emergency and elective)
-• A&E attendances and waiting times
-• Outpatient appointments
-• Diagnostic procedures
-• Treatment times
-• Workforce data`,
-
-      methodology: `Analysis Approach:
-
-1. Multi-source data integration
-2. Pre-pandemic baseline establishment (2019)
-3. Disruption period analysis (2020-2021)
-4. Recovery period tracking (2022-2024)
-5. Statistical comparison testing
-6. Interactive visualization development`,
-
-      findings: `Key Findings:
-
-Service Disruption:
-• Elective procedures dropped 70% during first lockdown
-• A&E attendances fell 40% but acuity increased
-• Outpatient activity reduced by 50%
-
-Recovery Patterns:
-• Emergency services recovered fastest
-• Elective surgery backlog persists
-• Some services transformed to digital/remote
-• Significant regional variation in recovery rates`,
-
-      limitations: `• Data quality issues during pandemic period
-• Difficulty separating COVID effects from other factors
-• Ongoing impacts may not be fully captured
-• Changes in coding/recording practices`,
-
-      recommendations: `• Continue monitoring recovery metrics
-• Develop early warning indicators for future disruptions
-• Analyze long-term population health impacts
-• Share insights with health board planners`,
-
-      dashboard: `Dashboard Features:
-
-• Timeline visualization of key events
-• Service area comparison charts
-• Regional breakdown maps
-• Recovery tracker
-• Year-over-year comparisons
-• Trend analysis tools`,
-
-      deliverables: `• Comprehensive data analysis
-• Interactive Streamlit dashboard
-• Trend visualizations
-• Recovery metrics framework
-• Complete source code`
+      introduction: `Comprehensive analysis of how the COVID-19 pandemic impacted Scottish healthcare services from 2020 to 2024.`,
+      problemStatement: `The pandemic significantly disrupted healthcare services with cancelled surgeries, reduced attendances, and increased waiting lists.`,
+      previousGaps: `Early analyses focused primarily on COVID cases/deaths without examining broader healthcare system impacts.`,
+      aimsObjectives: `Quantify service disruption, identify most affected areas, track recovery trajectories, enable regional comparison.`,
+      datasets: `Public Health Scotland data including hospital admissions, A&E attendances, outpatient appointments, and workforce data.`,
+      methodology: `Multi-source data integration, pre-pandemic baseline establishment, disruption and recovery analysis.`,
+      findings: `Elective procedures dropped 70% during first lockdown, A&E attendances fell 40%, recovery patterns vary by region.`,
+      limitations: `Data quality issues during pandemic, difficulty separating COVID effects from other factors.`,
+      recommendations: `Continue monitoring recovery, develop early warning indicators, analyze long-term population health impacts.`,
+      dashboard: `Timeline visualization, service area comparison, regional breakdown maps, recovery tracker.`,
+      deliverables: `Comprehensive data analysis, interactive Streamlit dashboard, trend visualizations, source code.`
     }
   },
   {
@@ -993,13 +229,14 @@ Recovery Patterns:
     title: 'NHS Data Integration Pipeline',
     category: 'Data Engineering',
     shortDesc: 'Automated ETL pipeline for integrating and processing NHS healthcare data sources.',
-    description: 'Automated ETL (Extract, Transform, Load) pipeline for integrating multiple NHS data sources. Features data validation, quality checks, and standardized output formats for analytics.',
+    description: 'Automated ETL (Extract, Transform, Load) pipeline for integrating multiple NHS data sources with validation and quality checks.',
     image: '/projects/nhs-pipeline-1.png',
     fallbackGradient: 'from-slate-600 to-gray-500',
     techStack: ['Python', 'ETL', 'Pandas', 'SQL', 'Streamlit'],
     metrics: { main: 'ETL', label: 'Pipeline' },
     liveDemo: 'https://nhs-data-integration-pipeline-awass8hapyas6weebsey6n.streamlit.app/',
     github: 'https://github.com/ayoolumi/nhs-data-integration-pipeline',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <rect x="4" y="6" width="8" height="8" rx="1" className="fill-slate-500/30 stroke-slate-600" strokeWidth="1.5" />
@@ -1009,107 +246,33 @@ Recovery Patterns:
       </svg>
     ),
     details: {
-      introduction: `Healthcare data often exists in silos across multiple systems and formats. This project develops an automated ETL pipeline to integrate diverse NHS data sources into a unified, analytics-ready format.
-
-The pipeline handles data extraction from multiple sources, applies transformations and quality checks, and loads clean data into standardized formats for downstream analysis.`,
-
-      problemStatement: `NHS data integration challenges:
-
-• Multiple source systems with different formats
-• Inconsistent data quality across sources
-• Manual data processing is time-consuming
-• Lack of standardized data models
-• Delayed availability of integrated data
-• Limited data validation processes`,
-
-      previousGaps: `Current data integration approaches:
-
-• Heavy reliance on manual processing
-• Limited automation in data pipelines
-• Inconsistent quality checking
-• No standardized transformation rules
-• Poor documentation of data lineage`,
-
-      aimsObjectives: `Objectives:
-
-1. Automate data extraction from multiple sources
-2. Implement standardized transformation rules
-3. Build comprehensive data validation checks
-4. Create reusable pipeline components
-5. Provide monitoring and logging capabilities`,
-
-      datasets: `Data Sources Integrated:
-
-• Hospital activity data
-• A&E statistics
-• Waiting time records
-• Patient demographics
-• Geographic reference data
-
-Output Formats:
-• Cleaned CSV files
-• Standardized schemas
-• Analytics-ready datasets`,
-
-      methodology: `Pipeline Architecture:
-
-1. Extract: Connect to multiple data sources
-2. Validate: Check data quality at ingestion
-3. Transform: Apply standardization rules
-4. Quality Check: Post-transformation validation
-5. Load: Output to target formats
-6. Log: Record all pipeline activities`,
-
-      findings: `Pipeline Capabilities:
-
-• Processes multiple NHS data sources
-• Automated quality checks
-• Standardized output formats
-• Logging and monitoring
-• Reusable components
-• Error handling and recovery`,
-
-      limitations: `• Currently handles batch processing only
-• Limited to specific NHS data formats
-• Requires configuration for new sources
-• No real-time streaming capability`,
-
-      recommendations: `• Add streaming data support
-• Expand source connectors
-• Implement data catalog integration
-• Add automated scheduling
-• Build data lineage tracking`,
-
-      dashboard: `Dashboard Features:
-
-• Pipeline status monitoring
-• Data quality metrics
-• Processing logs viewer
-• Source/target configuration
-• Error tracking and alerts`,
-
-      deliverables: `• Complete ETL pipeline code
-• Data validation framework
-• Streamlit monitoring dashboard
-• Configuration templates
-• Documentation and guides`
+      introduction: `Automated ETL pipeline to integrate diverse NHS data sources into unified, analytics-ready format.`,
+      problemStatement: `Healthcare data exists in silos across multiple systems with inconsistent formats and quality.`,
+      previousGaps: `Heavy reliance on manual processing, limited automation, inconsistent quality checking.`,
+      aimsObjectives: `Automate data extraction, implement transformation rules, build validation checks, create reusable components.`,
+      datasets: `Hospital activity data, A&E statistics, waiting time records, patient demographics, geographic reference data.`,
+      methodology: `Extract from multiple sources, validate at ingestion, transform with standardization, quality check, load to targets.`,
+      findings: `Pipeline processes multiple NHS data sources with automated quality checks and standardized outputs.`,
+      limitations: `Batch processing only, limited to specific NHS formats, requires configuration for new sources.`,
+      recommendations: `Add streaming support, expand source connectors, implement data catalog integration.`,
+      dashboard: `Pipeline status monitoring, data quality metrics, processing logs, error tracking.`,
+      deliverables: `Complete ETL pipeline, validation framework, monitoring dashboard, configuration templates.`
     }
   },
-
-
-{
+  {
     id: 'whatsapp-debt-reminder',
     number: '08',
     title: 'WhatsApp Debt Reminder System',
     category: 'Automation Tools',
     shortDesc: 'Automated payment reminder platform with WhatsApp integration, multi-currency tracking, and smart templates.',
-    description: 'Full-stack WhatsApp-based debt reminder system with automated messaging, multi-currency support (GBP, NGN, USD, EUR), customizable templates, payment tracking, and complete message history logging.',
+    description: 'Full-stack WhatsApp-based debt reminder system with automated messaging, multi-currency support (GBP, NGN, USD, EUR), and payment tracking.',
     image: '/projects/debt_reminder1.png',
     fallbackGradient: 'from-teal-500 to-green-500',
     techStack: ['Python', 'Streamlit', 'SQLite', 'Green API', 'REST APIs', 'WhatsApp'],
     metrics: { main: '4', label: 'Currencies' },
     liveDemo: 'https://debt-reminder-pro-bktusfztnyq4xgrt6cgzvw.streamlit.app/',
     github: 'https://github.com/ayoolumi/debt-reminder-pro',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <rect x="6" y="4" width="20" height="24" rx="3" className="fill-teal-500/20 stroke-teal-600" strokeWidth="2" />
@@ -1119,351 +282,33 @@ Output Formats:
       </svg>
     ),
     details: {
-      introduction: `This project develops an automated WhatsApp-based debt reminder system that sends professional payment reminders with one click. The platform eliminates the awkwardness of manually chasing payments while maintaining professional relationships.
-
-The system features a comprehensive Streamlit dashboard for managing debtors, sending reminders, and tracking payment progress. Built with real-time WhatsApp integration via Green API, it enables instant message delivery directly to recipients' phones.
-
-Key features include multi-currency support (GBP, NGN, USD, EUR), customizable message templates for different situations, payment tracking with partial payment recording, and complete message history logging for audit purposes.
-
-The solution addresses a common pain point for individuals and small businesses who struggle to track debts and follow up consistently, providing a professional, automated approach to payment collection.`,
-
-      problemStatement: `Tracking debts and sending payment reminders manually presents several challenges:
-
-For Individuals:
-- Awkwardness in asking friends or family for money owed
-- Forgetting who owes what and when it was due
-- Inconsistent follow-up leading to lost money
-- No record of communication attempts
-
-For Small Businesses:
-- Time-consuming manual reminder processes
-- Unprofessional or inconsistent messaging
-- Difficulty tracking multiple debtors
-- No audit trail of collection attempts
-- Managing multiple currencies for international clients
-
-The Problem Impact:
-- Lost revenue from uncollected debts
-- Damaged relationships from poor communication
-- Administrative overhead managing spreadsheets
-- No systematic approach to payment collection
-
-Without proper tools, debt collection becomes a burden that many avoid, leading to financial losses and strained relationships.`,
-
-      previousGaps: `Existing solutions for debt tracking and reminders have limitations:
-
-Manual Methods:
-- Spreadsheets lack automation and require manual updates
-- Calendar reminders don't integrate with messaging
-- No professional templates for communication
-- Easy to forget or lose track
-
-Traditional Invoicing Software:
-- Often expensive for personal or small business use
-- Email-based (lower open rates than WhatsApp)
-- Complex setup and learning curve
-- Overkill for simple debt tracking needs
-
-WhatsApp Business:
-- Manual message composition each time
-- No debt tracking integration
-- No payment recording
-- No history or analytics
-
-This project bridges these gaps by combining debt management with automated WhatsApp messaging in a simple, accessible web application.`,
-
-      aimsObjectives: `Primary Aim:
-Develop an accessible, automated debt reminder system that sends professional WhatsApp messages while tracking payments and maintaining communication history.
-
-Specific Objectives:
-
-1. WhatsApp Integration: Implement real-time WhatsApp messaging via Green API for instant reminder delivery
-
-2. Multi-Currency Support: Enable debt tracking in GBP, NGN, USD, and EUR with proper formatting
-
-3. Smart Templates: Provide pre-built message templates for different scenarios:
-   • Friendly reminders
-   • Professional follow-ups
-   • Urgent payment requests
-   • Custom messages
-
-4. Debtor Management: Create comprehensive debtor database with:
-   • Contact information
-   • Amount owed
-   • Due dates
-   • Payment history
-   • Category tagging
-
-5. Payment Tracking: Record partial payments and calculate remaining balances automatically
-
-6. Message History: Maintain complete audit trail of all sent reminders with timestamps and delivery status
-
-7. User-Friendly Interface: Build intuitive Streamlit dashboard accessible to non-technical users
-
-8. Cloud Deployment: Deploy on Streamlit Cloud for 24/7 accessibility`,
-
-      datasets: `Database Schema:
-
-Debtors Table:
-- id (Primary Key)
-- name
-- phone_number
-- amount_owed
-- currency (GBP/NGN/USD/EUR)
-- due_date
-- category (personal/business/family)
-- description
-- created_at
-- updated_at
-
-Payments Table:
-- id (Primary Key)
-- debtor_id (Foreign Key)
-- amount_paid
-- payment_date
-- payment_method
-- notes
-
-Message History Table:
-- id (Primary Key)
-- debtor_id (Foreign Key)
-- message_content
-- template_used
-- sent_at
-- delivery_status
-- response_received
-
-Templates Table:
-- id (Primary Key)
-- name
-- content
-- category
-- is_default
-
-Configuration:
-- API credentials (encrypted)
-- Default currency
-- Sender name
-- Custom settings`,
-
-      methodology: `Development Process:
-
-Phase 1: Architecture Design
-- Database schema design (SQLite)
-- API integration planning (Green API)
-- User interface wireframing
-- Feature prioritization
-
-Phase 2: Backend Development
-- Database implementation with SQLAlchemy
-- Green API integration for WhatsApp
-- Message formatting and template system
-- Payment calculation logic
-
-Phase 3: Frontend Development
-- Streamlit multi-page application
-- Custom CSS for professional dark theme
-- Responsive layout design
-- Form validation and error handling
-
-Phase 4: Feature Implementation
-- Debtor CRUD operations
-- Template management
-- Bulk messaging capability
-- Payment recording
-- History logging
-
-Phase 5: Testing & Refinement
-- API connectivity testing
-- Message delivery verification
-- UI/UX refinement
-- Error handling improvements
-
-Phase 6: Deployment
-- Streamlit Cloud configuration
-- Environment secrets management
-- Production testing
-- Documentation`,
-
-      findings: `System Capabilities:
-
-Dashboard Features:
-- 7 pages: Home, Dashboard, Debtors, Send Reminders, Templates, History, Settings
-- Real-time WhatsApp connection status
-- Quick stats overview (total debtors, messages sent)
-
-Technical Achievements:
-- Instant WhatsApp delivery via Green API
-- Multi-currency formatting with proper symbols
-- Session state management for smooth UX
-- Secure credential handling via environment variables
-
-Message Templates:
-- Friendly Reminder: Casual, relationship-preserving tone
-- Professional Follow-up: Business-appropriate language
-- Urgent Request: Clear urgency without aggression
-- Payment Received: Thank you confirmations
-- Custom: User-defined messages
-
-User Interface:
-- Dark theme matching portfolio aesthetic
-- Teal/blue gradient accents
-- Glass-morphism design elements
-- Mobile-responsive layout
-
-Integration Success:
-- Real-time WhatsApp message delivery
-- Delivery confirmation tracking
-- Two-way chat history preservation
-- Connection status monitoring`,
-
-      limitations: `Current Limitations:
-
-1. Database Persistence: Streamlit Cloud's ephemeral storage means data resets when app sleeps. Production use would require PostgreSQL or MongoDB.
-
-2. Single WhatsApp Account: System connects to one WhatsApp number. Multiple business accounts would require separate instances.
-
-3. No Scheduled Reminders: Current version requires manual sending. Automated scheduling would need background job processing.
-
-4. No Payment Links: Integration with Stripe/PayPal for direct payment collection not implemented.
-
-5. Basic Analytics: Limited reporting on collection success rates and patterns.
-
-6. No Mobile App: Web-only interface; native mobile app would improve accessibility.
-
-7. Manual Data Entry: No import from spreadsheets or other accounting software.
-
-8. Green API Dependency: Reliance on third-party API for WhatsApp connectivity.`,
-
-      recommendations: `Future Enhancements:
-
-Technical Improvements:
-1. Persistent Database: Migrate to PostgreSQL for reliable data storage
-2. Scheduled Reminders: Add automatic reminder scheduling with cron jobs
-3. Payment Integration: Add Stripe/PayPal for direct payment collection
-4. CSV Import/Export: Enable bulk debtor import from spreadsheets
-5. Mobile App: Develop React Native companion app
-
-Feature Additions:
-6. Analytics Dashboard: Collection success rates, response patterns
-7. Email Backup: Send email reminders when WhatsApp fails
-8. PDF Statements: Generate debtor statements for formal requests
-9. Recurring Debts: Support for subscription/recurring payment tracking
-10. Multi-user Support: Team access with role-based permissions
-
-Integration Opportunities:
-11. Accounting Software: QuickBooks, Xero integration
-12. Calendar Sync: Due date reminders in Google/Outlook
-13. Banking APIs: Automatic payment verification
-14. CRM Integration: Link with customer management systems`,
-
-      dashboard: `Streamlit Application Structure:
-
-1. Home Page
-- Professional landing with feature overview
-- Social links and profile information
-- Quick navigation to all features
-
-2. Dashboard
-- Total debtors count
-- Outstanding balance by currency
-- Recent activity feed
-- Quick action buttons
-
-3. Debtors Management
-- Add new debtor form
-- Edit existing debtor details
-- Mark as paid functionality
-- Delete with confirmation
-- Filter by category/status
-
-4. Send Reminders
-- Select debtors (individual or bulk)
-- Choose message template
-- Preview before sending
-- Instant WhatsApp delivery
-- Delivery confirmation
-
-5. Templates
-- View pre-built templates
-- Create custom templates
-- Edit existing templates
-- Template categories
-
-6. History
-- Complete message log
-- Filter by date/debtor
-- Search functionality
-- Export capability
-
-7. Settings
-- WhatsApp connection status
-- API credentials management
-- Default preferences
-- Test message functionality`,
-
-      deliverables: `Project Outputs:
-
-1. Complete Application
-- Full-stack Streamlit application
-- SQLite database with schema
-- Green API integration
-- Custom dark theme UI
-
-2. Source Code
-- GitHub Repository: github.com/ayoolumi/debt-reminder-pro
-- Complete documentation
-- Environment configuration guide
-
-3. Live Deployment
-- Streamlit Cloud: debt-reminder-pro-bktusfztnyq4xgrt6cgzvw.streamlit.app
-- 24/7 availability
-- Secure secrets management
-
-4. Documentation
-- README with setup instructions
-- API integration guide
-- User manual
-
-5. Features Included
-- Multi-currency debt tracking
-- WhatsApp message delivery
-- 6 message templates
-- Payment recording
-- Message history logging
-- Professional UI design
-
-Deployment Locations:
-- Live Demo: Streamlit Cloud
-- Code: github.com/ayoolumi/debt-reminder-pro
-- Portfolio: ayofemimelehon.com/portfolio`
+      introduction: `Automated WhatsApp-based debt reminder system that sends professional payment reminders with one click.`,
+      problemStatement: `Tracking debts and sending payment reminders manually is awkward, time-consuming, and inconsistent.`,
+      previousGaps: `Manual methods lack automation, traditional invoicing is email-based with lower open rates than WhatsApp.`,
+      aimsObjectives: `Implement WhatsApp integration, multi-currency support, smart templates, debtor management, payment tracking.`,
+      datasets: `Database schema includes debtors, payments, message history, and templates tables.`,
+      methodology: `Architecture design, backend development with SQLAlchemy, Green API integration, Streamlit frontend.`,
+      findings: `System delivers instant WhatsApp messages, supports 4 currencies, includes 6 message templates.`,
+      limitations: `Ephemeral storage on Streamlit Cloud, single WhatsApp account, no scheduled reminders yet.`,
+      recommendations: `Add PostgreSQL for persistence, implement scheduled reminders, add payment link integration.`,
+      dashboard: `Home, Dashboard, Debtors, Send Reminders, Templates, History, and Settings pages.`,
+      deliverables: `Complete Streamlit application, SQLite database, Green API integration, documentation.`
     }
   },
-
-
-
-
-
-
-
-
-
-
-
-
   {
     id: 'executive-sales-dashboard',
     number: '09',
     title: 'Executive Sales Dashboard',
     category: 'Business Analytics',
     shortDesc: 'Business intelligence dashboard with £6.39M revenue tracking, £30.57M pipeline, and 18.9% win rate analysis.',
-    description: 'Comprehensive business analytics dashboard for executive sales reporting. Tracks £6.39M revenue, £30.57M pipeline, 18.9% win rate, and £17K average deal size with interactive visualizations.',
+    description: 'Comprehensive business analytics dashboard for executive sales reporting with £6.39M revenue tracking and interactive visualizations.',
     image: '/projects/executive-bi-1.png',
     fallbackGradient: 'from-green-500 to-emerald-500',
     techStack: ['Python', 'Streamlit', 'Plotly', 'Pandas', 'Business Intelligence'],
     metrics: { main: '£6.39M', label: 'Revenue' },
     liveDemo: 'https://executive-sales-dashboard-9ekb6dle3k5apgaf5d6puu.streamlit.app/',
     github: 'https://github.com/ayoolumi/executive-sales-dashboard',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <rect x="4" y="16" width="5" height="10" className="fill-green-500/50" />
@@ -1474,83 +319,536 @@ Deployment Locations:
       </svg>
     ),
     details: {
-      introduction: `This project demonstrates business analytics capabilities through an executive sales dashboard. The dashboard provides C-suite level insights into sales performance, pipeline health, and team productivity.
+      introduction: `Executive sales dashboard providing C-suite level insights into sales performance, pipeline health, and team productivity.`,
+      problemStatement: `Sales executives need clear visibility into revenue performance, pipeline health, and team performance.`,
+      previousGaps: `Traditional sales reporting uses static reports, has limited drill-down, and no real-time access.`,
+      aimsObjectives: `Create executive KPI dashboard, visualize pipeline and funnel, enable team comparison, provide trend analysis.`,
+      datasets: `Metrics: £6.39M revenue, £30.57M pipeline, 18.9% win rate, £17K average deal size.`,
+      methodology: `KPI identification, data model design, visualization selection, interactive filter implementation.`,
+      findings: `Dashboard shows revenue distribution, conversion rates, top performers, and seasonal trends.`,
+      limitations: `Based on sample data, single-currency focus, no CRM integration, manual data refresh.`,
+      recommendations: `Add CRM integration, implement automated refresh, add predictive forecasting.`,
+      dashboard: `Executive KPI cards, pipeline funnel, revenue trends, team leaderboard, deal drill-down.`,
+      deliverables: `Complete Streamlit dashboard, interactive visualizations, sample dataset, source code.`
+    }
+  },
+  // NEW CAMPHILL-ALIGNED PROJECTS
+  {
+    id: 'document-management-system',
+    number: '10',
+    title: 'Care Home Document Management System',
+    category: 'Care Administration',
+    shortDesc: 'Centralized document control system ensuring consistency, version tracking, and compliance across care settings.',
+    description: 'Comprehensive document management solution for care homes featuring version control, approval workflows, compliance tracking, and searchable document repository. Designed to ensure consistency across departments and simplify audits.',
+    image: '/projects/document-management-1.png',
+    fallbackGradient: 'from-sky-500 to-blue-600',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Processing', 'Search', 'Authentication'],
+    metrics: { main: 'QA', label: 'Compliant' },
+    liveDemo: '#',
+    github: '#',
+    status: 'coming-soon',
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+        <rect x="6" y="4" width="16" height="22" rx="2" className="fill-sky-500/20 stroke-sky-600" strokeWidth="2" />
+        <path d="M10 10h8M10 14h8M10 18h5" className="stroke-sky-500" strokeWidth="2" strokeLinecap="round" />
+        <rect x="18" y="14" width="8" height="10" rx="1" className="fill-blue-500 stroke-blue-600" strokeWidth="1.5" />
+        <path d="M20 17h4M20 20h4" className="stroke-white" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+    details: {
+      introduction: `This project develops a comprehensive document management system tailored for care home environments. The system addresses the critical need for consistent document control, version tracking, and regulatory compliance across all departments.
 
-While my primary focus is healthcare AI, this project showcases transferable data analysis and visualization skills applicable across industries.`,
+In care settings like Camphill Blair Drummond, maintaining organized, up-to-date documentation is essential for quality assurance, staff guidance, and regulatory inspections. This system provides a centralized repository with powerful search, version control, and approval workflows.
 
-      problemStatement: `Sales executives need clear visibility into:
+Key features include categorized document storage, automated version history, approval workflows for policy updates, compliance tracking dashboards, and role-based access control. The system integrates with existing workflows to enhance rather than disrupt daily operations.`,
+      problemStatement: `Care homes face significant document management challenges:
 
-• Revenue performance vs targets
-• Pipeline health and conversion rates
-• Team and individual performance
-• Deal size and win rate trends
-• Forecast accuracy`,
+• Documents scattered across shared drives, emails, and physical files
+• Multiple versions of policies causing confusion and compliance risks
+• No audit trail of document changes or approvals
+• Difficulty finding correct, current versions of procedures
+• Time-consuming preparation for regulatory inspections
+• Inconsistent document formats across departments
 
-      previousGaps: `Traditional sales reporting challenges:
+Without proper document control, staff may follow outdated procedures, inspectors may find compliance gaps, and organizational knowledge becomes fragmented.`,
+      previousGaps: `Current document management in many care settings relies on:
 
-• Static reports that quickly become outdated
-• Limited drill-down capabilities
-• No real-time data access
-• Poor visualization of trends
-• Siloed metrics across systems`,
+• Basic shared network folders with no version control
+• Manual tracking of document updates via spreadsheets
+• Email-based approval processes with no audit trail
+• Physical filing systems for archived documents
+• No centralized search across all documents
+• Limited access control and security`,
+      aimsObjectives: `Primary Aim: Create a user-friendly document management system that ensures consistency and compliance across the care organization.
 
-      aimsObjectives: `Objectives:
+Objectives:
+1. Centralized repository with categorized document storage
+2. Automatic version control with full history tracking
+3. Approval workflow for policy and procedure updates
+4. Powerful search with filters by category, date, department
+5. Compliance dashboard showing document review status
+6. Role-based access control for sensitive documents
+7. Audit trail for all document activities
+8. Integration with quality assurance processes`,
+      datasets: `Document Categories:
+• Policies & Procedures
+• Care Plans & Assessments
+• Staff Training Records
+• Health & Safety Documents
+• Quality Assurance Reports
+• Meeting Minutes
+• Regulatory Correspondence
+• Templates & Forms`,
+      methodology: `Development Approach:
 
-1. Create executive-level KPI dashboard
-2. Visualize sales pipeline and funnel
-3. Enable team performance comparison
-4. Provide trend analysis and forecasting
-5. Design mobile-responsive interface`,
+1. Requirements gathering from care administration workflows
+2. Database design for document metadata and versioning
+3. File storage system with secure access
+4. Search indexing for fast document retrieval
+5. Approval workflow engine
+6. User interface design for non-technical users
+7. Role-based access control implementation
+8. Compliance reporting dashboard`,
+      findings: `System Capabilities (Planned):
 
-      datasets: `Metrics Tracked:
+• Unlimited document storage with version history
+• Full-text search across all documents
+• Automated reminder for document reviews
+• One-click audit report generation
+• Mobile-friendly access for staff
+• Integration with existing systems`,
+      limitations: `Planned Considerations:
 
-• Total Revenue: £6.39M
-• Pipeline Value: £30.57M
-• Win Rate: 18.9%
-• Average Deal Size: £17K
-• Deals by stage, rep, and region`,
+• Initial setup requires document migration effort
+• Staff training needed for adoption
+• Requires ongoing maintenance and backup procedures
+• May need customization for specific organizational needs`,
+      recommendations: `Future Enhancements:
 
-      methodology: `Dashboard Development:
+• AI-powered document classification
+• Automated compliance gap detection
+• Integration with care management systems
+• Mobile app for offline document access
+• Automated document expiry notifications`,
+      dashboard: `Planned Dashboard Features:
 
-1. KPI identification and definition
-2. Data model design
-3. Visualization selection
-4. Interactive filter implementation
-5. Performance optimization
-6. User testing and refinement`,
+• Document library with category navigation
+• Search with filters and advanced options
+• Upload with automatic categorization
+• Version comparison tool
+• Approval queue for managers
+• Compliance status overview
+• Recent activity feed
+• User access management`,
+      deliverables: `Expected Outputs:
 
-      findings: `Dashboard Insights:
+• Complete document management system
+• User guide and training materials
+• Data migration tools
+• Compliance reporting templates
+• Source code and documentation
 
-• Revenue distribution by region and product
-• Pipeline stage conversion rates
-• Top performers and coaching opportunities
-• Seasonal trends in deal flow
-• Forecast vs actual comparison`,
+Status: Coming Soon - In Development`
+    }
+  },
+  {
+    id: 'staff-scheduling-dashboard',
+    number: '11',
+    title: 'Staff Rota & Scheduling Dashboard',
+    category: 'Care Administration',
+    shortDesc: 'Intelligent staff scheduling system with shift management, availability tracking, and automated rota generation.',
+    description: 'AI-assisted staff scheduling solution for care organizations featuring shift pattern management, staff availability tracking, automated rota generation, and real-time coverage monitoring. Supports People Team administrative functions.',
+    image: '/projects/staff-scheduling-1.png',
+    fallbackGradient: 'from-violet-500 to-purple-600',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'Optimization', 'Calendar APIs', 'Notifications'],
+    metrics: { main: 'Rota', label: 'Management' },
+    liveDemo: '#',
+    github: '#',
+    status: 'coming-soon',
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+        <rect x="4" y="6" width="24" height="20" rx="2" className="fill-violet-500/20 stroke-violet-600" strokeWidth="2" />
+        <path d="M4 12h24" className="stroke-violet-600" strokeWidth="2" />
+        <path d="M10 4v4M22 4v4" className="stroke-violet-500" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="10" cy="18" r="2" className="fill-green-500" />
+        <circle cx="16" cy="18" r="2" className="fill-blue-500" />
+        <circle cx="22" cy="18" r="2" className="fill-purple-500" />
+        <circle cx="10" cy="24" r="2" className="fill-orange-500" />
+        <circle cx="16" cy="24" r="2" className="fill-pink-500" />
+      </svg>
+    ),
+    details: {
+      introduction: `This project develops an intelligent staff scheduling system designed specifically for care organizations. The system streamlines rota management, tracks staff availability, and ensures adequate coverage across all shifts.
 
-      limitations: `• Based on sample/synthetic data
-• Single-currency focus (GBP)
-• No CRM integration
-• Manual data refresh`,
+For organizations like Camphill Blair Drummond, effective staff scheduling is crucial for maintaining quality care while respecting staff work-life balance. This system provides administrative support to People Teams by automating routine scheduling tasks and providing clear visibility into staffing levels.
 
-      recommendations: `• Add CRM integration (Salesforce, HubSpot)
-• Implement automated data refresh
-• Add predictive forecasting
-• Create mobile app version`,
+Key features include shift pattern templates, staff availability management, automated rota generation with constraint handling, real-time coverage monitoring, and integration with leave management. The system reduces administrative burden while improving scheduling accuracy.`,
+      problemStatement: `Care organizations face complex scheduling challenges:
 
-      dashboard: `Dashboard Features:
+• Multiple shift patterns across different houses/units
+• Varying staff availability and preferences
+• Last-minute changes due to sickness or emergencies
+• Ensuring adequate skill mix on each shift
+• Managing part-time, full-time, and relief staff
+• Compliance with working time regulations
+• Fair distribution of unsocial hours
 
-• Executive KPI cards
-• Pipeline funnel visualization
-• Revenue trend charts
-• Team leaderboard
-• Deal detail drill-down
-• Filter by date, rep, region`,
+Manual scheduling is time-consuming, error-prone, and often results in understaffing or overstaffing situations.`,
+      previousGaps: `Current scheduling approaches often involve:
 
-      deliverables: `• Complete Streamlit dashboard
-• Interactive visualizations
-• Sample dataset
-• Source code on GitHub
-• Documentation`
+• Paper-based or spreadsheet rotas that are hard to update
+• No real-time visibility into coverage gaps
+• Manual communication of shift changes
+• Limited ability to track patterns over time
+• No integration with HR systems
+• Difficulty ensuring compliance with regulations`,
+      aimsObjectives: `Primary Aim: Create an efficient staff scheduling system that reduces administrative burden while ensuring optimal coverage.
+
+Objectives:
+1. Digital rota management with drag-and-drop interface
+2. Staff profiles with availability, skills, and preferences
+3. Automated shift assignment based on constraints
+4. Real-time coverage dashboard showing gaps
+5. Leave and absence integration
+6. Shift swap and pickup functionality
+7. Compliance checking for working hours
+8. Reporting on patterns and trends`,
+      datasets: `Data Components:
+
+Staff Records:
+• Personal details and contact information
+• Contract type (full-time, part-time, relief)
+• Skills and certifications
+• Availability patterns
+• Shift preferences
+
+Shift Definitions:
+• Shift times and patterns
+• Location/department assignment
+• Minimum staffing requirements
+• Skill requirements per shift
+
+Historical Data:
+• Past rotas and actual attendance
+• Absence patterns
+• Overtime trends`,
+      methodology: `Development Approach:
+
+1. Requirements analysis with People Team stakeholders
+2. Data model design for staff and scheduling
+3. Constraint definition and optimization logic
+4. User interface design for ease of use
+5. Notification system for shift updates
+6. Reporting and analytics development
+7. Testing with real scheduling scenarios
+8. Training materials preparation`,
+      findings: `System Capabilities (Planned):
+
+• Visual rota builder with templates
+• Automated gap detection and alerts
+• Staff mobile access for viewing schedules
+• One-click shift swap approval
+• Comprehensive audit trail
+• Customizable reports`,
+      limitations: `Planned Considerations:
+
+• Requires accurate staff data input
+• Complex rules may need ongoing refinement
+• Staff adoption requires training
+• Integration with payroll may need customization`,
+      recommendations: `Future Enhancements:
+
+• AI-powered demand forecasting
+• Automatic shift filling from relief pool
+• Integration with payroll systems
+• Mobile app for staff
+• Fatigue management monitoring`,
+      dashboard: `Planned Dashboard Features:
+
+• Weekly/monthly rota view
+• Coverage heat map
+• Staff availability calendar
+• Pending requests queue
+• Compliance alerts
+• Analytics and trends
+• Quick actions panel`,
+      deliverables: `Expected Outputs:
+
+• Complete scheduling system
+• Staff and manager interfaces
+• Mobile-responsive design
+• User training guide
+• Integration documentation
+
+Status: Coming Soon - In Development`
+    }
+  },
+  {
+    id: 'supplier-contractor-portal',
+    number: '12',
+    title: 'Supplier & Contractor Management Portal',
+    category: 'Care Administration',
+    shortDesc: 'Centralized system for managing contractor relationships, compliance documentation, and procurement tracking.',
+    description: 'Comprehensive supplier and contractor management system featuring vendor database, compliance tracking, contract management, and procurement workflows. Streamlines administrative oversight of external relationships.',
+    image: '/projects/supplier-portal-1.png',
+    fallbackGradient: 'from-orange-500 to-red-500',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Generation', 'Email', 'Dashboards'],
+    metrics: { main: 'Vendors', label: 'Management' },
+    liveDemo: '#',
+    github: '#',
+    status: 'coming-soon',
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+        <rect x="4" y="8" width="10" height="10" rx="2" className="fill-orange-500/20 stroke-orange-600" strokeWidth="2" />
+        <rect x="18" y="8" width="10" height="10" rx="2" className="fill-red-500/20 stroke-red-600" strokeWidth="2" />
+        <rect x="11" y="18" width="10" height="10" rx="2" className="fill-orange-600/30 stroke-orange-700" strokeWidth="2" />
+        <path d="M9 18v-2M23 18v-2M14 18v-2h4" className="stroke-orange-500" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    ),
+    details: {
+      introduction: `This project develops a centralized supplier and contractor management portal for care organizations. The system provides comprehensive oversight of external relationships, ensuring compliance and streamlining procurement processes.
+
+Care homes work with numerous suppliers and contractors - from food providers to maintenance services, medical suppliers to specialist consultants. Managing these relationships, tracking compliance documentation, and ensuring value for money requires systematic oversight.
+
+Key features include a vendor database with contact and contract details, compliance documentation tracking (insurance, certifications, DBS checks), contract renewal alerts, procurement workflow management, and spending analytics.`,
+      problemStatement: `Managing suppliers and contractors presents significant challenges:
+
+• Contact information scattered across different staff members
+• Compliance documents (insurance, certifications) difficult to track
+• No centralized view of contract terms and renewal dates
+• Manual process for requesting quotes and approving purchases
+• Limited visibility into spending patterns
+• Risk of using non-compliant contractors
+• No audit trail for procurement decisions
+
+Poor supplier management can lead to compliance failures, service disruptions, and missed cost-saving opportunities.`,
+      previousGaps: `Current supplier management often relies on:
+
+• Contact lists in spreadsheets or address books
+• Physical filing of compliance certificates
+• Manual calendar reminders for renewals
+• Email-based procurement with no central tracking
+• No systematic comparison of supplier performance
+• Limited reporting on supplier spending`,
+      aimsObjectives: `Primary Aim: Create a centralized system for managing all supplier and contractor relationships with compliance assurance.
+
+Objectives:
+1. Comprehensive vendor database with all contact details
+2. Compliance document storage with expiry tracking
+3. Contract management with key dates and terms
+4. Automated alerts for renewals and expiring documents
+5. Procurement request workflow with approvals
+6. Spending analytics by category and supplier
+7. Performance tracking and review system
+8. Integration with finance systems`,
+      datasets: `Data Components:
+
+Supplier Records:
+• Company details and contacts
+• Service categories
+• Contract terms and pricing
+• Payment terms and history
+• Performance ratings
+
+Compliance Documents:
+• Public liability insurance
+• Professional indemnity
+• DBS/PVG certificates for individuals
+• Trade certifications
+• Health and safety documentation
+
+Procurement Records:
+• Purchase requests and approvals
+• Invoices and payments
+• Delivery records
+• Quality issues and resolutions`,
+      methodology: `Development Approach:
+
+1. Stakeholder consultation on supplier management needs
+2. Database design for vendor and compliance data
+3. Document storage and expiry tracking system
+4. Workflow engine for procurement approvals
+5. Alert and notification system
+6. Reporting and analytics development
+7. User interface for different roles
+8. Integration planning for finance systems`,
+      findings: `System Capabilities (Planned):
+
+• Searchable vendor database
+• Compliance dashboard with alerts
+• One-click document requests to suppliers
+• Approval workflow for purchases
+• Spending reports and analytics
+• Supplier performance scorecards`,
+      limitations: `Planned Considerations:
+
+• Requires initial data entry effort
+• Supplier engagement needed for compliance uploads
+• Integration with accounting may need customization
+• Ongoing maintenance for data accuracy`,
+      recommendations: `Future Enhancements:
+
+• Supplier self-service portal
+• Automated compliance reminders to suppliers
+• Integration with procurement platforms
+• Benchmarking against similar organizations
+• AI-powered spend analysis`,
+      dashboard: `Planned Dashboard Features:
+
+• Supplier directory with search
+• Compliance status overview
+• Expiring documents alerts
+• Pending approvals queue
+• Spending by category charts
+• Recent activity feed
+• Quick add supplier`,
+      deliverables: `Expected Outputs:
+
+• Complete supplier management system
+• Compliance tracking module
+• Procurement workflow engine
+• User guides for administrators
+• Supplier data templates
+
+Status: Coming Soon - In Development`
+    }
+  },
+  {
+    id: 'quality-assurance-system',
+    number: '13',
+    title: 'Quality Assurance Reporting System',
+    category: 'Care Administration',
+    shortDesc: 'Comprehensive QA tracking system with audit management, action tracking, and compliance reporting for care settings.',
+    description: 'Quality assurance management system designed for care organizations featuring audit scheduling, findings tracking, corrective action management, compliance dashboards, and regulatory reporting. Supports continuous improvement and inspection readiness.',
+    image: '/projects/qa-system-1.png',
+    fallbackGradient: 'from-cyan-500 to-teal-600',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Reports', 'Analytics', 'Dashboards'],
+    metrics: { main: 'QA', label: 'Excellence' },
+    liveDemo: '#',
+    github: '#',
+    status: 'coming-soon',
+    icon: (
+      <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="10" className="fill-cyan-500/20 stroke-cyan-600" strokeWidth="2" />
+        <path d="M12 16l3 3 6-6" className="stroke-teal-600" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M16 6v2M16 24v2M6 16h2M24 16h2" className="stroke-cyan-400" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    ),
+    details: {
+      introduction: `This project develops a comprehensive quality assurance reporting system tailored for care organizations. The system supports continuous improvement by tracking audits, managing findings, and ensuring timely completion of corrective actions.
+
+For care providers like Camphill Blair Drummond, quality assurance is fundamental to maintaining excellent care standards and regulatory compliance. This system provides tools to schedule and conduct audits, track findings, assign and monitor corrective actions, and generate reports for management and inspectors.
+
+Key features include audit scheduling with templates, findings categorization by risk level, corrective action workflow with accountability, trend analysis across audits, and one-click report generation for regulatory bodies.`,
+      problemStatement: `Quality assurance in care settings faces significant challenges:
+
+• Inconsistent audit scheduling and coverage
+• Findings recorded in various formats with no central tracking
+• Corrective actions assigned but not systematically followed up
+• Limited visibility of QA status across the organization
+• Time-consuming report preparation for inspections
+• Difficulty identifying recurring issues and trends
+• No clear accountability for action completion
+
+Without systematic QA management, issues may persist, inspections become stressful, and improvement opportunities are missed.`,
+      previousGaps: `Current QA approaches often involve:
+
+• Paper-based audit checklists filed in folders
+• Spreadsheet tracking of findings and actions
+• Email reminders for action follow-up
+• Manual compilation of reports
+• Limited trend analysis across time periods
+• No real-time visibility of QA status`,
+      aimsObjectives: `Primary Aim: Create a comprehensive QA system that supports continuous improvement and regulatory compliance.
+
+Objectives:
+1. Audit scheduling with customizable templates
+2. Digital audit completion with evidence capture
+3. Findings database with risk categorization
+4. Corrective action workflow with assignments
+5. Automated reminders for overdue actions
+6. Trend analysis and pattern identification
+7. One-click report generation
+8. Inspection preparation dashboard`,
+      datasets: `Data Components:
+
+Audit Records:
+• Audit type and template
+• Scheduled and actual dates
+• Auditor details
+• Areas/departments covered
+• Completion status
+
+Findings:
+• Description and evidence
+• Risk level (High/Medium/Low)
+• Category (Safety, Care, Documentation, etc.)
+• Root cause analysis
+• Linked regulations/standards
+
+Corrective Actions:
+• Description of required action
+• Assigned person and due date
+• Status tracking
+• Evidence of completion
+• Verification and sign-off
+
+Standards Reference:
+• Regulatory requirements
+• Internal policies
+• Best practice guidelines
+• Inspection frameworks`,
+      methodology: `Development Approach:
+
+1. QA process mapping with quality team
+2. Audit template design for different audit types
+3. Database design for findings and actions
+4. Workflow engine for action management
+5. Analytics for trend identification
+6. Report generator for various audiences
+7. Dashboard development for real-time status
+8. Integration with document management`,
+      findings: `System Capabilities (Planned):
+
+• Complete audit lifecycle management
+• Evidence attachment (photos, documents)
+• Automated escalation for overdue items
+• Risk-based prioritization views
+• Comprehensive audit trail
+• Export to common formats`,
+      limitations: `Planned Considerations:
+
+• Requires consistent data entry discipline
+• Template customization takes time upfront
+• Staff training needed for adoption
+• Integration with existing systems may need work`,
+      recommendations: `Future Enhancements:
+
+• Mobile app for on-site auditing
+• AI-powered finding categorization
+• Predictive analytics for risk areas
+• Benchmarking with peer organizations
+• Integration with national reporting systems`,
+      dashboard: `Planned Dashboard Features:
+
+• Audit calendar and schedule
+• Outstanding findings by risk level
+• Overdue actions alerts
+• Trend charts over time
+• Compliance percentage scores
+• Inspection readiness indicator
+• Quick access to reports
+• Department comparison views`,
+      deliverables: `Expected Outputs:
+
+• Complete QA management system
+• Audit templates library
+• Action tracking module
+• Report generator
+• User guides and training
+• Best practice documentation
+
+Status: Coming Soon - In Development`
     }
   }
 ];
@@ -1601,26 +899,24 @@ function ProjectDetailModal({
             onClick={(e) => e.stopPropagation()}
           >
             <div className={`sticky top-0 z-10 bg-gradient-to-r ${project.fallbackGradient} rounded-t-3xl p-8 text-white`}>
-              <button
-                onClick={onClose}
-                className="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
-              >
+              <button onClick={onClose} className="absolute top-6 right-6 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
               
-              <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium mb-4">
-                {project.category}
-              </span>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium">{project.category}</span>
+                {project.status === 'coming-soon' && (
+                  <span className="inline-block px-3 py-1 bg-yellow-400/90 text-yellow-900 rounded-full text-sm font-bold">🚧 Coming Soon</span>
+                )}
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{project.title}</h2>
               <p className="text-white/90 text-lg max-w-3xl">{project.description}</p>
               
               <div className="flex flex-wrap gap-2 mt-6">
                 {project.techStack.map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-white/20 rounded-full text-sm">
-                    {tech}
-                  </span>
+                  <span key={tech} className="px-3 py-1 bg-white/20 rounded-full text-sm">{tech}</span>
                 ))}
               </div>
             </div>
@@ -1628,58 +924,40 @@ function ProjectDetailModal({
             <div className="p-8 md:p-12 max-h-[70vh] overflow-y-auto">
               <div className="space-y-10">
                 {sections.map((section, index) => (
-                  <motion.div
-                    key={section.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="group"
-                  >
+                  <motion.div key={section.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }} className="group">
                     <div className="flex items-start gap-4">
-                      <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${project.fallbackGradient} rounded-xl flex items-center justify-center text-xl shadow-lg`}>
-                        {section.icon}
-                      </div>
+                      <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${project.fallbackGradient} rounded-xl flex items-center justify-center text-xl shadow-lg`}>{section.icon}</div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
-                          {section.title}
-                        </h3>
-                        <div className="text-slate-600 leading-relaxed whitespace-pre-line">
-                          {section.content}
-                        </div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">{section.title}</h3>
+                        <div className="text-slate-600 leading-relaxed whitespace-pre-line">{section.content}</div>
                       </div>
                     </div>
-                    {index < sections.length - 1 && (
-                      <div className="ml-16 mt-8 border-b border-slate-100" />
-                    )}
+                    {index < sections.length - 1 && <div className="ml-16 mt-8 border-b border-slate-100" />}
                   </motion.div>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-4 mt-12 pt-8 border-t border-slate-200">
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex-1 min-w-[200px] px-6 py-4 bg-gradient-to-r ${project.fallbackGradient} text-white rounded-xl font-semibold text-center hover:shadow-lg transition-all flex items-center justify-center gap-2`}
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                  View Live Demo
-                </a>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 min-w-[200px] px-6 py-4 bg-slate-900 text-white rounded-xl font-semibold text-center hover:bg-slate-800 transition-all flex items-center justify-center gap-2"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                  View Source Code
-                </a>
-              </div>
+              {project.status !== 'coming-soon' && (
+                <div className="flex flex-wrap gap-4 mt-12 pt-8 border-t border-slate-200">
+                  <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className={`flex-1 min-w-[200px] px-6 py-4 bg-gradient-to-r ${project.fallbackGradient} text-white rounded-xl font-semibold text-center hover:shadow-lg transition-all flex items-center justify-center gap-2`}>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    View Live Demo
+                  </a>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[200px] px-6 py-4 bg-slate-900 text-white rounded-xl font-semibold text-center hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View Source Code
+                  </a>
+                </div>
+              )}
+              
+              {project.status === 'coming-soon' && (
+                <div className="mt-12 pt-8 border-t border-slate-200 text-center">
+                  <div className="inline-flex items-center gap-2 px-6 py-4 bg-yellow-50 border-2 border-yellow-200 rounded-xl text-yellow-800">
+                    <span className="text-2xl">🚧</span>
+                    <span className="font-semibold">This project is currently in development. Check back soon for live demo and source code!</span>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </motion.div>
@@ -1696,126 +974,62 @@ export default function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => { setScrolled(window.scrollY > 20); };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    if (isModalOpen) { document.body.style.overflow = 'hidden'; } 
+    else { document.body.style.overflow = 'unset'; }
+    return () => { document.body.style.overflow = 'unset'; };
   }, [isModalOpen]);
 
-  const openProjectModal = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setSelectedProject(null), 300);
-  };
+  const openProjectModal = (project: Project) => { setSelectedProject(project); setIsModalOpen(true); };
+  const closeModal = () => { setIsModalOpen(false); setTimeout(() => setSelectedProject(null), 300); };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
       {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-slate-200/50' 
-            : 'bg-white/80 backdrop-blur-md'
-        }`}
-      >
+      <motion.nav initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-slate-200/50' : 'bg-white/80 backdrop-blur-md'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link href="/" className="flex items-center space-x-3 group">
-              <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-                className="relative"
-              >
+              <motion.div whileHover={{ rotate: 360, scale: 1.1 }} transition={{ duration: 0.6 }} className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full blur-sm opacity-50 group-hover:opacity-100 transition-opacity" />
-                <img
-                  src="/Head.jpg"
-                  alt="Ayoolumi Melehon"
-                  className="relative w-10 h-10 rounded-full object-cover border-2 border-white shadow-lg"
-                />
+                <img src="/Head.jpg" alt="Ayoolumi Melehon" className="relative w-10 h-10 rounded-full object-cover border-2 border-white shadow-lg" />
               </motion.div>
-              <span className="text-xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent group-hover:from-teal-600 group-hover:to-blue-600 transition-all">
-                AYOOLUMI MELEHON
-              </span>
+              <span className="text-xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent group-hover:from-teal-600 group-hover:to-blue-600 transition-all">AYOOLUMI MELEHON</span>
             </Link>
             
             <div className="hidden md:flex items-center space-x-8">
-              {['Home', 'About', 'Portfolio', 'Services', 'Experience'].map((item) => (
-                <Link 
-                  key={item}
-                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-                  className={`relative font-medium text-sm py-2 transition-colors ${
-                    item === 'Portfolio' 
-                      ? 'text-teal-600' 
-                      : 'text-slate-600 hover:text-teal-600'
-                  }`}
-                >
+              {['About', 'Portfolio', 'Experience & Skills'].map((item) => (
+                <Link key={item} href={item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
+                  className={`relative font-medium text-sm py-2 transition-colors ${item === 'Portfolio' ? 'text-teal-600' : 'text-slate-600 hover:text-teal-600'}`}>
                   {item}
-                  {item === 'Portfolio' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-500 to-blue-500" />
-                  )}
+                  {item === 'Portfolio' && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-500 to-blue-500" />}
                 </Link>
               ))}
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link 
-                  href="/contact"
-                  className="px-6 py-2.5 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-teal-500/25 transition-all"
-                >
-                  Get in Touch
-                </Link>
+                <Link href="/contact" className="px-6 py-2.5 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-teal-500/25 transition-all">Get in Touch</Link>
               </motion.div>
             </div>
 
-            <button 
-              className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
+            <button className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
+                {mobileMenuOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
               </svg>
             </button>
           </div>
 
           {mobileMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              className="md:hidden pb-4 border-t border-slate-200 bg-white"
-            >
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="md:hidden pb-4 border-t border-slate-200 bg-white">
               <div className="flex flex-col space-y-2 pt-4">
-                {['Home', 'About', 'Portfolio', 'Services', 'Experience'].map((item) => (
-                  <Link 
-                    key={item}
-                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-                    className={`py-3 px-4 rounded-xl font-medium transition-all ${
-                      item === 'Portfolio'
-                        ? 'text-teal-600 bg-teal-50'
-                        : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
+                {['About', 'Portfolio', 'Experience & Skills'].map((item) => (
+                  <Link key={item} href={item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
+                    className={`py-3 px-4 rounded-xl font-medium transition-all ${item === 'Portfolio' ? 'text-teal-600 bg-teal-50' : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'}`}
+                    onClick={() => setMobileMenuOpen(false)}>
                     {item}
                   </Link>
                 ))}
@@ -1830,39 +1044,17 @@ export default function Portfolio() {
         {/* Left Side - Sticky Image */}
         <div className="lg:w-1/2 lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] bg-slate-100 overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.div
-              key={activeProject.id}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5 }}
-              className="w-full h-64 lg:h-full relative"
-            >
-              {/* Gradient Fallback */}
+            <motion.div key={activeProject.id} initial={{ opacity: 0, scale: 1.1 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ duration: 0.5 }} className="w-full h-64 lg:h-full relative">
               <div className={`absolute inset-0 bg-gradient-to-br ${activeProject.fallbackGradient}`} />
-              
-              {/* Project Screenshot */}
-              <img
-                src={activeProject.image}
-                alt={activeProject.title}
-                className="absolute inset-0 w-full h-full object-cover object-top"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              
-              {/* Overlay with project info */}
+              <img src={activeProject.image} alt={activeProject.title} className="absolute inset-0 w-full h-full object-cover object-top" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-3">
-                    {activeProject.category}
-                  </span>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium">{activeProject.category}</span>
+                    {activeProject.status === 'coming-soon' && <span className="inline-block px-3 py-1 bg-yellow-400/90 text-yellow-900 rounded-full text-sm font-bold">🚧 Coming Soon</span>}
+                  </div>
                   <h2 className="text-2xl lg:text-3xl font-bold mb-2">{activeProject.title}</h2>
                   <div className="flex items-center gap-4">
                     <div className="text-3xl font-bold text-teal-400">{activeProject.metrics.main}</div>
@@ -1882,139 +1074,59 @@ export default function Portfolio() {
               <span className="w-8 h-0.5 bg-teal-500" />
               What I Build
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Healthcare AI<br />Solutions
-            </h1>
-            <p className="text-slate-600">
-              Transforming complex healthcare data into actionable insights through machine learning and predictive analytics.
-            </p>
+            <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">Healthcare AI &<br />Care Solutions</h1>
+            <p className="text-slate-600">Transforming healthcare data into actionable insights, plus building practical tools for care administration and operations.</p>
             
-            {/* Stats Bar */}
             <div className="flex flex-wrap gap-6 mt-6 pt-6 border-t border-slate-100">
-              <div>
-                <div className="text-2xl font-bold text-teal-600">9</div>
-                <div className="text-sm text-slate-500">Projects</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-teal-600">94.95%</div>
-                <div className="text-sm text-slate-500">Top Accuracy</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-teal-600">1.97M+</div>
-                <div className="text-sm text-slate-500">Records Analyzed</div>
-              </div>
+              <div><div className="text-2xl font-bold text-teal-600">13</div><div className="text-sm text-slate-500">Projects</div></div>
+              <div><div className="text-2xl font-bold text-teal-600">94.95%</div><div className="text-sm text-slate-500">Top Accuracy</div></div>
+              <div><div className="text-2xl font-bold text-teal-600">1.97M+</div><div className="text-sm text-slate-500">Records Analyzed</div></div>
             </div>
           </div>
 
           {/* Projects List */}
           <div className="divide-y divide-slate-100">
             {sampleProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
+              <motion.div key={project.id} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}
                 onMouseEnter={() => setActiveProject(project)}
-                className={`p-8 lg:p-12 cursor-pointer transition-all duration-300 ${
-                  activeProject.id === project.id 
-                    ? 'bg-teal-50/50' 
-                    : 'hover:bg-slate-50'
-                }`}
-              >
-                {/* Teal line indicator */}
-                <div className={`h-0.5 mb-6 transition-all duration-300 ${
-                  activeProject.id === project.id 
-                    ? 'bg-gradient-to-r from-teal-500 to-blue-500 w-full' 
-                    : 'bg-slate-200 w-16'
-                }`} />
+                className={`p-8 lg:p-12 cursor-pointer transition-all duration-300 ${activeProject.id === project.id ? 'bg-teal-50/50' : 'hover:bg-slate-50'}`}>
+                <div className={`h-0.5 mb-6 transition-all duration-300 ${activeProject.id === project.id ? 'bg-gradient-to-r from-teal-500 to-blue-500 w-full' : 'bg-slate-200 w-16'}`} />
 
                 <div className="flex items-start gap-6">
-                  {/* Number */}
-                  <div className="text-slate-300 font-bold text-lg">
-                    /{project.number}
-                  </div>
+                  <div className="text-slate-300 font-bold text-lg">/{project.number}</div>
+                  <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${activeProject.id === project.id ? 'bg-teal-100' : 'bg-slate-100'}`}>{project.icon}</div>
 
-                  {/* Icon */}
-                  <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                    activeProject.id === project.id 
-                      ? 'bg-teal-100' 
-                      : 'bg-slate-100'
-                  }`}>
-                    {project.icon}
-                  </div>
-
-                  {/* Content */}
                   <div className="flex-1">
-                    <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${
-                      activeProject.id === project.id 
-                        ? 'text-teal-600' 
-                        : 'text-slate-900'
-                    }`}>
-                      {project.title}
-                    </h3>
-                    <p className="text-slate-600 mb-4 leading-relaxed">
-                      {project.shortDesc}
-                    </p>
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className={`text-xl font-bold transition-colors duration-300 ${activeProject.id === project.id ? 'text-teal-600' : 'text-slate-900'}`}>{project.title}</h3>
+                      {project.status === 'coming-soon' && <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded text-xs font-bold">Coming Soon</span>}
+                    </div>
+                    <p className="text-slate-600 mb-4 leading-relaxed">{project.shortDesc}</p>
 
-                    {/* Tech tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.techStack.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium"
-                        >
-                          {tech}
-                        </span>
+                        <span key={tech} className="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium">{tech}</span>
                       ))}
-                      {project.techStack.length > 3 && (
-                        <span className="px-2 py-1 bg-slate-100 text-slate-400 rounded text-xs font-medium">
-                          +{project.techStack.length - 3}
-                        </span>
-                      )}
+                      {project.techStack.length > 3 && <span className="px-2 py-1 bg-slate-100 text-slate-400 rounded text-xs font-medium">+{project.techStack.length - 3}</span>}
                     </div>
 
-                    {/* Action buttons */}
                     <div className="flex items-center gap-3">
-                      <motion.button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openProjectModal(project);
-                        }}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="px-4 py-2 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-teal-500/25 transition-all"
-                      >
+                      <motion.button onClick={(e) => { e.stopPropagation(); openProjectModal(project); }} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                        className="px-4 py-2 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-teal-500/25 transition-all">
                         View Details
                       </motion.button>
-                      <motion.a
-                        href={project.liveDemo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-9 h-9 bg-slate-100 hover:bg-teal-500 hover:text-white text-slate-600 rounded-lg flex items-center justify-center transition-all"
-                        title="Live Demo"
-                      >
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                      </motion.a>
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-9 h-9 bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-600 rounded-lg flex items-center justify-center transition-all"
-                        title="Source Code"
-                      >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                      </motion.a>
+                      {project.status !== 'coming-soon' && (
+                        <>
+                          <motion.a href={project.liveDemo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                            className="w-9 h-9 bg-slate-100 hover:bg-teal-500 hover:text-white text-slate-600 rounded-lg flex items-center justify-center transition-all" title="Live Demo">
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                          </motion.a>
+                          <motion.a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                            className="w-9 h-9 bg-slate-100 hover:bg-slate-900 hover:text-white text-slate-600 rounded-lg flex items-center justify-center transition-all" title="Source Code">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                          </motion.a>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -2025,72 +1137,66 @@ export default function Portfolio() {
           {/* CTA */}
           <div className="p-8 lg:p-12 bg-gradient-to-r from-teal-600 to-blue-600 text-white">
             <h3 className="text-2xl font-bold mb-3">Interested in Working Together?</h3>
-            <p className="text-teal-100 mb-6">
-              Let&apos;s discuss how I can help with your healthcare data challenges.
-            </p>
+            <p className="text-teal-100 mb-6">Let&apos;s discuss how I can help with your healthcare data challenges or care administration needs.</p>
             <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/contact"
-                className="px-6 py-3 bg-white text-teal-600 rounded-lg font-semibold hover:bg-teal-50 transition"
-              >
-                Get in Touch
-              </Link>
-              <a 
-                href="https://github.com/ayoolumi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-white/10 text-white border border-white/30 rounded-lg font-semibold hover:bg-white/20 transition"
-              >
-                View GitHub
-              </a>
+              <Link href="/contact" className="px-6 py-3 bg-white text-teal-600 rounded-lg font-semibold hover:bg-teal-50 transition">Get in Touch</Link>
+              <a href="https://github.com/ayoolumi" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white/10 text-white border border-white/30 rounded-lg font-semibold hover:bg-white/20 transition">View GitHub</a>
             </div>
           </div>
 
           {/* Footer */}
           <footer className="p-8 lg:p-12 bg-slate-900 text-white">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
               <div className="flex items-center gap-3">
-                <img
-                  src="/Head.jpg"
-                  alt="Ayoolumi Melehon"
-                  className="w-10 h-10 rounded-full object-cover border-2 border-teal-500"
-                />
-                <span className="font-bold">Ayoolumi Melehon</span>
+                <img src="/Head.jpg" alt="Ayoolumi Melehon" className="w-10 h-10 rounded-full object-cover border-2 border-teal-500" />
+                <div>
+                  <span className="font-bold block">Ayoolumi Melehon</span>
+                  <span className="text-slate-400 text-sm">Founder, The AandA Group</span>
+                </div>
               </div>
-              <div className="flex gap-4">
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-semibold mb-3">Quick Links</h4>
+                  <div className="space-y-2 text-sm">
+                    <Link href="/about" className="block text-slate-400 hover:text-white transition">About</Link>
+                    <Link href="/portfolio" className="block text-slate-400 hover:text-white transition">Portfolio</Link>
+                    <Link href="/experience" className="block text-slate-400 hover:text-white transition">Experience & Skills</Link>
+                    <Link href="/contact" className="block text-slate-400 hover:text-white transition">Contact</Link>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-3">Business</h4>
+                  <div className="space-y-2 text-sm">
+                    <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-slate-400 hover:text-teal-400 transition">AandA Computers 🇳🇬</a>
+                    <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-slate-400 hover:text-teal-400 transition">AandA Labs Limited 🇬🇧</a>
+                    <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-slate-400 hover:text-teal-400 transition">AandA Supplies 🇳🇬</a>
+                    <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-slate-400 hover:text-teal-400 transition">AandA Farms 🇳🇬</a>
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-3">
                 <a href="mailto:ayoolumimelehon@gmail.com" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                 </a>
                 <a href="https://www.linkedin.com/in/ayoolumi-melehon-b63237179/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
                 <a href="https://github.com/ayoolumi" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 </a>
                 <a href="https://huggingface.co/ayoolumi" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
                   <span className="text-sm font-bold">🤗</span>
                 </a>
               </div>
             </div>
-            <div className="border-t border-slate-800 mt-6 pt-6 text-center text-slate-500 text-sm">
-              © 2025 Ayoolumi Melehon | Edinburgh, Scotland | MSc AI • CompTIA Data+
+            <div className="border-t border-slate-800 pt-6 text-center text-slate-500 text-sm">
+              © 2026 Ayoolumi Melehon | Grangemouth, Falkirk, Scotland | MSc AI • CompTIA Data+
             </div>
           </footer>
         </div>
       </div>
 
-      {/* Project Detail Modal */}
-      <ProjectDetailModal 
-        project={selectedProject} 
-        isOpen={isModalOpen} 
-        onClose={closeModal} 
-      />
+      <ProjectDetailModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
