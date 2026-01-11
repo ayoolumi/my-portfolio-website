@@ -285,37 +285,83 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Technical Skills</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              {/* Programming & Development */}
+              <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">💻</span>Programming & Development</h3>
-                <div className="space-y-2 text-gray-700">
-                  <p><strong>Languages:</strong> Python, JavaScript, SQL</p>
-                  <p><strong>Frameworks:</strong> Flask, Next.js, React</p>
+                <div className="space-y-2 text-gray-700 text-sm">
+                  <p><strong>Languages:</strong> Python, JavaScript, TypeScript, SQL, HTML/CSS</p>
+                  <p><strong>Frameworks:</strong> Flask, Next.js, React, Tailwind CSS</p>
                   <p><strong>Data:</strong> Pandas, NumPy, DuckDB, SQLite</p>
                   <p><strong>ML/AI:</strong> Scikit-learn, XGBoost, TensorFlow, PyTorch</p>
                   <p><strong>Visualization:</strong> Plotly, Altair, Matplotlib, Seaborn</p>
                 </div>
               </div>
-              <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
+
+              {/* Analytics & BI */}
+              <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">📊</span>Analytics & BI</h3>
-                <div className="space-y-2 text-gray-700">
+                <div className="space-y-2 text-gray-700 text-sm">
                   <p><strong>Dashboards:</strong> Streamlit, Power BI, Tableau</p>
+                  <p><strong>Spreadsheets:</strong> Microsoft Excel (Advanced), Google Sheets</p>
                   <p><strong>Databases:</strong> PostgreSQL, SQLite</p>
-                  <p><strong>APIs:</strong> Flutterwave, VTpass, RESTful</p>
-                  <p><strong>Cloud:</strong> AWS, Render, Vercel, Streamlit Cloud</p>
-                  <p><strong>DevOps:</strong> Git/GitHub, Docker, DNS, Email Auth</p>
+                  <p><strong>Notebooks:</strong> Jupyter, Google Colab</p>
+                  <p><strong>ML Platforms:</strong> Hugging Face, Streamlit Cloud</p>
+                  <p><strong>Cloud:</strong> AWS, Render, Vercel</p>
                 </div>
               </div>
-              <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
+
+              {/* Web Development */}
+              <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">🌐</span>Web Development</h3>
+                <div className="space-y-2 text-gray-700 text-sm">
+                  <p><strong>Frontend:</strong> React, Next.js, HTML5, CSS3, Tailwind</p>
+                  <p><strong>Backend:</strong> Flask, RESTful APIs, Node.js</p>
+                  <p><strong>CMS:</strong> WordPress, Custom CMS</p>
+                  <p><strong>DevOps:</strong> Git/GitHub, Docker, Vercel, DNS</p>
+                  <p><strong>SEO:</strong> On-page optimization, Analytics</p>
+                  <p><strong>Social Media:</strong> Content strategy, Platform management</p>
+                </div>
+              </div>
+
+              {/* Hardware & Systems */}
+              <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">🔧</span>Hardware & Systems</h3>
+                <div className="space-y-2 text-gray-700 text-sm">
+                  <p><strong>Hardware:</strong> PC Assembly, Component Installation, Upgrades</p>
+                  <p><strong>Systems:</strong> Windows, Linux, System Configuration</p>
+                  <p><strong>Software:</strong> Installation, Deployment, Troubleshooting</p>
+                  <p><strong>Networking:</strong> Setup, Configuration, Maintenance</p>
+                  <p><strong>Support:</strong> Technical Support, User Training</p>
+                </div>
+              </div>
+
+              {/* Design & Publishing */}
+              <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">🎨</span>Design & Publishing</h3>
+                <div className="space-y-2 text-gray-700 text-sm">
+                  <p><strong>Graphic Design:</strong> CorelDRAW, Logo & Branding</p>
+                  <p><strong>Desktop Publishing:</strong> Flyers, Brochures, Banners</p>
+                  <p><strong>Large Format:</strong> Billboard Design, Signage, Posters</p>
+                  <p><strong>Print Production:</strong> Pre-press, Color Management</p>
+                  <p><strong>Print Management:</strong> Large format printing operations</p>
+                </div>
+              </div>
+
+              {/* Healthcare & Corporate */}
+              <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center"><span className="text-2xl mr-2">🏥</span>Healthcare & Corporate</h3>
-                <div className="space-y-2 text-gray-700">
+                <div className="space-y-2 text-gray-700 text-sm">
                   <p><strong>Data Sources:</strong> Public Health Scotland, NHS datasets</p>
-                  <p><strong>Compliance:</strong> GDPR, healthcare data governance</p>
-                  <p><strong>AI Tools:</strong> ChatGPT, Claude AI, GitHub Copilot</p>
                   <p><strong>Office:</strong> Microsoft Office Suite, SharePoint</p>
-                  <p><strong>Ethics:</strong> Patient privacy, confidentiality, regulatory compliance</p>
+                  <p><strong>Systems:</strong> Document Management, Quality Assurance</p>
+                  <p><strong>HR:</strong> People Systems, Recruitment Admin</p>
+                  <p><strong>AI Tools:</strong> ChatGPT, Claude AI, GitHub Copilot</p>
+                  <p><strong>Compliance:</strong> GDPR, Patient privacy, Confidentiality</p>
                 </div>
               </div>
+
             </div>
           </motion.div>
         </div>
