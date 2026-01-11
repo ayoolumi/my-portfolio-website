@@ -192,34 +192,40 @@ export default function About() {
             viewport={{ once: true }}
             className="bg-white rounded-2xl border-2 border-gray-200 shadow-lg p-8"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">My Journey: Building Businesses, Serving People, Transforming Care</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">My Journey: From Corporate Banking to Care to Building What Matters</h2>
             <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
               <p>
-                My story begins with building—not just technology, but businesses that serve real people. In 2017, I founded <span className="font-semibold text-teal-600">A AND A COMPUTERS AND TECHNOLOGIES</span> in Bauchi, Nigeria. What started as a vision became a thriving technology services business with 8+ employees, monthly revenue targets of ₦2.2 million, and a custom-built business management platform that I developed myself—complete with real-time dashboards, staff performance tracking, inventory management, and payment integration.
+                My story doesn&apos;t begin with code or care—it begins with learning how to show up professionally, ethically, and with integrity. At <span className="font-semibold text-teal-600">FCMB Bank in Nigeria</span>, I learned the foundations that would shape everything I&apos;ve built since. Working in one of Nigeria&apos;s leading financial institutions taught me corporate discipline, regulatory compliance, and the weight of handling sensitive information with absolute confidentiality. I learned to communicate with precision—whether explaining complex financial products to customers or coordinating with colleagues under pressure. I discovered the importance of process improvement, attention to detail, and the quiet professionalism that builds trust. Those early mornings, the pressure of targets, the satisfaction of serving customers well—banking taught me that excellence is a habit, not an event.
               </p>
               <p>
-                Building on this success, I expanded into import/export with <span className="font-semibold text-teal-600">AANDA SUPPLIES AND IMPORTS LTD</span> in 2019, and more recently into agriculture with <span className="font-semibold text-teal-600">A AND A FARMS AND FOODS LIMITED</span>. In December 2025, I brought my entrepreneurial vision to the UK, establishing <span className="font-semibold text-teal-600">AANDA LABS LIMITED</span> for software development and <span className="font-semibold text-teal-600">AANDA SUPPLIES AND IMPORTS LIMITED</span> for food imports—now registered with Falkirk Council as a food business. Together, these five companies form <span className="font-semibold text-teal-600">The AANDA Group</span>.
+                But I always knew I wanted to build, not just serve. So in 2017, I took everything I&apos;d learned about business operations, customer service, and professional conduct and founded <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">A AND A COMPUTERS AND TECHNOLOGIES</a> in Bauchi, Nigeria. What started as a vision became a thriving technology services business with 8+ employees, monthly revenue targets of ₦2.2 million, and a custom-built business management platform that I developed myself—complete with real-time dashboards, staff performance tracking, inventory management, and payment integration. I wasn&apos;t just the owner; I was the architect of every system, the problem-solver for every challenge, and the leader who had to make payroll every month.
               </p>
               <p>
-                But my journey took a deliberate, purposeful turn in <span className="font-semibold">February 2023</span> when I entered Scotland&apos;s health and social care sector. This wasn&apos;t a career change—it was a strategic decision. I knew that to truly build technology that transforms care, I needed to understand care from the inside. I needed domain expertise. I needed to feel the pain points, witness the inefficiencies, and understand the human context that no textbook or dataset could teach me.
+                Building on this success, I expanded into import/export with <span className="font-semibold text-teal-600">AANDA SUPPLIES AND IMPORTS LTD</span> in 2019, learning the complexities of supply chain management, vendor negotiations, and cross-border logistics. More recently, I ventured into agriculture with <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">A AND A FARMS AND FOODS LIMITED</a>. In December 2025, I brought my entrepreneurial vision to the UK, establishing <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-600 hover:underline">AANDA LABS LIMITED</a> for software development and IT consultancy, and <span className="font-semibold text-teal-600">AANDA SUPPLIES AND IMPORTS LIMITED</span> for food imports—now registered with Falkirk Council as a food business. Together, these five companies form <span className="font-semibold text-teal-600">The AANDA Group</span>.
               </p>
               <p>
-                I started with <span className="font-semibold text-teal-600">Avenue Care Services</span>, then moved to <span className="font-semibold text-teal-600">First Class Care Services</span>, gaining experience in adult social care, community and domiciliary care, and support for vulnerable populations. Since <span className="font-semibold">March 2025</span>, I&apos;ve been at <span className="font-semibold text-teal-600">Camphill Blair Drummond</span>, a therapeutic community supporting people with learning disabilities. This wasn&apos;t administrative work—I&apos;ve been on the frontlines, providing hands-on care, documenting needs in real-time, coordinating care pathways, and navigating the emotional and ethical complexities of supporting vulnerable people.
+                But here&apos;s where my journey took a turn that surprised even me. In <span className="font-semibold">February 2023</span>, I made a deliberate decision to enter Scotland&apos;s health and social care sector. This wasn&apos;t a step backward or a career change—it was a strategic move. I knew that to truly build technology that transforms care, I couldn&apos;t just study it from textbooks or analyze datasets from a distance. I needed to <em>feel</em> it. I needed to understand the frustrations of care workers, the fears of families, the dignity of those receiving care, and the systemic failures that no amount of clever coding could fix without deep human understanding.
               </p>
               <p>
-                During this time, I&apos;ve witnessed firsthand the challenges facing Scotland&apos;s health and social care systems: fragmented data across care settings, delayed clinical insights that could have prevented crises, overwhelmed emergency departments receiving patients who could have been supported in the community, and critical gaps in preventive care coordination. I&apos;ve seen elderly patients cycling through A&E due to disconnected information systems, and I&apos;ve documented care needs that never translated into actionable intelligence for service improvement.
+                I started with <span className="font-semibold text-teal-600">Avenue Care Services</span>, then moved to <span className="font-semibold text-teal-600">First Class Care Services</span>, gaining experience in adult social care, community and domiciliary care, and support for vulnerable populations. Since <span className="font-semibold">March 2025</span>, I&apos;ve been at <span className="font-semibold text-teal-600">Camphill Blair Drummond</span>, a therapeutic community supporting people with learning disabilities. This isn&apos;t administrative work—I&apos;m on the frontlines every day, providing hands-on care, sharing meals with residents, celebrating their small victories, and holding space for their struggles.
+              </p>
+              <p className="text-gray-800 italic border-l-4 border-teal-500 pl-4 bg-teal-50 py-3 rounded-r-lg">
+                And in that work, I&apos;ve seen things that changed me forever.
               </p>
               <p>
-                But I&apos;ve also witnessed the transformative potential of better data systems. I&apos;ve seen how predictive analytics could identify high-risk patients before deterioration, how integrated care records could prevent dangerous medication errors, and how AI-powered decision support could help care workers like me provide more proactive, personalized support—especially in complex cases involving learning disabilities, dementia, and challenging behaviors.
+                I&apos;ve witnessed the quiet heartbreak of families who can&apos;t get clear answers about their loved one&apos;s care because information is scattered across disconnected systems. I&apos;ve seen the exhaustion in colleagues&apos; eyes when they spend more time on paperwork than with the people they&apos;re meant to support. I&apos;ve watched elderly residents return from A&E confused and frightened—not because the hospital failed, but because the community care system couldn&apos;t share critical information fast enough. I&apos;ve documented care needs at 2 AM that I knew would sit in a folder, never becoming the actionable intelligence that could prevent the next crisis.
               </p>
               <p>
-                This is why I pursued an <span className="font-semibold text-teal-600">MSc in Artificial Intelligence at the University of Stirling</span> while continuing my care work, and why I earned my <span className="font-semibold text-teal-600">CompTIA Data+</span> certification. I wasn&apos;t just learning technology—I was building the skills to solve the problems I observed daily. My dissertation focused on behavioral modeling using UK Census data—directly applying AI to understand population health patterns.
+                I&apos;ve held the hand of someone having a difficult day, knowing that somewhere in a database there might be a pattern—a trigger we could have anticipated, an intervention we could have made earlier—if only the systems talked to each other. I&apos;ve felt the frustration of wanting to do more, to be proactive instead of reactive, but being limited by tools built for compliance rather than care.
               </p>
               <p>
-                Today, I&apos;ve built nine healthcare analytics projects spanning NHS A&E demand forecasting, COVID-19 impact analysis across Scotland&apos;s 14 health boards, mental health service planning, fall risk assessment systems, pneumonia detection using medical imaging AI, and elderly social isolation detection systems. Each project is grounded in the realities of care delivery I witness every day.
+                But I&apos;ve also seen the other side—the possibility. I&apos;ve seen moments when the right information at the right time prevented a crisis. I&apos;ve imagined what predictive analytics could do: flagging a resident whose subtle behavioral changes suggest they&apos;re heading toward a difficult period, alerting staff before the meltdown rather than after. I&apos;ve envisioned integrated care records that travel with the person, not the paperwork—so that when someone arrives at hospital, their story arrives with them. I&apos;ve dreamed of AI-powered tools that help care workers like me provide more personalized, proactive support—especially in complex cases involving learning disabilities, dementia, and challenging behaviors.
+              </p>
+              <p>
+                This is why I pursued an <span className="font-semibold text-teal-600">MSc in Artificial Intelligence at the University of Stirling</span> while working in care, and why I earned my <span className="font-semibold text-teal-600">CompTIA Data+</span> certification. I wasn&apos;t just learning technology—I was building the skills to solve the problems I witnessed every shift. I&apos;ve now built nine healthcare analytics projects: NHS A&E demand forecasting, COVID-19 impact analysis across Scotland&apos;s 14 health boards, mental health service planning, fall risk assessment systems, pneumonia detection using medical imaging AI, and elderly social isolation detection systems. Each project is grounded in real moments, real people, real frustrations I&apos;ve experienced firsthand.
               </p>
               <p className="text-teal-600 font-semibold text-xl">
-                My mission is clear: to use AI, data analytics, and technology to improve patient outcomes, support frontline care workers, and build more resilient, integrated health and social care systems across Scotland and beyond. I&apos;m not just a technologist observing from outside—I&apos;m a care professional building from within, with the business acumen to make solutions sustainable and scalable.
+                My mission is deeply personal: to use AI, data analytics, and technology to improve patient outcomes, support frontline care workers, and build more resilient, integrated health and social care systems across Scotland and beyond. I&apos;m not a technologist observing from outside—I&apos;m a care professional building from within, with the corporate discipline of banking, the resilience of entrepreneurship, and the compassion that only comes from being there, on the floor, in the moment, with the people who matter most.
               </p>
             </div>
           </motion.div>
@@ -236,81 +242,74 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">What Makes Me Different</h2>
-            <p className="text-xl text-gray-600 mb-10 text-center">Three perspectives that set my work apart</p>
+            <p className="text-xl text-gray-600 mb-10 text-center">Four perspectives that set my work apart</p>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <motion.div 
                 whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8 border-2 border-teal-200"
+                className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border-2 border-amber-200"
               >
-                <div className="w-16 h-16 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-4xl">💙</span>
+                <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-3xl">🏦</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Care Sector Insider</h3>
-                <p className="text-gray-600 mb-4">I don&apos;t just study healthcare data—I live it. Every day at Camphill Blair Drummond, I experience the challenges and opportunities that my technology aims to address.</p>
-                <ul className="space-y-2 text-gray-700 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2">✓</span>
-                    <span>2+ years frontline care experience</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2">✓</span>
-                    <span>Avenue Care → First Class Care → Camphill</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-2">✓</span>
-                    <span>Real understanding of care challenges</span>
-                  </li>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Corporate Foundation</h3>
+                <p className="text-gray-600 text-sm mb-3">FCMB Bank taught me professional excellence, regulatory compliance, and ethical conduct.</p>
+                <ul className="space-y-1 text-gray-700 text-xs">
+                  <li>✓ Professional discipline</li>
+                  <li>✓ Confidentiality & data handling</li>
+                  <li>✓ Customer service excellence</li>
+                  <li>✓ Process improvement</li>
                 </ul>
               </motion.div>
 
               <motion.div 
                 whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200"
+                className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-6 border-2 border-teal-200"
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-4xl">📊</span>
+                <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-3xl">💙</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Technical Excellence</h3>
-                <p className="text-gray-600 mb-4">Advanced AI and data science skills, proven through academic achievement and real-world project delivery across healthcare and business domains.</p>
-                <ul className="space-y-2 text-gray-700 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span>MSc Artificial Intelligence (Stirling)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span>9+ deployed healthcare/tech projects</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-2">✓</span>
-                    <span>Python, SQL, ML/AI, Power BI, Full-stack</span>
-                  </li>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Care Sector Insider</h3>
+                <p className="text-gray-600 text-sm mb-3">I don&apos;t study healthcare data—I live it. Every day at Camphill, I experience what my technology aims to fix.</p>
+                <ul className="space-y-1 text-gray-700 text-xs">
+                  <li>✓ 2+ years frontline care</li>
+                  <li>✓ Avenue → First Class → Camphill</li>
+                  <li>✓ Real understanding of challenges</li>
+                  <li>✓ Emotional connection to mission</li>
                 </ul>
               </motion.div>
 
               <motion.div 
                 whileHover={{ y: -8 }}
-                className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border-2 border-purple-200"
+                className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border-2 border-blue-200"
               >
-                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                  <span className="text-4xl">🚀</span>
+                <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-3xl">📊</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Business Builder</h3>
-                <p className="text-gray-600 mb-4">I don&apos;t just build prototypes—I build production systems for real businesses. I understand operations, teams, and what it takes to make technology sustainable.</p>
-                <ul className="space-y-2 text-gray-700 text-sm">
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">✓</span>
-                    <span>5 companies founded (The AANDA Group)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">✓</span>
-                    <span>8+ staff managed across borders</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-2">✓</span>
-                    <span>Production systems in daily use</span>
-                  </li>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Technical Excellence</h3>
+                <p className="text-gray-600 text-sm mb-3">Advanced AI and data science skills, proven through academic achievement and real-world delivery.</p>
+                <ul className="space-y-1 text-gray-700 text-xs">
+                  <li>✓ MSc Artificial Intelligence</li>
+                  <li>✓ 9+ deployed projects</li>
+                  <li>✓ Python, SQL, ML/AI, Power BI</li>
+                  <li>✓ Full-stack development</li>
+                </ul>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ y: -8 }}
+                className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200"
+              >
+                <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-3xl">🚀</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Business Builder</h3>
+                <p className="text-gray-600 text-sm mb-3">I don&apos;t just build prototypes—I build production systems for real businesses with real stakes.</p>
+                <ul className="space-y-1 text-gray-700 text-xs">
+                  <li>✓ 5 companies founded</li>
+                  <li>✓ 8+ staff managed remotely</li>
+                  <li>✓ Production systems in daily use</li>
+                  <li>✓ Cross-border operations</li>
                 </ul>
               </motion.div>
             </div>
@@ -421,61 +420,102 @@ export default function About() {
             <p className="text-xl text-gray-300 mb-10 text-center">A diversified business conglomerate I founded and lead across Nigeria and the UK</p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { 
-                  name: 'A AND A COMPUTERS', 
-                  country: '🇳🇬 Nigeria', 
-                  focus: 'Technology Services',
-                  description: 'Flagship business with 8+ staff, custom-built management platform, ₦2.2M monthly targets',
-                  established: '2017'
-                },
-                { 
-                  name: 'AANDA SUPPLIES & IMPORTS', 
-                  country: '🇳🇬 Nigeria', 
-                  focus: 'Import/Export',
-                  description: 'Procurement, supply chain operations, supplier management',
-                  established: '2019'
-                },
-                { 
-                  name: 'A AND A FARMS & FOODS', 
-                  country: '🇳🇬 Nigeria', 
-                  focus: 'Agriculture',
-                  description: 'Agricultural production and food processing',
-                  established: '2025'
-                },
-                { 
-                  name: 'AANDA LABS LIMITED', 
-                  country: '🇬🇧 UK (SC872002)', 
-                  focus: 'Software Development',
-                  description: 'IT consultancy, data processing, software solutions',
-                  established: 'Dec 2025'
-                },
-                { 
-                  name: 'AANDA SUPPLIES & IMPORTS', 
-                  country: '🇬🇧 UK (SC872626)', 
-                  focus: 'Food Imports',
-                  description: 'Falkirk Council registered food business (FC773379797)',
-                  established: 'Dec 2025'
-                },
-              ].map((company, index) => (
-                <motion.div
-                  key={company.name + company.country}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all"
-                >
-                  <div className="flex justify-between items-start mb-3">
-                    <span className="text-sm text-teal-400 font-medium">{company.country}</span>
-                    <span className="text-xs text-gray-400">Est. {company.established}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-1">{company.name}</h3>
-                  <p className="text-teal-400 text-sm font-medium mb-2">{company.focus}</p>
-                  <p className="text-gray-400 text-sm">{company.description}</p>
-                </motion.div>
-              ))}
+              <motion.a
+                href="https://aandacomputers.theaandagroup.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer"
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
+                  <span className="text-xs text-gray-400">Est. 2017</span>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">A AND A COMPUTERS</h3>
+                <p className="text-teal-400 text-sm font-medium mb-2">Technology Services</p>
+                <p className="text-gray-400 text-sm">Flagship business with 8+ staff, custom-built management platform, ₦2.2M monthly targets</p>
+                <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
+              </motion.a>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all"
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
+                  <span className="text-xs text-gray-400">Est. 2019</span>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">AANDA SUPPLIES & IMPORTS</h3>
+                <p className="text-teal-400 text-sm font-medium mb-2">Import/Export</p>
+                <p className="text-gray-400 text-sm">Procurement, supply chain operations, supplier management</p>
+              </motion.div>
+
+              <motion.a
+                href="https://farmsfood.theaandagroup.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                whileHover={{ y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer"
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
+                  <span className="text-xs text-gray-400">Est. 2025</span>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">A AND A FARMS & FOODS</h3>
+                <p className="text-teal-400 text-sm font-medium mb-2">Agriculture</p>
+                <p className="text-gray-400 text-sm">Agricultural production and food processing</p>
+                <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
+              </motion.a>
+
+              <motion.a
+                href="https://labs.theaandagroup.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all cursor-pointer"
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872002)</span>
+                  <span className="text-xs text-gray-400">Est. Dec 2025</span>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">AANDA LABS LIMITED</h3>
+                <p className="text-teal-400 text-sm font-medium mb-2">Software Development</p>
+                <p className="text-gray-400 text-sm">IT consultancy, data processing, software solutions</p>
+                <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
+              </motion.a>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-teal-400/50 transition-all"
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <span className="text-sm text-teal-400 font-medium">🇬🇧 UK (SC872626)</span>
+                  <span className="text-xs text-gray-400">Est. Dec 2025</span>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">AANDA SUPPLIES & IMPORTS</h3>
+                <p className="text-teal-400 text-sm font-medium mb-2">Food Imports</p>
+                <p className="text-gray-400 text-sm">Falkirk Council registered food business (FC773379797)</p>
+              </motion.div>
             </div>
 
             <div className="text-center mt-8">
@@ -533,14 +573,14 @@ export default function About() {
               <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <span className="text-2xl mr-2">🏥</span>
-                  Healthcare Domain
+                  Healthcare & Corporate
                 </h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Data Sources:</strong> Public Health Scotland, NHS datasets</p>
                   <p><strong>Compliance:</strong> GDPR, healthcare data governance</p>
-                  <p><strong>Systems:</strong> Care documentation, EMIS awareness</p>
-                  <p><strong>Standards:</strong> SSSC frameworks, Care Inspectorate</p>
-                  <p><strong>Ethics:</strong> Patient privacy, algorithmic fairness</p>
+                  <p><strong>AI Tools:</strong> ChatGPT, Claude AI, GitHub Copilot</p>
+                  <p><strong>Office:</strong> Microsoft Office Suite, SharePoint</p>
+                  <p><strong>Ethics:</strong> Patient privacy, confidentiality, regulatory compliance</p>
                 </div>
               </div>
             </div>
@@ -557,7 +597,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Education & Certifications</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-10 text-center">Education & Experience</h2>
             
             <div className="space-y-6">
               <motion.div 
@@ -568,6 +608,16 @@ export default function About() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">MSc Artificial Intelligence</h3>
                 <p className="text-gray-700 mb-2 font-medium">University of Stirling, Scotland</p>
                 <p className="text-gray-600">Focus: Machine Learning, Deep Learning, Healthcare AI, Data Science Applications</p>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ x: 8 }}
+                className="border-l-4 border-amber-500 pl-6 bg-white p-6 rounded-r-xl shadow-lg"
+              >
+                <div className="text-amber-600 font-semibold mb-2">Banking Experience</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">FCMB Bank Nigeria</h3>
+                <p className="text-gray-700 mb-2 font-medium">Corporate Banking & Customer Service</p>
+                <p className="text-gray-600">Professional conduct, regulatory compliance, confidentiality, customer service excellence, process improvement, team collaboration</p>
               </motion.div>
 
               <motion.div 
@@ -585,7 +635,7 @@ export default function About() {
               >
                 <div className="text-purple-600 font-semibold mb-2">2023-Present</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Scottish Social Care Professional</h3>
-                <p className="text-gray-700">Active care worker in Scotland&apos;s health and social care sector</p>
+                <p className="text-gray-700">Active care worker • Avenue Care → First Class Care → Camphill Blair Drummond</p>
               </motion.div>
 
               <motion.div 
@@ -632,7 +682,7 @@ export default function About() {
                   <li>• Care Technology Developer</li>
                   <li>• Business Intelligence Analyst (NHS, health tech)</li>
                   <li>• Information Analyst (NHS, public sector)</li>
-                  <li>• Technical roles in social care organizations</li>
+                  <li>• Operations/Administration with tech focus</li>
                 </ul>
               </div>
 
@@ -664,7 +714,7 @@ export default function About() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Build Something Meaningful Together</h2>
             <p className="text-xl mb-8 text-teal-100">
-              Whether you need care technology solutions, data analytics, or business automation—I bring technical expertise, business acumen, and real-world care experience to every project.
+              Whether you need care technology solutions, data analytics, or business automation—I bring technical expertise, business acumen, corporate discipline, and real-world care experience to every project.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link 
@@ -705,9 +755,9 @@ export default function About() {
             <div>
               <h4 className="font-semibold mb-4">Ventures</h4>
               <div className="space-y-2 text-sm">
-                <p className="text-gray-400">The AANDA Group</p>
-                <p className="text-gray-400">A&A Computers 🇳🇬</p>
-                <p className="text-gray-400">AANDA Labs Ltd 🇬🇧</p>
+                <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Computers 🇳🇬</a>
+                <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AANDA Labs Ltd 🇬🇧</a>
+                <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">A&A Farms & Foods 🇳🇬</a>
                 <p className="text-gray-400">AANDA Supplies 🇬🇧</p>
               </div>
             </div>
