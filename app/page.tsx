@@ -206,7 +206,7 @@ export default function Home() {
                     href="/experience"
                     className="px-8 py-4 bg-white text-teal-600 border-2 border-teal-600 rounded-lg font-semibold hover:bg-teal-50 transition inline-block"
                   >
-                    My Experience
+                    My Experience & Skills
                   </Link>
                 </motion.div>
               </div>
