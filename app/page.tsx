@@ -392,7 +392,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇳🇬 Nigeria</span>
                 <span className="text-xs text-gray-400">Est. 2019</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">AandA SUPPLIES & IMPORTS</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA Supplies and Imports Limited</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Import/Export</p>
               <p className="text-gray-400 text-sm">Procurement and supply chain operations</p>
               <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
@@ -434,7 +434,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇬🇧 UK</span>
                 <span className="text-xs text-gray-400">Est. Dec 2025</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">AandA LABS LIMITED</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA Labs Limited</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Software Development</p>
               <p className="text-gray-400 text-sm">IT consultancy, data processing, educational support</p>
               <p className="text-teal-400 text-xs mt-3 flex items-center">Visit Website <span className="ml-1">→</span></p>
@@ -452,7 +452,7 @@ export default function Home() {
                 <span className="text-sm text-teal-400 font-medium">🇬🇧 UK</span>
                 <span className="text-xs text-gray-400">Est. Dec 2025</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">AandA SUPPLIES & IMPORTS</h3>
+              <h3 className="text-lg font-bold text-white mb-1">AandA Supplies and Imports Limited</h3>
               <p className="text-teal-400 text-sm font-medium mb-2">Food Imports</p>
               <p className="text-gray-400 text-sm">Falkirk Council registered food business</p>
             </motion.div>
@@ -627,8 +627,8 @@ export default function Home() {
               <h4 className="font-semibold mb-4">Business</h4>
               <div className="space-y-2 text-sm">
                 <a href="https://aandacomputers.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Computers 🇳🇬</a>
-                <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Labs Ltd 🇬🇧</a>
-                <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Supplies 🇳🇬</a>
+                <a href="https://labs.theaandagroup.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Labs Limited 🇬🇧</a>
+                <a href="https://suppliesandimports.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Supplies and Imports Limited 🇳🇬</a>
                 <a href="https://farmsfood.theaandagroup.com" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-teal-400 transition">AandA Farms and Foods 🇳🇬</a>
               </div>
             </div>
