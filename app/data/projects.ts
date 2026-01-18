@@ -18,6 +18,9 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ============================================
+  // PROJECT 1: Mental Health Demand Forecasting
+  // ============================================
   {
     id: 'mental-health-demand-forecasting',
     title: 'Mental Health Service Demand Forecasting',
@@ -65,6 +68,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 2: Fall Risk Assessment System
+  // ============================================
   {
     id: 'fall-risk-assessment',
     title: 'Fall Risk Assessment System',
@@ -110,6 +117,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 3: Social Isolation Detection System
+  // ============================================
   {
     id: 'social-isolation-detection',
     title: 'Social Isolation Detection System',
@@ -154,6 +165,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 4: Executive Sales Dashboard
+  // ============================================
   {
     id: 'executive-sales-dashboard',
     title: 'Executive Sales Dashboard',
@@ -199,6 +214,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 5: NHS Data Integration Pipeline
+  // ============================================
   {
     id: 'nhs-data-integration-pipeline',
     title: 'NHS Data Integration Pipeline',
@@ -211,7 +230,9 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/ayothetechguy/nhs-data-integration-pipeline',
     liveDemoUrl: '',
     videoUrl: '',
-    screenshots: [],
+    screenshots: [
+      '/projects/nhs-pipeline-1.png'
+    ],
     features: [
       'Multi-source data extraction from 4 NHS clinical systems',
       'Star schema dimensional warehouse with fact and dimension tables',
@@ -241,6 +262,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 6: NHS A&E Wait Time Prediction
+  // ============================================
   {
     id: 'nhs-ae-wait-time-prediction',
     title: 'NHS A&E Wait Time Prediction System',
@@ -253,7 +278,9 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/ayothetechguy/nhs-ae-wait-time-prediction',
     liveDemoUrl: 'https://nhs-ae-wait-time-prediction-9uyjkafyedjzusxntahzmo.streamlit.app',
     videoUrl: '',
-    screenshots: ['/projects/nhs-ae-prediction-1.png'],
+    screenshots: [
+      '/projects/nhs-ae-prediction-1.png'
+    ],
     features: [
       'Gradient Boosting model with 85.67% prediction accuracy (R² score)',
       'Real-time wait time estimation based on 13 predictive features',
@@ -267,6 +294,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2024'
   },
+
+  // ============================================
+  // PROJECT 7: Automated Reporting System
+  // ============================================
   {
     id: 'automated-reporting',
     title: 'Automated Reporting System',
@@ -279,7 +310,9 @@ export const projects: Project[] = [
     githubUrl: '',
     liveDemoUrl: '',
     videoUrl: '',
-    screenshots: ['/projects/auto-reporting-1.png'],
+    screenshots: [
+      '/projects/auto-reporting-1.png'
+    ],
     features: [
       'Scheduled report generation',
       'PDF report creation with charts',
@@ -293,6 +326,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2023'
   },
+
+  // ============================================
+  // PROJECT 8: Pneumonia Detection System
+  // ============================================
   {
     id: 'pneumonia-detection-system',
     title: 'AI-Powered Pneumonia Detection System',
@@ -328,6 +365,10 @@ export const projects: Project[] = [
     ],
     completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 9: Care Home Document Management
+  // ============================================
   {
     id: 'care-home-document-management',
     title: 'Care Home Document Management System',
@@ -364,8 +405,12 @@ export const projects: Project[] = [
       'Version control prevents confusion over which document version is current',
       'Visual dashboards help administrators prioritize urgent renewals'
     ],
-    completionDate: '2023'
+    completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 10: Staff Rota & Scheduling Dashboard
+  // ============================================
   {
     id: 'staff-rota-scheduling',
     title: 'Staff Rota & Scheduling Dashboard',
@@ -402,8 +447,12 @@ export const projects: Project[] = [
       'Leave management needs proper approval workflows for compliance',
       'Coverage alerts are essential for maintaining safe staffing levels'
     ],
-    completionDate: '2023'
+    completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 11: Supplier & Contractor Management
+  // ============================================
   {
     id: 'supplier-contractor-management',
     title: 'Supplier & Contractor Management Portal',
@@ -440,8 +489,12 @@ export const projects: Project[] = [
       'Supplier ratings help track vendor performance over time',
       'Centralized supplier data improves procurement efficiency'
     ],
-    completionDate: '2023'
+    completionDate: '2025'
   },
+
+  // ============================================
+  // PROJECT 12: Quality Assurance Reporting System
+  // ============================================
   {
     id: 'qa-reporting-system',
     title: 'Quality Assurance Reporting System',
@@ -478,9 +531,13 @@ export const projects: Project[] = [
       'Trend analytics demonstrate continuous improvement to regulators',
       'Visual dashboards help managers identify problem areas quickly'
     ],
-    completionDate: '2023'
+    completionDate: '2025'
   }
 ];
+
+// ============================================
+// HELPER FUNCTIONS
+// ============================================
 
 export function getProjectsByCategory(category: Project['category']) {
   return projects.filter(project => project.category === category);
