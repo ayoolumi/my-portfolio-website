@@ -327,6 +327,158 @@ export const projects: Project[] = [
       'Python 3.13 compatibility issues with PyTorch required version management during deployment'
     ],
     completionDate: '2025'
+  },
+  {
+    id: 'care-home-document-management',
+    title: 'Care Home Document Management System',
+    category: 'Operational Analytics',
+    shortDescription: 'Centralized document control system with version tracking, compliance monitoring, expiry alerts, and intelligent search designed for care home operations.',
+    problem: 'Care homes manage hundreds of policy documents, certificates, and compliance records with varying expiry dates and review schedules. Manual tracking leads to missed renewals, compliance gaps, and failed inspections.',
+    solution: 'Built a comprehensive document management system with automated expiry tracking, version control, review scheduling, and smart search. Features category-based organization (Policies, Health & Safety, Training, Regulatory, HR), activity logging for audit trails, and visual dashboards showing compliance status at a glance.',
+    impact: 'Eliminates manual document tracking, reduces compliance risks, and provides instant visibility into upcoming deadlines. Activity logging ensures full audit trail for Care Inspectorate visits. Saves administrators hours of weekly tracking time.',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'Plotly', 'PyPDF2', 'python-docx', 'Document Management', 'Care Sector'],
+    githubUrl: 'https://github.com/ayoolumi/care-home-document-management',
+    liveDemoUrl: 'https://care-home-document-management-3wuuummspu9wqpse9sksk7.streamlit.app/',
+    videoUrl: '',
+    screenshots: [
+      '/projects/care-doc-1.png',
+      '/projects/care-doc-2.png',
+      '/projects/care-doc-3.png'
+    ],
+    features: [
+      'Document upload supporting PDF, Word, Excel, PowerPoint, and images',
+      'Automatic version control with full history tracking',
+      'Expiry date monitoring with 30/14/7-day alerts',
+      'Review scheduling with compliance status tracking',
+      'Smart search with filters by category, date range, and keywords',
+      '10 pre-configured care home document categories',
+      'Activity logging for complete audit trail compliance',
+      'Analytics dashboard with document statistics and trends',
+      'Category-based organization matching care sector requirements',
+      'Professional dark theme UI with teal accents'
+    ],
+    learnings: [
+      'Care sector document management requires specific categories aligned with regulatory requirements',
+      'Automated expiry tracking significantly reduces compliance risks',
+      'Activity logging is essential for Care Inspectorate audit requirements',
+      'Version control prevents confusion over which document version is current',
+      'Visual dashboards help administrators prioritize urgent renewals'
+    ],
+    completionDate: '2023'
+  },
+  {
+    id: 'staff-rota-scheduling',
+    title: 'Staff Rota & Scheduling Dashboard',
+    category: 'Workforce Analytics',
+    shortDescription: 'Intelligent staff scheduling system with visual rota builder, shift pattern management, leave requests, and coverage monitoring for care organizations.',
+    problem: 'Care organizations manage complex schedules with multiple shift patterns, varying staff availability, part-time and relief workers, and frequent last-minute changes. Manual rota creation is time-consuming and error-prone, risking understaffed shifts.',
+    solution: 'Developed a visual scheduling dashboard with weekly rota grid, configurable shift patterns (Early, Day, Late, Night, Long Day), staff profiles with contract details, leave request workflow, and real-time coverage alerts. Supports full-time, part-time, relief, and bank staff management.',
+    impact: 'Reduces rota creation time from hours to minutes. Coverage alerts prevent understaffed shifts. Leave management workflow ensures proper approval process. Analytics track hours worked against contracted hours.',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'Plotly', 'Pandas', 'Workforce Management', 'Care Sector'],
+    githubUrl: 'https://github.com/ayoolumi/staff-rota-dashboard',
+    liveDemoUrl: 'https://staff-rota-dashboard-bsy7fd8xwrbxum3bcf5txx.streamlit.app/',
+    videoUrl: '',
+    screenshots: [
+      '/projects/staff-rota-1.png',
+      '/projects/staff-rota-2.png',
+      '/projects/staff-rota-3.png'
+    ],
+    features: [
+      'Visual weekly rota grid showing all staff and shifts',
+      'Staff directory with contract type and hours management',
+      '5 configurable shift patterns with custom colors',
+      'Quick-add feature for scheduling entire week at once',
+      'Leave request submission and approval workflow',
+      'Coverage monitoring with minimum staff requirements',
+      'Hours tracking against contracted hours',
+      'Support for full-time, part-time, relief, and bank staff',
+      'Week navigation with date range display',
+      'Analytics dashboard with scheduling statistics'
+    ],
+    learnings: [
+      'Care sector scheduling requires support for multiple contract types',
+      'Visual rota grids are more intuitive than list-based schedules',
+      'Shift pattern templates dramatically speed up schedule creation',
+      'Leave management needs proper approval workflows for compliance',
+      'Coverage alerts are essential for maintaining safe staffing levels'
+    ],
+    completionDate: '2023'
+  },
+  {
+    id: 'supplier-contractor-management',
+    title: 'Supplier & Contractor Management Portal',
+    category: 'Operational Analytics',
+    shortDescription: 'Comprehensive vendor management system with supplier database, contract tracking, compliance monitoring, and spending analytics for care organizations.',
+    problem: 'Care organizations work with numerous suppliers and contractors, each with contracts, compliance documents (insurance, certifications), and spending records. Manual tracking leads to expired contracts, lapsed insurance, and poor spend visibility.',
+    solution: 'Built a supplier management portal with vendor database, contract lifecycle tracking, compliance document monitoring (Public Liability, Employers Liability, DBS, certifications), spending analytics, and expiry alerts. Features 10 supplier categories aligned with care sector needs.',
+    impact: 'Provides complete visibility into supplier relationships, prevents compliance gaps from expired documents, enables spend analysis by category, and ensures contracts are renewed on time. Reduces procurement risk and supports better vendor negotiations.',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'Plotly', 'Pandas', 'Procurement Analytics', 'Care Sector'],
+    githubUrl: 'https://github.com/ayoolumi/supplier-management-portal',
+    liveDemoUrl: 'https://supplier-management-app-j3m6tslicx9wedjztvxgso.streamlit.app/',
+    videoUrl: '',
+    screenshots: [
+      '/projects/supplier-1.png',
+      '/projects/supplier-2.png',
+      '/projects/supplier-3.png'
+    ],
+    features: [
+      'Supplier directory with contact details and ratings',
+      'Contract management with value and renewal tracking',
+      'Compliance document tracking (insurance, certifications, DBS)',
+      'Expiry alerts for contracts and compliance documents',
+      'Spending tracker with invoice recording',
+      'Analytics dashboard with spend by category charts',
+      '10 care-sector supplier categories',
+      'Payment terms and account management',
+      'Supplier rating system for performance tracking',
+      'Year-to-date spending analysis'
+    ],
+    learnings: [
+      'Care sector suppliers require specific compliance tracking (insurance, DBS)',
+      'Contract expiry alerts prevent service disruption',
+      'Spend analytics by category enable better budget management',
+      'Supplier ratings help track vendor performance over time',
+      'Centralized supplier data improves procurement efficiency'
+    ],
+    completionDate: '2023'
+  },
+  {
+    id: 'qa-reporting-system',
+    title: 'Quality Assurance Reporting System',
+    category: 'Operational Analytics',
+    shortDescription: 'Quality management system with audit scheduling, findings tracking, corrective action management, and compliance dashboards for care organizations.',
+    problem: 'Care organizations conduct regular audits (medication, infection control, health & safety) but struggle to track findings, corrective actions, and compliance trends. Paper-based systems make it difficult to identify patterns and demonstrate continuous improvement.',
+    solution: 'Developed a QA system with audit scheduling, findings tracking by risk level (High/Medium/Low), corrective action workflow, and compliance dashboards. Features 10 audit types aligned with care sector requirements, regulatory compliance areas, and trend analytics.',
+    impact: 'Provides systematic approach to quality management. Risk-based findings prioritization ensures critical issues are addressed first. Corrective action tracking with due dates prevents overdue items. Analytics demonstrate continuous improvement for regulatory inspections.',
+    techStack: ['Python', 'Streamlit', 'SQLite', 'Plotly', 'Pandas', 'Quality Management', 'Care Sector'],
+    githubUrl: 'https://github.com/ayoolumi/qa-reporting-system',
+    liveDemoUrl: 'https://app-reporting-system-nutugt5tbgahxsjwyhappppr.streamlit.app/',
+    videoUrl: '',
+    screenshots: [
+      '/projects/qa-system-1.png',
+      '/projects/qa-system-2.png',
+      '/projects/qa-system-3.png'
+    ],
+    features: [
+      'Audit scheduling with 10 care-sector audit types',
+      'Findings tracking with risk level categorization',
+      'Corrective action workflow with due dates',
+      'Overdue action alerts and escalation',
+      'Audit scoring and completion tracking',
+      'Compliance area monitoring (Care Inspectorate, HSE, Fire Safety)',
+      'Analytics dashboard with trends and KPIs',
+      'Average audit score tracking over time',
+      'Risk distribution charts for open findings',
+      'Activity logging for audit trail'
+    ],
+    learnings: [
+      'Care sector audits require specific categories aligned with regulations',
+      'Risk-based prioritization ensures critical findings are addressed first',
+      'Corrective action tracking with due dates improves completion rates',
+      'Trend analytics demonstrate continuous improvement to regulators',
+      'Visual dashboards help managers identify problem areas quickly'
+    ],
+    completionDate: '2023'
   }
 ];
 
