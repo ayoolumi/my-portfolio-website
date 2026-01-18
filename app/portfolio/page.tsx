@@ -344,9 +344,9 @@ Key deliverables include a trained LightGBM model achieving 94.95% accuracy with
     fallbackGradient: 'from-sky-500 to-blue-600',
     techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Processing', 'Search', 'Authentication'],
     metrics: { main: 'QA', label: 'Compliant' },
-    liveDemo: '#',
-    github: '#',
-    status: 'coming-soon',
+    liveDemo: 'https://care-home-document-management-3wuuummspu9wqpse9sksk7.streamlit.app/',
+    github: 'https://github.com/ayoolumi/care-home-document-management',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <rect x="6" y="4" width="16" height="22" rx="2" className="fill-sky-500/20 stroke-sky-600" strokeWidth="2" />
@@ -458,13 +458,13 @@ Status: Coming Soon - In Development`
     category: 'Care Administration',
     shortDesc: 'Intelligent staff scheduling system with shift management, availability tracking, and automated rota generation.',
     description: 'AI-assisted staff scheduling solution for care organizations featuring shift pattern management, staff availability tracking, automated rota generation, and real-time coverage monitoring. Supports People Team administrative functions.',
-    image: '/projects/staff-scheduling-1.png',
+    image: '/projects/staff-rota-1.png',
     fallbackGradient: 'from-violet-500 to-purple-600',
     techStack: ['Python', 'Streamlit', 'SQLite', 'Optimization', 'Calendar APIs', 'Notifications'],
     metrics: { main: 'Rota', label: 'Management' },
-    liveDemo: '#',
-    github: '#',
-    status: 'coming-soon',
+    liveDemo: 'https://staff-rota-dashboard-bsy7fd8xwrbxum3bcf5txx.streamlit.app/',
+    github: 'https://github.com/ayoolumi/staff-rota-dashboard',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <rect x="4" y="6" width="24" height="20" rx="2" className="fill-violet-500/20 stroke-violet-600" strokeWidth="2" />
@@ -590,13 +590,13 @@ Status: Coming Soon - In Development`
     category: 'Care Administration',
     shortDesc: 'Centralized system for managing contractor relationships, compliance documentation, and procurement tracking.',
     description: 'Comprehensive supplier and contractor management system featuring vendor database, compliance tracking, contract management, and procurement workflows. Streamlines administrative oversight of external relationships.',
-    image: '/projects/supplier-portal-1.png',
+    image: '/projects/supplier-1.png',
     fallbackGradient: 'from-orange-500 to-red-500',
     techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Generation', 'Email', 'Dashboards'],
     metrics: { main: 'Vendors', label: 'Management' },
-    liveDemo: '#',
-    github: '#',
-    status: 'coming-soon',
+    liveDemo: 'https://supplier-management-app-j3m6tslicx9wedjztvxgso.streamlit.app/',
+    github: 'https://github.com/ayoolumi/supplier-management-portal',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <rect x="4" y="8" width="10" height="10" rx="2" className="fill-orange-500/20 stroke-orange-600" strokeWidth="2" />
@@ -724,9 +724,9 @@ Status: Coming Soon - In Development`
     fallbackGradient: 'from-cyan-500 to-teal-600',
     techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Reports', 'Analytics', 'Dashboards'],
     metrics: { main: 'QA', label: 'Excellence' },
-    liveDemo: '#',
-    github: '#',
-    status: 'coming-soon',
+    liveDemo: 'https://app-reporting-system-nutugt5tbgahxsjwyhappppr.streamlit.app/',
+    github: 'https://github.com/ayoolumi/qa-reporting-system',
+    status: 'live',
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="10" className="fill-cyan-500/20 stroke-cyan-600" strokeWidth="2" />
