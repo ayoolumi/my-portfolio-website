@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useScroll } from 'framer-motion';
 import { 
   FileText, 
@@ -16,7 +17,8 @@ import {
   File,
   CheckCircle,
   Menu,
-  X
+  X,
+  Clock
 } from 'lucide-react';
 
 // Resource categories
@@ -28,7 +30,7 @@ const categories = [
   { id: 'code', name: 'Code & Datasets', icon: Code },
 ];
 
-// Sample resources data
+// Resources data
 const resources = [
   // TEMPLATES
   {
@@ -41,6 +43,7 @@ const resources = [
     downloadUrl: '/downloads/templates/cv-template.docx',
     tags: ['CV', 'Resume', 'Job Application'],
     featured: true,
+    comingSoon: false,
   },
   {
     id: 2,
@@ -52,6 +55,7 @@ const resources = [
     downloadUrl: '/downloads/templates/cover-letter-template.docx',
     tags: ['Cover Letter', 'Job Application'],
     featured: false,
+    comingSoon: false,
   },
   {
     id: 3,
@@ -63,6 +67,7 @@ const resources = [
     downloadUrl: '/downloads/templates/care-documentation-pack.zip',
     tags: ['Care Sector', 'Documentation', 'Healthcare'],
     featured: true,
+    comingSoon: false,
   },
   {
     id: 4,
@@ -74,6 +79,7 @@ const resources = [
     downloadUrl: '/downloads/templates/project-proposal-template.docx',
     tags: ['Project Management', 'Proposal'],
     featured: false,
+    comingSoon: false,
   },
   
   // GUIDES & EBOOKS
@@ -87,6 +93,7 @@ const resources = [
     downloadUrl: '/downloads/guides/ai-beginners-guide.pdf',
     tags: ['AI', 'Machine Learning', 'Beginner'],
     featured: true,
+    comingSoon: false,
   },
   {
     id: 6,
@@ -98,6 +105,7 @@ const resources = [
     downloadUrl: '/downloads/guides/python-data-analytics.pdf',
     tags: ['Python', 'Data Analytics', 'Tutorial'],
     featured: true,
+    comingSoon: false,
   },
   {
     id: 7,
@@ -109,6 +117,7 @@ const resources = [
     downloadUrl: '/downloads/guides/care-digital-transformation.pdf',
     tags: ['Care Sector', 'Digital', 'Healthcare'],
     featured: false,
+    comingSoon: false,
   },
   {
     id: 8,
@@ -120,6 +129,7 @@ const resources = [
     downloadUrl: '/downloads/guides/sql-cheat-sheet.pdf',
     tags: ['SQL', 'Database', 'Reference'],
     featured: false,
+    comingSoon: false,
   },
   {
     id: 9,
@@ -131,6 +141,7 @@ const resources = [
     downloadUrl: '/downloads/guides/streamlit-dashboard-guide.pdf',
     tags: ['Streamlit', 'Dashboard', 'Python'],
     featured: false,
+    comingSoon: false,
   },
 
   // SPREADSHEETS
@@ -144,6 +155,7 @@ const resources = [
     downloadUrl: '/downloads/spreadsheets/budget-tracker.xlsx',
     tags: ['Budget', 'Finance', 'Personal'],
     featured: true,
+    comingSoon: false,
   },
   {
     id: 11,
@@ -155,6 +167,7 @@ const resources = [
     downloadUrl: '/downloads/spreadsheets/project-planner.xlsx',
     tags: ['Project Management', 'Planning', 'Gantt'],
     featured: true,
+    comingSoon: false,
   },
   {
     id: 12,
@@ -166,6 +179,7 @@ const resources = [
     downloadUrl: '/downloads/spreadsheets/kpi-dashboard.xlsx',
     tags: ['KPI', 'Dashboard', 'Business'],
     featured: false,
+    comingSoon: false,
   },
   {
     id: 13,
@@ -177,6 +191,7 @@ const resources = [
     downloadUrl: '/downloads/spreadsheets/staff-rota-template.xlsx',
     tags: ['HR', 'Scheduling', 'Staff Management'],
     featured: false,
+    comingSoon: false,
   },
   {
     id: 14,
@@ -188,9 +203,10 @@ const resources = [
     downloadUrl: '/downloads/spreadsheets/invoice-tracker.xlsx',
     tags: ['Finance', 'Invoicing', 'Business'],
     featured: false,
+    comingSoon: false,
   },
 
-  // CODE & DATASETS
+  // CODE & DATASETS - ALL COMING SOON
   {
     id: 15,
     title: 'Python Data Cleaning Scripts',
@@ -198,9 +214,10 @@ const resources = [
     category: 'code',
     fileType: 'ZIP',
     fileSize: '45 KB',
-    downloadUrl: '/downloads/code/data-cleaning-scripts.zip',
+    downloadUrl: '#',
     tags: ['Python', 'Data Cleaning', 'Scripts'],
-    featured: true,
+    featured: false,
+    comingSoon: true,
   },
   {
     id: 16,
@@ -209,9 +226,10 @@ const resources = [
     category: 'code',
     fileType: 'CSV',
     fileSize: '1.2 MB',
-    downloadUrl: '/downloads/code/healthcare-sample-dataset.csv',
+    downloadUrl: '#',
     tags: ['Dataset', 'Healthcare', 'Practice'],
-    featured: true,
+    featured: false,
+    comingSoon: true,
   },
   {
     id: 17,
@@ -220,9 +238,10 @@ const resources = [
     category: 'code',
     fileType: 'ZIP',
     fileSize: '35 KB',
-    downloadUrl: '/downloads/code/streamlit-starter.zip',
+    downloadUrl: '#',
     tags: ['Streamlit', 'Dashboard', 'Template'],
     featured: false,
+    comingSoon: true,
   },
   {
     id: 18,
@@ -231,9 +250,10 @@ const resources = [
     category: 'code',
     fileType: 'ZIP',
     fileSize: '500 KB',
-    downloadUrl: '/downloads/code/sql-practice.zip',
+    downloadUrl: '#',
     tags: ['SQL', 'Database', 'Practice'],
     featured: false,
+    comingSoon: true,
   },
   {
     id: 19,
@@ -242,9 +262,10 @@ const resources = [
     category: 'code',
     fileType: 'ZIP',
     fileSize: '180 KB',
-    downloadUrl: '/downloads/code/ml-model-templates.zip',
+    downloadUrl: '#',
     tags: ['Machine Learning', 'Jupyter', 'Python'],
     featured: false,
+    comingSoon: true,
   },
 ];
 
@@ -315,21 +336,22 @@ export default function ResourcesPage() {
     return matchesCategory && matchesSearch;
   });
 
-  const featuredResources = resources.filter(r => r.featured);
+  const featuredResources = resources.filter(r => r.featured && !r.comingSoon);
 
   const handleDownload = (resourceId: number) => {
     setDownloadedItems(prev => [...prev, resourceId]);
   };
 
+  const availableCount = filteredResources.filter(r => !r.comingSoon).length;
+  const comingSoonCount = filteredResources.filter(r => r.comingSoon).length;
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-blue-500 to-cyan-500 z-[100] origin-left"
         style={{ scaleX: scrollYProgress }}
       />
 
-      {/* Navigation */}
       <motion.nav 
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -343,13 +365,18 @@ export default function ResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link href="/" className="flex items-center space-x-3 group">
-              <motion.img
+              <motion.div
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.6 }}
-                src="/Head.jpg"
-                alt="Ayoolumi Melehon"
-                className="w-10 h-10 rounded-full object-cover border-2 border-teal-500 group-hover:border-teal-600 transition-all shadow-md"
-              />
+                className="relative w-10 h-10"
+              >
+                <Image
+                  src="/Head.jpg"
+                  alt="Ayoolumi Melehon"
+                  fill
+                  className="rounded-full object-cover border-2 border-teal-500 group-hover:border-teal-600 transition-all shadow-md"
+                />
+              </motion.div>
               <span className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors">
                 AYOOLUMI MELEHON
               </span>
@@ -380,7 +407,6 @@ export default function ResourcesPage() {
               </motion.div>
             </div>
 
-            {/* Mobile menu button */}
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -390,7 +416,6 @@ export default function ResourcesPage() {
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileMenuOpen && (
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
@@ -411,7 +436,6 @@ export default function ResourcesPage() {
         )}
       </motion.nav>
 
-      {/* Hero Section */}
       <section className="pt-16 pb-12 px-4 bg-gradient-to-b from-teal-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
@@ -429,7 +453,6 @@ export default function ResourcesPage() {
               Download free templates, guides, spreadsheets, and code samples to accelerate your data analytics and AI journey.
             </p>
 
-            {/* Search Bar */}
             <div className="max-w-xl mx-auto relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
@@ -444,12 +467,12 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Category Filter */}
       <section className="px-4 pb-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => {
               const Icon = category.icon;
+              const isCodeCategory = category.id === 'code';
               return (
                 <button
                   key={category.id}
@@ -462,6 +485,15 @@ export default function ResourcesPage() {
                 >
                   <Icon className="w-4 h-4" />
                   <span className="text-sm font-medium">{category.name}</span>
+                  {isCodeCategory && (
+                    <span className={`text-xs px-1.5 py-0.5 rounded-full ml-1 ${
+                      selectedCategory === category.id 
+                        ? 'bg-white/20 text-white' 
+                        : 'bg-amber-100 text-amber-700'
+                    }`}>
+                      Soon
+                    </span>
+                  )}
                 </button>
               );
             })}
@@ -469,7 +501,6 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Featured Resources */}
       {selectedCategory === 'all' && searchQuery === '' && (
         <section className="px-4 pb-12 bg-white">
           <div className="max-w-7xl mx-auto">
@@ -511,16 +542,23 @@ export default function ResourcesPage() {
         </section>
       )}
 
-      {/* All Resources Grid */}
       <section className="px-4 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto pt-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-gray-900">
               {selectedCategory === 'all' ? 'All Resources' : categories.find(c => c.id === selectedCategory)?.name}
             </h2>
-            <span className="text-gray-500 text-sm">
-              {filteredResources.length} resource{filteredResources.length !== 1 ? 's' : ''} available
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="text-gray-500 text-sm">
+                {availableCount} available
+              </span>
+              {comingSoonCount > 0 && (
+                <span className="text-amber-600 text-sm flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  {comingSoonCount} coming soon
+                </span>
+              )}
+            </div>
           </div>
 
           {filteredResources.length === 0 ? (
@@ -541,18 +579,38 @@ export default function ResourcesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="bg-white border border-gray-200 rounded-xl p-6 hover:border-teal-500 hover:shadow-lg transition-all duration-300 group"
+                  className={`bg-white border rounded-xl p-6 transition-all duration-300 group ${
+                    resource.comingSoon 
+                      ? 'border-gray-200 opacity-80' 
+                      : 'border-gray-200 hover:border-teal-500 hover:shadow-lg'
+                  }`}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 rounded-lg bg-gray-100 group-hover:bg-teal-100 transition-colors">
+                    <div className={`p-3 rounded-lg transition-colors ${
+                      resource.comingSoon 
+                        ? 'bg-gray-100' 
+                        : 'bg-gray-100 group-hover:bg-teal-100'
+                    }`}>
                       {getCategoryIcon(resource.category)}
                     </div>
-                    <span className={`text-xs px-2 py-1 rounded-full border ${getCategoryColor(resource.category)}`}>
-                      {resource.category}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      {resource.comingSoon && (
+                        <span className="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-700 border border-amber-200 flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          Coming Soon
+                        </span>
+                      )}
+                      <span className={`text-xs px-2 py-1 rounded-full border ${getCategoryColor(resource.category)}`}>
+                        {resource.category}
+                      </span>
+                    </div>
                   </div>
                   
-                  <h3 className="text-gray-900 font-semibold text-lg mb-2 group-hover:text-teal-600 transition-colors">
+                  <h3 className={`font-semibold text-lg mb-2 transition-colors ${
+                    resource.comingSoon 
+                      ? 'text-gray-700' 
+                      : 'text-gray-900 group-hover:text-teal-600'
+                  }`}>
                     {resource.title}
                   </h3>
                   
@@ -573,27 +631,34 @@ export default function ResourcesPage() {
                       {getFileIcon(resource.fileType)}
                       <span className="text-xs text-gray-500">{resource.fileType} • {resource.fileSize}</span>
                     </div>
-                    <a
-                      href={resource.downloadUrl}
-                      onClick={() => handleDownload(resource.id)}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
-                        downloadedItems.includes(resource.id)
-                          ? 'bg-green-100 text-green-700'
-                          : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
-                      }`}
-                    >
-                      {downloadedItems.includes(resource.id) ? (
-                        <>
-                          <CheckCircle className="w-4 h-4" />
-                          Downloaded
-                        </>
-                      ) : (
-                        <>
-                          <Download className="w-4 h-4" />
-                          Download
-                        </>
-                      )}
-                    </a>
+                    {resource.comingSoon ? (
+                      <span className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm bg-gray-100 text-gray-500 cursor-not-allowed">
+                        <Clock className="w-4 h-4" />
+                        Coming Soon
+                      </span>
+                    ) : (
+                      <a
+                        href={resource.downloadUrl}
+                        onClick={() => handleDownload(resource.id)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                          downloadedItems.includes(resource.id)
+                            ? 'bg-green-100 text-green-700'
+                            : 'bg-teal-100 text-teal-700 hover:bg-teal-200'
+                        }`}
+                      >
+                        {downloadedItems.includes(resource.id) ? (
+                          <>
+                            <CheckCircle className="w-4 h-4" />
+                            Downloaded
+                          </>
+                        ) : (
+                          <>
+                            <Download className="w-4 h-4" />
+                            Download
+                          </>
+                        )}
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -602,14 +667,13 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="px-4 pb-20 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-teal-600 to-blue-600 rounded-2xl p-8 text-center text-white shadow-xl">
             <h2 className="text-2xl font-bold mb-4">Need Custom Solutions?</h2>
             <p className="text-teal-100 mb-6">
               Looking for custom templates, dashboards, or data solutions tailored to your specific needs? 
-              Let's discuss how I can help.
+              Let&apos;s discuss how I can help.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
@@ -629,7 +693,6 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -668,4 +731,3 @@ export default function ResourcesPage() {
     </div>
   );
 }
-
