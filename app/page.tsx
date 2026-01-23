@@ -4,6 +4,7 @@ import { motion, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useInView } from 'framer-motion';
+import Navigation from './components/Navigation';
 
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -32,17 +33,7 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 }
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -51,89 +42,8 @@ export default function Home() {
         style={{ scaleX: scrollYProgress }}
       />
 
-      <motion.nav 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'bg-white/98 backdrop-blur-xl shadow-lg border-b border-gray-200' 
-            : 'bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <motion.img
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-                src="/Head.jpg"
-                alt="Ayoolumi Melehon"
-                className="w-10 h-10 rounded-full object-cover border-2 border-teal-500 group-hover:border-teal-600 transition-all shadow-md"
-              />
-              <span className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors">
-                AYOOLUMI MELEHON
-              </span>
-            </Link>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              {['About', 'Portfolio', 'Experience & Skills'].map((item) => (
-                <Link 
-                  key={item}
-                  href={item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
-                  className="relative text-gray-600 hover:text-teal-600 transition-colors font-medium text-sm group py-2"
-                >
-                  {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-teal-500 to-blue-500 group-hover:w-full transition-all duration-300 ease-out"></span>
-                </Link>
-              ))}
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link 
-                  href="/contact"
-                  className="px-6 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg font-medium hover:from-teal-700 hover:to-teal-600 transition-all shadow-md hover:shadow-lg"
-                >
-                  Get in Touch
-                </Link>
-              </motion.div>
-            </div>
-
-            <button 
-              className="md:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {mobileMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden pb-4 border-t border-gray-200 bg-white"
-            >
-              <div className="flex flex-col space-y-3 pt-4">
-                {['Home', 'About', 'Portfolio', 'Experience & Skills'].map((item) => (
-                  <Link 
-                    key={item}
-                    href={item === 'Home' ? '/' : item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
-                    className="text-gray-600 hover:text-teal-600 hover:bg-teal-50 py-3 px-4 rounded-lg font-medium transition-all"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </div>
-      </motion.nav>
+      {/* Navigation */}
+      <Navigation />
 
       {/* Hero Section */}
       <section className="py-16 px-4 bg-white">
@@ -619,6 +529,7 @@ export default function Home() {
               <div className="space-y-2">
                 <Link href="/about" className="block text-gray-400 hover:text-white transition text-sm">About</Link>
                 <Link href="/portfolio" className="block text-gray-400 hover:text-white transition text-sm">Portfolio</Link>
+                <Link href="/resources" className="block text-gray-400 hover:text-white transition text-sm">Resources</Link>
                 <Link href="/experience" className="block text-gray-400 hover:text-white transition text-sm">Experience & Skills</Link>
                 <Link href="/contact" className="block text-gray-400 hover:text-white transition text-sm">Contact</Link>
               </div>
