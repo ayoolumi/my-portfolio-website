@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Navigation from '../components/Navigation';
 
 const sampleProjects = [
   {
@@ -332,7 +333,6 @@ Key deliverables include a trained LightGBM model achieving 94.95% accuracy with
       deliverables: `Complete Streamlit dashboard, interactive visualizations, sample dataset, source code.`
     }
   },
-  // NEW CAMPHILL-ALIGNED PROJECTS
   {
     id: 'document-management-system',
     number: '10',
@@ -356,99 +356,17 @@ Key deliverables include a trained LightGBM model achieving 94.95% accuracy with
       </svg>
     ),
     details: {
-      introduction: `This project develops a comprehensive document management system tailored for care home environments. The system addresses the critical need for consistent document control, version tracking, and regulatory compliance across all departments.
-
-In care settings like Camphill Blair Drummond, maintaining organized, up-to-date documentation is essential for quality assurance, staff guidance, and regulatory inspections. This system provides a centralized repository with powerful search, version control, and approval workflows.
-
-Key features include categorized document storage, automated version history, approval workflows for policy updates, compliance tracking dashboards, and role-based access control. The system integrates with existing workflows to enhance rather than disrupt daily operations.`,
-      problemStatement: `Care homes face significant document management challenges:
-
-• Documents scattered across shared drives, emails, and physical files
-• Multiple versions of policies causing confusion and compliance risks
-• No audit trail of document changes or approvals
-• Difficulty finding correct, current versions of procedures
-• Time-consuming preparation for regulatory inspections
-• Inconsistent document formats across departments
-
-Without proper document control, staff may follow outdated procedures, inspectors may find compliance gaps, and organizational knowledge becomes fragmented.`,
-      previousGaps: `Current document management in many care settings relies on:
-
-• Basic shared network folders with no version control
-• Manual tracking of document updates via spreadsheets
-• Email-based approval processes with no audit trail
-• Physical filing systems for archived documents
-• No centralized search across all documents
-• Limited access control and security`,
-      aimsObjectives: `Primary Aim: Create a user-friendly document management system that ensures consistency and compliance across the care organization.
-
-Objectives:
-1. Centralized repository with categorized document storage
-2. Automatic version control with full history tracking
-3. Approval workflow for policy and procedure updates
-4. Powerful search with filters by category, date, department
-5. Compliance dashboard showing document review status
-6. Role-based access control for sensitive documents
-7. Audit trail for all document activities
-8. Integration with quality assurance processes`,
-      datasets: `Document Categories:
-• Policies & Procedures
-• Care Plans & Assessments
-• Staff Training Records
-• Health & Safety Documents
-• Quality Assurance Reports
-• Meeting Minutes
-• Regulatory Correspondence
-• Templates & Forms`,
-      methodology: `Development Approach:
-
-1. Requirements gathering from care administration workflows
-2. Database design for document metadata and versioning
-3. File storage system with secure access
-4. Search indexing for fast document retrieval
-5. Approval workflow engine
-6. User interface design for non-technical users
-7. Role-based access control implementation
-8. Compliance reporting dashboard`,
-      findings: `System Capabilities (Planned):
-
-• Unlimited document storage with version history
-• Full-text search across all documents
-• Automated reminder for document reviews
-• One-click audit report generation
-• Mobile-friendly access for staff
-• Integration with existing systems`,
-      limitations: `Planned Considerations:
-
-• Initial setup requires document migration effort
-• Staff training needed for adoption
-• Requires ongoing maintenance and backup procedures
-• May need customization for specific organizational needs`,
-      recommendations: `Future Enhancements:
-
-• AI-powered document classification
-• Automated compliance gap detection
-• Integration with care management systems
-• Mobile app for offline document access
-• Automated document expiry notifications`,
-      dashboard: `Planned Dashboard Features:
-
-• Document library with category navigation
-• Search with filters and advanced options
-• Upload with automatic categorization
-• Version comparison tool
-• Approval queue for managers
-• Compliance status overview
-• Recent activity feed
-• User access management`,
-      deliverables: `Expected Outputs:
-
-• Complete document management system
-• User guide and training materials
-• Data migration tools
-• Compliance reporting templates
-• Source code and documentation
-
-Status: Coming Soon - In Development`
+      introduction: `This project develops a comprehensive document management system tailored for care home environments.`,
+      problemStatement: `Care homes face significant document management challenges with scattered documents and no version control.`,
+      previousGaps: `Current document management relies on basic shared folders with no version control or audit trail.`,
+      aimsObjectives: `Create a user-friendly document management system that ensures consistency and compliance.`,
+      datasets: `Document categories including Policies, Care Plans, Training Records, Health & Safety, and more.`,
+      methodology: `Requirements gathering, database design, file storage system, search indexing, and workflow engine.`,
+      findings: `System provides unlimited document storage with version history and full-text search.`,
+      limitations: `Initial setup requires document migration effort and staff training.`,
+      recommendations: `AI-powered document classification and automated compliance gap detection.`,
+      dashboard: `Document library, search with filters, upload with categorization, version comparison, and compliance status.`,
+      deliverables: `Complete document management system with user guide and training materials.`
     }
   },
   {
@@ -457,7 +375,7 @@ Status: Coming Soon - In Development`
     title: 'Staff Rota & Scheduling Dashboard',
     category: 'Care Administration',
     shortDesc: 'Intelligent staff scheduling system with shift management, availability tracking, and automated rota generation.',
-    description: 'AI-assisted staff scheduling solution for care organizations featuring shift pattern management, staff availability tracking, automated rota generation, and real-time coverage monitoring. Supports People Team administrative functions.',
+    description: 'AI-assisted staff scheduling solution for care organizations featuring shift pattern management, staff availability tracking, automated rota generation, and real-time coverage monitoring.',
     image: '/projects/staff-rota-1.png',
     fallbackGradient: 'from-violet-500 to-purple-600',
     techStack: ['Python', 'Streamlit', 'SQLite', 'Optimization', 'Calendar APIs', 'Notifications'],
@@ -478,109 +396,17 @@ Status: Coming Soon - In Development`
       </svg>
     ),
     details: {
-      introduction: `This project develops an intelligent staff scheduling system designed specifically for care organizations. The system streamlines rota management, tracks staff availability, and ensures adequate coverage across all shifts.
-
-For organizations like Camphill Blair Drummond, effective staff scheduling is crucial for maintaining quality care while respecting staff work-life balance. This system provides administrative support to People Teams by automating routine scheduling tasks and providing clear visibility into staffing levels.
-
-Key features include shift pattern templates, staff availability management, automated rota generation with constraint handling, real-time coverage monitoring, and integration with leave management. The system reduces administrative burden while improving scheduling accuracy.`,
-      problemStatement: `Care organizations face complex scheduling challenges:
-
-• Multiple shift patterns across different houses/units
-• Varying staff availability and preferences
-• Last-minute changes due to sickness or emergencies
-• Ensuring adequate skill mix on each shift
-• Managing part-time, full-time, and relief staff
-• Compliance with working time regulations
-• Fair distribution of unsocial hours
-
-Manual scheduling is time-consuming, error-prone, and often results in understaffing or overstaffing situations.`,
-      previousGaps: `Current scheduling approaches often involve:
-
-• Paper-based or spreadsheet rotas that are hard to update
-• No real-time visibility into coverage gaps
-• Manual communication of shift changes
-• Limited ability to track patterns over time
-• No integration with HR systems
-• Difficulty ensuring compliance with regulations`,
-      aimsObjectives: `Primary Aim: Create an efficient staff scheduling system that reduces administrative burden while ensuring optimal coverage.
-
-Objectives:
-1. Digital rota management with drag-and-drop interface
-2. Staff profiles with availability, skills, and preferences
-3. Automated shift assignment based on constraints
-4. Real-time coverage dashboard showing gaps
-5. Leave and absence integration
-6. Shift swap and pickup functionality
-7. Compliance checking for working hours
-8. Reporting on patterns and trends`,
-      datasets: `Data Components:
-
-Staff Records:
-• Personal details and contact information
-• Contract type (full-time, part-time, relief)
-• Skills and certifications
-• Availability patterns
-• Shift preferences
-
-Shift Definitions:
-• Shift times and patterns
-• Location/department assignment
-• Minimum staffing requirements
-• Skill requirements per shift
-
-Historical Data:
-• Past rotas and actual attendance
-• Absence patterns
-• Overtime trends`,
-      methodology: `Development Approach:
-
-1. Requirements analysis with People Team stakeholders
-2. Data model design for staff and scheduling
-3. Constraint definition and optimization logic
-4. User interface design for ease of use
-5. Notification system for shift updates
-6. Reporting and analytics development
-7. Testing with real scheduling scenarios
-8. Training materials preparation`,
-      findings: `System Capabilities (Planned):
-
-• Visual rota builder with templates
-• Automated gap detection and alerts
-• Staff mobile access for viewing schedules
-• One-click shift swap approval
-• Comprehensive audit trail
-• Customizable reports`,
-      limitations: `Planned Considerations:
-
-• Requires accurate staff data input
-• Complex rules may need ongoing refinement
-• Staff adoption requires training
-• Integration with payroll may need customization`,
-      recommendations: `Future Enhancements:
-
-• AI-powered demand forecasting
-• Automatic shift filling from relief pool
-• Integration with payroll systems
-• Mobile app for staff
-• Fatigue management monitoring`,
-      dashboard: `Planned Dashboard Features:
-
-• Weekly/monthly rota view
-• Coverage heat map
-• Staff availability calendar
-• Pending requests queue
-• Compliance alerts
-• Analytics and trends
-• Quick actions panel`,
-      deliverables: `Expected Outputs:
-
-• Complete scheduling system
-• Staff and manager interfaces
-• Mobile-responsive design
-• User training guide
-• Integration documentation
-
-Status: Coming Soon - In Development`
+      introduction: `Intelligent staff scheduling system designed specifically for care organizations.`,
+      problemStatement: `Care organizations face complex scheduling challenges with multiple shift patterns and varying availability.`,
+      previousGaps: `Current scheduling uses paper-based or spreadsheet rotas that are hard to update.`,
+      aimsObjectives: `Create an efficient staff scheduling system that reduces administrative burden.`,
+      datasets: `Staff records, shift definitions, and historical data for patterns and trends.`,
+      methodology: `Requirements analysis, data model design, constraint definition, and optimization logic.`,
+      findings: `System provides visual rota builder with templates and automated gap detection.`,
+      limitations: `Requires accurate staff data input and complex rules may need refinement.`,
+      recommendations: `AI-powered demand forecasting and automatic shift filling.`,
+      dashboard: `Weekly/monthly rota view, coverage heat map, staff availability calendar, and analytics.`,
+      deliverables: `Complete scheduling system with staff and manager interfaces.`
     }
   },
   {
@@ -589,7 +415,7 @@ Status: Coming Soon - In Development`
     title: 'Supplier & Contractor Management Portal',
     category: 'Care Administration',
     shortDesc: 'Centralized system for managing contractor relationships, compliance documentation, and procurement tracking.',
-    description: 'Comprehensive supplier and contractor management system featuring vendor database, compliance tracking, contract management, and procurement workflows. Streamlines administrative oversight of external relationships.',
+    description: 'Comprehensive supplier and contractor management system featuring vendor database, compliance tracking, contract management, and procurement workflows.',
     image: '/projects/supplier-1.png',
     fallbackGradient: 'from-orange-500 to-red-500',
     techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Generation', 'Email', 'Dashboards'],
@@ -606,111 +432,17 @@ Status: Coming Soon - In Development`
       </svg>
     ),
     details: {
-      introduction: `This project develops a centralized supplier and contractor management portal for care organizations. The system provides comprehensive oversight of external relationships, ensuring compliance and streamlining procurement processes.
-
-Care homes work with numerous suppliers and contractors - from food providers to maintenance services, medical suppliers to specialist consultants. Managing these relationships, tracking compliance documentation, and ensuring value for money requires systematic oversight.
-
-Key features include a vendor database with contact and contract details, compliance documentation tracking (insurance, certifications, DBS checks), contract renewal alerts, procurement workflow management, and spending analytics.`,
-      problemStatement: `Managing suppliers and contractors presents significant challenges:
-
-• Contact information scattered across different staff members
-• Compliance documents (insurance, certifications) difficult to track
-• No centralized view of contract terms and renewal dates
-• Manual process for requesting quotes and approving purchases
-• Limited visibility into spending patterns
-• Risk of using non-compliant contractors
-• No audit trail for procurement decisions
-
-Poor supplier management can lead to compliance failures, service disruptions, and missed cost-saving opportunities.`,
-      previousGaps: `Current supplier management often relies on:
-
-• Contact lists in spreadsheets or address books
-• Physical filing of compliance certificates
-• Manual calendar reminders for renewals
-• Email-based procurement with no central tracking
-• No systematic comparison of supplier performance
-• Limited reporting on supplier spending`,
-      aimsObjectives: `Primary Aim: Create a centralized system for managing all supplier and contractor relationships with compliance assurance.
-
-Objectives:
-1. Comprehensive vendor database with all contact details
-2. Compliance document storage with expiry tracking
-3. Contract management with key dates and terms
-4. Automated alerts for renewals and expiring documents
-5. Procurement request workflow with approvals
-6. Spending analytics by category and supplier
-7. Performance tracking and review system
-8. Integration with finance systems`,
-      datasets: `Data Components:
-
-Supplier Records:
-• Company details and contacts
-• Service categories
-• Contract terms and pricing
-• Payment terms and history
-• Performance ratings
-
-Compliance Documents:
-• Public liability insurance
-• Professional indemnity
-• DBS/PVG certificates for individuals
-• Trade certifications
-• Health and safety documentation
-
-Procurement Records:
-• Purchase requests and approvals
-• Invoices and payments
-• Delivery records
-• Quality issues and resolutions`,
-      methodology: `Development Approach:
-
-1. Stakeholder consultation on supplier management needs
-2. Database design for vendor and compliance data
-3. Document storage and expiry tracking system
-4. Workflow engine for procurement approvals
-5. Alert and notification system
-6. Reporting and analytics development
-7. User interface for different roles
-8. Integration planning for finance systems`,
-      findings: `System Capabilities (Planned):
-
-• Searchable vendor database
-• Compliance dashboard with alerts
-• One-click document requests to suppliers
-• Approval workflow for purchases
-• Spending reports and analytics
-• Supplier performance scorecards`,
-      limitations: `Planned Considerations:
-
-• Requires initial data entry effort
-• Supplier engagement needed for compliance uploads
-• Integration with accounting may need customization
-• Ongoing maintenance for data accuracy`,
-      recommendations: `Future Enhancements:
-
-• Supplier self-service portal
-• Automated compliance reminders to suppliers
-• Integration with procurement platforms
-• Benchmarking against similar organizations
-• AI-powered spend analysis`,
-      dashboard: `Planned Dashboard Features:
-
-• Supplier directory with search
-• Compliance status overview
-• Expiring documents alerts
-• Pending approvals queue
-• Spending by category charts
-• Recent activity feed
-• Quick add supplier`,
-      deliverables: `Expected Outputs:
-
-• Complete supplier management system
-• Compliance tracking module
-• Procurement workflow engine
-• User guides for administrators
-• Supplier data templates
-
-Status: Coming Soon - In Development`
+      introduction: `Centralized supplier and contractor management portal for care organizations.`,
+      problemStatement: `Managing suppliers and contractors presents significant challenges with scattered information.`,
+      previousGaps: `Current supplier management relies on spreadsheets and physical filing.`,
+      aimsObjectives: `Create a centralized system for managing all supplier relationships with compliance assurance.`,
+      datasets: `Supplier records, compliance documents, and procurement records.`,
+      methodology: `Stakeholder consultation, database design, document storage, and workflow engine.`,
+      findings: `System provides searchable vendor database and compliance dashboard with alerts.`,
+      limitations: `Requires initial data entry effort and supplier engagement.`,
+      recommendations: `Supplier self-service portal and automated compliance reminders.`,
+      dashboard: `Supplier directory, compliance status, expiring documents alerts, and spending charts.`,
+      deliverables: `Complete supplier management system with compliance tracking module.`
     }
   },
   {
@@ -719,7 +451,7 @@ Status: Coming Soon - In Development`
     title: 'Quality Assurance Reporting System',
     category: 'Care Administration',
     shortDesc: 'Comprehensive QA tracking system with audit management, action tracking, and compliance reporting for care settings.',
-    description: 'Quality assurance management system designed for care organizations featuring audit scheduling, findings tracking, corrective action management, compliance dashboards, and regulatory reporting. Supports continuous improvement and inspection readiness.',
+    description: 'Quality assurance management system designed for care organizations featuring audit scheduling, findings tracking, corrective action management, compliance dashboards, and regulatory reporting.',
     image: '/projects/qa-system-1.png',
     fallbackGradient: 'from-cyan-500 to-teal-600',
     techStack: ['Python', 'Streamlit', 'SQLite', 'PDF Reports', 'Analytics', 'Dashboards'],
@@ -735,120 +467,17 @@ Status: Coming Soon - In Development`
       </svg>
     ),
     details: {
-      introduction: `This project develops a comprehensive quality assurance reporting system tailored for care organizations. The system supports continuous improvement by tracking audits, managing findings, and ensuring timely completion of corrective actions.
-
-For care providers like Camphill Blair Drummond, quality assurance is fundamental to maintaining excellent care standards and regulatory compliance. This system provides tools to schedule and conduct audits, track findings, assign and monitor corrective actions, and generate reports for management and inspectors.
-
-Key features include audit scheduling with templates, findings categorization by risk level, corrective action workflow with accountability, trend analysis across audits, and one-click report generation for regulatory bodies.`,
-      problemStatement: `Quality assurance in care settings faces significant challenges:
-
-• Inconsistent audit scheduling and coverage
-• Findings recorded in various formats with no central tracking
-• Corrective actions assigned but not systematically followed up
-• Limited visibility of QA status across the organization
-• Time-consuming report preparation for inspections
-• Difficulty identifying recurring issues and trends
-• No clear accountability for action completion
-
-Without systematic QA management, issues may persist, inspections become stressful, and improvement opportunities are missed.`,
-      previousGaps: `Current QA approaches often involve:
-
-• Paper-based audit checklists filed in folders
-• Spreadsheet tracking of findings and actions
-• Email reminders for action follow-up
-• Manual compilation of reports
-• Limited trend analysis across time periods
-• No real-time visibility of QA status`,
-      aimsObjectives: `Primary Aim: Create a comprehensive QA system that supports continuous improvement and regulatory compliance.
-
-Objectives:
-1. Audit scheduling with customizable templates
-2. Digital audit completion with evidence capture
-3. Findings database with risk categorization
-4. Corrective action workflow with assignments
-5. Automated reminders for overdue actions
-6. Trend analysis and pattern identification
-7. One-click report generation
-8. Inspection preparation dashboard`,
-      datasets: `Data Components:
-
-Audit Records:
-• Audit type and template
-• Scheduled and actual dates
-• Auditor details
-• Areas/departments covered
-• Completion status
-
-Findings:
-• Description and evidence
-• Risk level (High/Medium/Low)
-• Category (Safety, Care, Documentation, etc.)
-• Root cause analysis
-• Linked regulations/standards
-
-Corrective Actions:
-• Description of required action
-• Assigned person and due date
-• Status tracking
-• Evidence of completion
-• Verification and sign-off
-
-Standards Reference:
-• Regulatory requirements
-• Internal policies
-• Best practice guidelines
-• Inspection frameworks`,
-      methodology: `Development Approach:
-
-1. QA process mapping with quality team
-2. Audit template design for different audit types
-3. Database design for findings and actions
-4. Workflow engine for action management
-5. Analytics for trend identification
-6. Report generator for various audiences
-7. Dashboard development for real-time status
-8. Integration with document management`,
-      findings: `System Capabilities (Planned):
-
-• Complete audit lifecycle management
-• Evidence attachment (photos, documents)
-• Automated escalation for overdue items
-• Risk-based prioritization views
-• Comprehensive audit trail
-• Export to common formats`,
-      limitations: `Planned Considerations:
-
-• Requires consistent data entry discipline
-• Template customization takes time upfront
-• Staff training needed for adoption
-• Integration with existing systems may need work`,
-      recommendations: `Future Enhancements:
-
-• Mobile app for on-site auditing
-• AI-powered finding categorization
-• Predictive analytics for risk areas
-• Benchmarking with peer organizations
-• Integration with national reporting systems`,
-      dashboard: `Planned Dashboard Features:
-
-• Audit calendar and schedule
-• Outstanding findings by risk level
-• Overdue actions alerts
-• Trend charts over time
-• Compliance percentage scores
-• Inspection readiness indicator
-• Quick access to reports
-• Department comparison views`,
-      deliverables: `Expected Outputs:
-
-• Complete QA management system
-• Audit templates library
-• Action tracking module
-• Report generator
-• User guides and training
-• Best practice documentation
-
-Status: Coming Soon - In Development`
+      introduction: `Comprehensive quality assurance reporting system tailored for care organizations.`,
+      problemStatement: `Quality assurance in care settings faces challenges with inconsistent scheduling and tracking.`,
+      previousGaps: `Current QA approaches use paper-based audit checklists and spreadsheet tracking.`,
+      aimsObjectives: `Create a comprehensive QA system that supports continuous improvement and compliance.`,
+      datasets: `Audit records, findings, corrective actions, and standards reference.`,
+      methodology: `QA process mapping, audit template design, database design, and workflow engine.`,
+      findings: `System provides complete audit lifecycle management with evidence attachment.`,
+      limitations: `Requires consistent data entry discipline and template customization.`,
+      recommendations: `Mobile app for on-site auditing and AI-powered finding categorization.`,
+      dashboard: `Audit calendar, outstanding findings, overdue actions alerts, and trend charts.`,
+      deliverables: `Complete QA management system with audit templates library.`
     }
   }
 ];
@@ -967,17 +596,9 @@ function ProjectDetailModal({
 }
 
 export default function Portfolio() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeProject, setActiveProject] = useState<Project>(sampleProjects[0]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => { setScrolled(window.scrollY > 20); };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (isModalOpen) { document.body.style.overflow = 'hidden'; } 
@@ -991,56 +612,10 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
       {/* Navigation */}
-      <motion.nav initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-slate-200/50' : 'bg-white/80 backdrop-blur-md'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <motion.div whileHover={{ rotate: 360, scale: 1.1 }} transition={{ duration: 0.6 }} className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full blur-sm opacity-50 group-hover:opacity-100 transition-opacity" />
-                <img src="/Head.jpg" alt="Ayoolumi Melehon" className="relative w-10 h-10 rounded-full object-cover border-2 border-white shadow-lg" />
-              </motion.div>
-              <span className="text-xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent group-hover:from-teal-600 group-hover:to-blue-600 transition-all">AYOOLUMI MELEHON</span>
-            </Link>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              {['About', 'Portfolio', 'Experience & Skills'].map((item) => (
-                <Link key={item} href={item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
-                  className={`relative font-medium text-sm py-2 transition-colors ${item === 'Portfolio' ? 'text-teal-600' : 'text-slate-600 hover:text-teal-600'}`}>
-                  {item}
-                  {item === 'Portfolio' && <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-teal-500 to-blue-500" />}
-                </Link>
-              ))}
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link href="/contact" className="px-6 py-2.5 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-teal-500/25 transition-all">Get in Touch</Link>
-              </motion.div>
-            </div>
-
-            <button className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {mobileMenuOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />}
-              </svg>
-            </button>
-          </div>
-
-          {mobileMenuOpen && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="md:hidden pb-4 border-t border-slate-200 bg-white">
-              <div className="flex flex-col space-y-2 pt-4">
-                {['About', 'Portfolio', 'Experience & Skills'].map((item) => (
-                  <Link key={item} href={item === 'Experience & Skills' ? '/experience' : `/${item.toLowerCase()}`} 
-                    className={`py-3 px-4 rounded-xl font-medium transition-all ${item === 'Portfolio' ? 'text-teal-600 bg-teal-50' : 'text-slate-600 hover:text-teal-600 hover:bg-slate-50'}`}
-                    onClick={() => setMobileMenuOpen(false)}>
-                    {item}
-                  </Link>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </div>
-      </motion.nav>
+      <Navigation />
 
       {/* Main Content - Split Layout */}
-      <div className="pt-16 min-h-screen flex flex-col lg:flex-row">
+      <div className="min-h-screen flex flex-col lg:flex-row">
         {/* Left Side - Sticky Image */}
         <div className="lg:w-1/2 lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] bg-slate-100 overflow-hidden">
           <AnimatePresence mode="wait">
@@ -1160,6 +735,7 @@ export default function Portfolio() {
                   <div className="space-y-2 text-sm">
                     <Link href="/about" className="block text-slate-400 hover:text-white transition">About</Link>
                     <Link href="/portfolio" className="block text-slate-400 hover:text-white transition">Portfolio</Link>
+                    <Link href="/resources" className="block text-slate-400 hover:text-white transition">Resources</Link>
                     <Link href="/experience" className="block text-slate-400 hover:text-white transition">Experience & Skills</Link>
                     <Link href="/contact" className="block text-slate-400 hover:text-white transition">Contact</Link>
                   </div>
