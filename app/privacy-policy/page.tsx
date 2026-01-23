@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Navigation from '../components/Navigation';
 
 export default function PrivacyPolicy() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const backgroundImages = ['/1.jpg', '/11.jpg', '/111.jpg', '/1111.jpg', '/11111.jpg'];
@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
       );
     }, 30000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgroundImages.length]);
 
   return (
     <div className="min-h-screen bg-white relative">
@@ -50,51 +50,10 @@ export default function PrivacyPolicy() {
       {/* Content */}
       <div className="relative z-10">
         {/* Navigation */}
-        <nav className="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16 items-center">
-              <Link href="/" className="text-xl font-display font-bold text-white">
-                AYOOLUMI MELEHON
-              </Link>
-              
-              <div className="hidden md:flex space-x-8">
-                <Link href="/" className="text-gray-200 hover:text-white transition font-medium">Home</Link>
-                <Link href="/about" className="text-gray-200 hover:text-white transition font-medium">About</Link>
-                <Link href="/portfolio" className="text-gray-200 hover:text-white transition font-medium">Portfolio</Link>
-                <Link href="/services" className="text-gray-200 hover:text-white transition font-medium">Services</Link>
-                <Link href="/experience" className="text-gray-200 hover:text-white transition font-medium">Experience</Link>
-                <Link href="/gallery" className="text-gray-200 hover:text-white transition font-medium">Gallery</Link>
-                <Link href="/contact" className="text-gray-200 hover:text-white transition font-medium">Contact</Link>
-              </div>
-
-              <button 
-                className="md:hidden p-2 rounded-md text-gray-200 hover:text-white hover:bg-white/10"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
-            </div>
-
-            {mobileMenuOpen && (
-              <div className="md:hidden pb-4 border-t border-white/10 mt-2">
-                <div className="flex flex-col space-y-2 pt-2">
-                  <Link href="/" className="text-gray-200 hover:text-white py-2 px-4 hover:bg-white/10 rounded font-medium">Home</Link>
-                  <Link href="/about" className="text-gray-200 hover:text-white py-2 px-4 hover:bg-white/10 rounded font-medium">About</Link>
-                  <Link href="/portfolio" className="text-gray-200 hover:text-white py-2 px-4 hover:bg-white/10 rounded font-medium">Portfolio</Link>
-                  <Link href="/services" className="text-gray-200 hover:text-white py-2 px-4 hover:bg-white/10 rounded font-medium">Services</Link>
-                  <Link href="/experience" className="text-gray-200 hover:text-white py-2 px-4 hover:bg-white/10 rounded font-medium">Experience</Link>
-                  <Link href="/gallery" className="text-gray-200 hover:text-white py-2 px-4 hover:bg-white/10 rounded font-medium">Gallery</Link>
-                  <Link href="/contact" className="text-gray-200 hover:text-white py-2 px-4 hover:bg-white/10 rounded font-medium">Contact</Link>
-                </div>
-              </div>
-            )}
-          </div>
-        </nav>
+        <Navigation />
 
         {/* Page Content */}
-        <div className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div className="pb-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,7 +67,7 @@ export default function PrivacyPolicy() {
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
                 <p className="leading-relaxed">
-                  Ayoolumi Melehon ("I", "me", or "my") operates ayofemimelehon.info (the "Website"). 
+                  Ayoolumi Melehon (&quot;I&quot;, &quot;me&quot;, or &quot;my&quot;) operates ayofemimelehon.com (the &quot;Website&quot;). 
                   This Privacy Policy explains how I collect, use, and protect your personal information 
                   when you visit my website.
                 </p>
@@ -193,7 +152,7 @@ export default function PrivacyPolicy() {
                   <li><strong>Withdraw Consent:</strong> Withdraw consent at any time</li>
                 </ul>
                 <p className="leading-relaxed mt-4">
-                  To exercise these rights, contact me at: <a href="mailto:info@ayofemimelehon.info" className="text-blue-400 hover:text-blue-300">info@ayofemimelehon.info</a>
+                  To exercise these rights, contact me at: <a href="mailto:ayoolumimelehon@gmail.com" className="text-blue-400 hover:text-blue-300">ayoolumimelehon@gmail.com</a>
                 </p>
               </section>
 
@@ -217,7 +176,7 @@ export default function PrivacyPolicy() {
                 <h2 className="text-2xl font-bold text-white mb-4">10. Changes to This Policy</h2>
                 <p className="leading-relaxed">
                   I may update this Privacy Policy periodically. Changes will be posted on this page with 
-                  an updated "Last Updated" date.
+                  an updated &quot;Last Updated&quot; date.
                 </p>
               </section>
 
@@ -227,7 +186,7 @@ export default function PrivacyPolicy() {
                   For questions about this Privacy Policy or to exercise your rights, contact:
                 </p>
                 <div className="mt-4 bg-white/10 rounded-lg p-4">
-                  <p><strong>Email:</strong> <a href="mailto:info@ayofemimelehon.info" className="text-blue-400 hover:text-blue-300">info@ayofemimelehon.info</a></p>
+                  <p><strong>Email:</strong> <a href="mailto:ayoolumimelehon@gmail.com" className="text-blue-400 hover:text-blue-300">ayoolumimelehon@gmail.com</a></p>
                   <p><strong>Location:</strong> Grangemouth, Scotland, UK</p>
                 </div>
               </section>
