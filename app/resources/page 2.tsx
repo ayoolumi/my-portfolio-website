@@ -1,0 +1,556 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { 
+  FileText, 
+  BookOpen, 
+  Table, 
+  Code, 
+  Download, 
+  Search,
+  Filter,
+  ArrowLeft,
+  FileSpreadsheet,
+  FileCode,
+  File,
+  CheckCircle
+} from 'lucide-react';
+
+// Resource categories
+const categories = [
+  { id: 'all', name: 'All Resources', icon: Filter },
+  { id: 'templates', name: 'Templates', icon: FileText },
+  { id: 'guides', name: 'Guides & Ebooks', icon: BookOpen },
+  { id: 'spreadsheets', name: 'Spreadsheets', icon: Table },
+  { id: 'code', name: 'Code & Datasets', icon: Code },
+];
+
+// Sample resources data - you can update these with your actual files
+const resources = [
+  // TEMPLATES
+  {
+    id: 1,
+    title: 'Professional CV Template',
+    description: 'A clean, modern CV template designed for data analysts and tech professionals. ATS-friendly format with clear sections.',
+    category: 'templates',
+    fileType: 'DOCX',
+    fileSize: '45 KB',
+    downloadUrl: '/downloads/templates/cv-template.docx',
+    tags: ['CV', 'Resume', 'Job Application'],
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'Cover Letter Template',
+    description: 'Professional cover letter template with guidance notes. Customizable for various industries and roles.',
+    category: 'templates',
+    fileType: 'DOCX',
+    fileSize: '32 KB',
+    downloadUrl: '/downloads/templates/cover-letter-template.docx',
+    tags: ['Cover Letter', 'Job Application'],
+    featured: false,
+  },
+  {
+    id: 3,
+    title: 'Care Documentation Templates Pack',
+    description: 'Essential care sector documentation templates including care plans, incident reports, and daily records.',
+    category: 'templates',
+    fileType: 'ZIP',
+    fileSize: '120 KB',
+    downloadUrl: '/downloads/templates/care-documentation-pack.zip',
+    tags: ['Care Sector', 'Documentation', 'Healthcare'],
+    featured: true,
+  },
+  {
+    id: 4,
+    title: 'Project Proposal Template',
+    description: 'Professional project proposal template for data analytics and AI projects with sections for scope, timeline, and budget.',
+    category: 'templates',
+    fileType: 'DOCX',
+    fileSize: '55 KB',
+    downloadUrl: '/downloads/templates/project-proposal-template.docx',
+    tags: ['Project Management', 'Proposal'],
+    featured: false,
+  },
+  
+  // GUIDES & EBOOKS
+  {
+    id: 5,
+    title: 'Getting Started with AI: A Beginner\'s Guide',
+    description: 'Comprehensive introduction to Artificial Intelligence concepts, applications, and how to start your AI journey.',
+    category: 'guides',
+    fileType: 'PDF',
+    fileSize: '2.5 MB',
+    downloadUrl: '/downloads/guides/ai-beginners-guide.pdf',
+    tags: ['AI', 'Machine Learning', 'Beginner'],
+    featured: true,
+  },
+  {
+    id: 6,
+    title: 'Data Analytics with Python: Quick Start',
+    description: 'Step-by-step tutorial on using Python for data analysis. Covers pandas, numpy, and visualization basics.',
+    category: 'guides',
+    fileType: 'PDF',
+    fileSize: '3.2 MB',
+    downloadUrl: '/downloads/guides/python-data-analytics.pdf',
+    tags: ['Python', 'Data Analytics', 'Tutorial'],
+    featured: true,
+  },
+  {
+    id: 7,
+    title: 'Care Sector Digital Transformation Guide',
+    description: 'A practical guide for care organisations looking to implement digital solutions and improve operational efficiency.',
+    category: 'guides',
+    fileType: 'PDF',
+    fileSize: '1.8 MB',
+    downloadUrl: '/downloads/guides/care-digital-transformation.pdf',
+    tags: ['Care Sector', 'Digital', 'Healthcare'],
+    featured: false,
+  },
+  {
+    id: 8,
+    title: 'SQL for Data Analysts: Cheat Sheet',
+    description: 'Essential SQL queries and commands every data analyst needs. Quick reference guide with examples.',
+    category: 'guides',
+    fileType: 'PDF',
+    fileSize: '850 KB',
+    downloadUrl: '/downloads/guides/sql-cheat-sheet.pdf',
+    tags: ['SQL', 'Database', 'Reference'],
+    featured: false,
+  },
+  {
+    id: 9,
+    title: 'Building Dashboards with Streamlit',
+    description: 'Learn how to create interactive data dashboards using Python and Streamlit. Includes code examples.',
+    category: 'guides',
+    fileType: 'PDF',
+    fileSize: '2.1 MB',
+    downloadUrl: '/downloads/guides/streamlit-dashboard-guide.pdf',
+    tags: ['Streamlit', 'Dashboard', 'Python'],
+    featured: false,
+  },
+
+  // SPREADSHEETS
+  {
+    id: 10,
+    title: 'Personal Budget Tracker',
+    description: 'Comprehensive budget tracking spreadsheet with income, expenses, savings goals, and visual charts.',
+    category: 'spreadsheets',
+    fileType: 'XLSX',
+    fileSize: '85 KB',
+    downloadUrl: '/downloads/spreadsheets/budget-tracker.xlsx',
+    tags: ['Budget', 'Finance', 'Personal'],
+    featured: true,
+  },
+  {
+    id: 11,
+    title: 'Project Planner & Timeline',
+    description: 'Project management spreadsheet with Gantt chart, task tracking, milestones, and resource allocation.',
+    category: 'spreadsheets',
+    fileType: 'XLSX',
+    fileSize: '95 KB',
+    downloadUrl: '/downloads/spreadsheets/project-planner.xlsx',
+    tags: ['Project Management', 'Planning', 'Gantt'],
+    featured: true,
+  },
+  {
+    id: 12,
+    title: 'KPI Dashboard Template',
+    description: 'Business KPI tracking dashboard with automated charts and conditional formatting. Easy to customize.',
+    category: 'spreadsheets',
+    fileType: 'XLSX',
+    fileSize: '120 KB',
+    downloadUrl: '/downloads/spreadsheets/kpi-dashboard.xlsx',
+    tags: ['KPI', 'Dashboard', 'Business'],
+    featured: false,
+  },
+  {
+    id: 13,
+    title: 'Staff Rota Template',
+    description: 'Weekly staff scheduling template with shift patterns, hour calculations, and coverage tracking.',
+    category: 'spreadsheets',
+    fileType: 'XLSX',
+    fileSize: '75 KB',
+    downloadUrl: '/downloads/spreadsheets/staff-rota-template.xlsx',
+    tags: ['HR', 'Scheduling', 'Staff Management'],
+    featured: false,
+  },
+  {
+    id: 14,
+    title: 'Invoice Tracker',
+    description: 'Track invoices, payments, and outstanding amounts. Includes aging analysis and payment reminders.',
+    category: 'spreadsheets',
+    fileType: 'XLSX',
+    fileSize: '68 KB',
+    downloadUrl: '/downloads/spreadsheets/invoice-tracker.xlsx',
+    tags: ['Finance', 'Invoicing', 'Business'],
+    featured: false,
+  },
+
+  // CODE & DATASETS
+  {
+    id: 15,
+    title: 'Python Data Cleaning Scripts',
+    description: 'Collection of reusable Python scripts for common data cleaning tasks. Well-documented and ready to use.',
+    category: 'code',
+    fileType: 'ZIP',
+    fileSize: '45 KB',
+    downloadUrl: '/downloads/code/data-cleaning-scripts.zip',
+    tags: ['Python', 'Data Cleaning', 'Scripts'],
+    featured: true,
+  },
+  {
+    id: 16,
+    title: 'Sample Healthcare Dataset',
+    description: 'Synthetic healthcare dataset for practice and learning. Includes patient demographics, appointments, and outcomes.',
+    category: 'code',
+    fileType: 'CSV',
+    fileSize: '1.2 MB',
+    downloadUrl: '/downloads/code/healthcare-sample-dataset.csv',
+    tags: ['Dataset', 'Healthcare', 'Practice'],
+    featured: true,
+  },
+  {
+    id: 17,
+    title: 'Streamlit Dashboard Starter Template',
+    description: 'Ready-to-use Streamlit dashboard template with sidebar navigation, charts, and data upload functionality.',
+    category: 'code',
+    fileType: 'ZIP',
+    fileSize: '35 KB',
+    downloadUrl: '/downloads/code/streamlit-starter.zip',
+    tags: ['Streamlit', 'Dashboard', 'Template'],
+    featured: false,
+  },
+  {
+    id: 18,
+    title: 'SQL Practice Queries & Database',
+    description: 'SQLite database with sample data and practice queries. Perfect for learning and interview prep.',
+    category: 'code',
+    fileType: 'ZIP',
+    fileSize: '500 KB',
+    downloadUrl: '/downloads/code/sql-practice.zip',
+    tags: ['SQL', 'Database', 'Practice'],
+    featured: false,
+  },
+  {
+    id: 19,
+    title: 'Machine Learning Model Templates',
+    description: 'Jupyter notebooks with ML model templates for classification, regression, and clustering tasks.',
+    category: 'code',
+    fileType: 'ZIP',
+    fileSize: '180 KB',
+    downloadUrl: '/downloads/code/ml-model-templates.zip',
+    tags: ['Machine Learning', 'Jupyter', 'Python'],
+    featured: false,
+  },
+];
+
+const getFileIcon = (fileType: string) => {
+  switch (fileType.toLowerCase()) {
+    case 'pdf':
+      return <FileText className="w-5 h-5 text-red-500" />;
+    case 'docx':
+    case 'doc':
+      return <File className="w-5 h-5 text-blue-500" />;
+    case 'xlsx':
+    case 'xls':
+      return <FileSpreadsheet className="w-5 h-5 text-green-500" />;
+    case 'csv':
+      return <Table className="w-5 h-5 text-orange-500" />;
+    case 'zip':
+      return <FileCode className="w-5 h-5 text-purple-500" />;
+    default:
+      return <File className="w-5 h-5 text-gray-500" />;
+  }
+};
+
+const getCategoryIcon = (categoryId: string) => {
+  const category = categories.find(c => c.id === categoryId);
+  if (category) {
+    const Icon = category.icon;
+    return <Icon className="w-5 h-5" />;
+  }
+  return <File className="w-5 h-5" />;
+};
+
+const getCategoryColor = (categoryId: string) => {
+  switch (categoryId) {
+    case 'templates':
+      return 'bg-blue-500/10 text-blue-400 border-blue-500/30';
+    case 'guides':
+      return 'bg-purple-500/10 text-purple-400 border-purple-500/30';
+    case 'spreadsheets':
+      return 'bg-green-500/10 text-green-400 border-green-500/30';
+    case 'code':
+      return 'bg-orange-500/10 text-orange-400 border-orange-500/30';
+    default:
+      return 'bg-gray-500/10 text-gray-400 border-gray-500/30';
+  }
+};
+
+export default function ResourcesPage() {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [downloadedItems, setDownloadedItems] = useState<number[]>([]);
+
+  const filteredResources = resources.filter(resource => {
+    const matchesCategory = selectedCategory === 'all' || resource.category === selectedCategory;
+    const matchesSearch = resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          resource.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          resource.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
+
+  const featuredResources = resources.filter(r => r.featured);
+
+  const handleDownload = (resourceId: number) => {
+    setDownloadedItems(prev => [...prev, resourceId]);
+    // In production, you would track downloads here
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <Link href="/" className="flex items-center gap-2 text-white hover:text-blue-400 transition-colors">
+              <ArrowLeft className="w-5 h-5" />
+              <span className="font-semibold">Back to Home</span>
+            </Link>
+            <div className="hidden md:flex items-center gap-6">
+              <Link href="/about" className="text-gray-300 hover:text-white transition-colors">About</Link>
+              <Link href="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link>
+              <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Free <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Resources</span>
+            </h1>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+              Download free templates, guides, spreadsheets, and code samples to accelerate your data analytics and AI journey.
+            </p>
+
+            {/* Search Bar */}
+            <div className="max-w-xl mx-auto relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search resources..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Category Filter */}
+      <section className="px-4 pb-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
+                    selectedCategory === category.id
+                      ? 'bg-blue-500 border-blue-500 text-white'
+                      : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/30 hover:text-white'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span className="text-sm font-medium">{category.name}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Resources */}
+      {selectedCategory === 'all' && searchQuery === '' && (
+        <section className="px-4 pb-12">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <span className="text-yellow-500">★</span> Featured Resources
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {featuredResources.map((resource, index) => (
+                <motion.div
+                  key={resource.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-white/10 rounded-xl p-4 hover:border-blue-500/50 transition-all duration-300"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    {getFileIcon(resource.fileType)}
+                    <span className={`text-xs px-2 py-1 rounded-full border ${getCategoryColor(resource.category)}`}>
+                      {resource.category}
+                    </span>
+                  </div>
+                  <h3 className="text-white font-semibold mb-2 line-clamp-2">{resource.title}</h3>
+                  <p className="text-gray-400 text-sm mb-3 line-clamp-2">{resource.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-gray-500">{resource.fileType} • {resource.fileSize}</span>
+                    <a
+                      href={resource.downloadUrl}
+                      onClick={() => handleDownload(resource.id)}
+                      className="flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
+                    >
+                      <Download className="w-4 h-4" />
+                      Download
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* All Resources Grid */}
+      <section className="px-4 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-white">
+              {selectedCategory === 'all' ? 'All Resources' : categories.find(c => c.id === selectedCategory)?.name}
+            </h2>
+            <span className="text-gray-400 text-sm">
+              {filteredResources.length} resource{filteredResources.length !== 1 ? 's' : ''} available
+            </span>
+          </div>
+
+          {filteredResources.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-400 text-lg">No resources found matching your criteria.</p>
+              <button
+                onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
+                className="mt-4 text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                Clear filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredResources.map((resource, index) => (
+                <motion.div
+                  key={resource.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/20 hover:bg-white/[0.07] transition-all duration-300 group"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
+                      {getCategoryIcon(resource.category)}
+                    </div>
+                    <span className={`text-xs px-2 py-1 rounded-full border ${getCategoryColor(resource.category)}`}>
+                      {resource.category}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-white font-semibold text-lg mb-2 group-hover:text-blue-400 transition-colors">
+                    {resource.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                    {resource.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {resource.tags.slice(0, 3).map((tag, i) => (
+                      <span key={i} className="text-xs px-2 py-1 bg-white/5 rounded-full text-gray-400">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                    <div className="flex items-center gap-2">
+                      {getFileIcon(resource.fileType)}
+                      <span className="text-xs text-gray-500">{resource.fileType} • {resource.fileSize}</span>
+                    </div>
+                    <a
+                      href={resource.downloadUrl}
+                      onClick={() => handleDownload(resource.id)}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                        downloadedItems.includes(resource.id)
+                          ? 'bg-green-500/20 text-green-400'
+                          : 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30'
+                      }`}
+                    >
+                      {downloadedItems.includes(resource.id) ? (
+                        <>
+                          <CheckCircle className="w-4 h-4" />
+                          Downloaded
+                        </>
+                      ) : (
+                        <>
+                          <Download className="w-4 h-4" />
+                          Download
+                        </>
+                      )}
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="px-4 pb-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/10 rounded-2xl p-8 text-center">
+            <h2 className="text-2xl font-bold text-white mb-4">Need Custom Solutions?</h2>
+            <p className="text-gray-400 mb-6">
+              Looking for custom templates, dashboards, or data solutions tailored to your specific needs? 
+              Let's discuss how I can help.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/contact"
+                className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors"
+              >
+                Get in Touch
+              </Link>
+              <Link
+                href="/portfolio"
+                className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors"
+              >
+                View Portfolio
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 py-8 px-4">
+        <div className="max-w-7xl mx-auto text-center text-gray-400 text-sm">
+          <p>© 2026 Ayoolumi Melehon | All resources are free to use for personal and commercial purposes.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
